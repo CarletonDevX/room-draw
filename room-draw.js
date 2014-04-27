@@ -1,19 +1,34 @@
-if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to room-draw.";
-  };
+DrawData = new Meteor.Collection("drawdata")
 
-  Template.hello.events({
-    'click input': function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
+if (Meteor.isClient) {
+
+  // ID in the Mongo database for the document holding
+  // the number currently being drawn.
+  var cur_num = DrawData.findOne({type: "cur_name"})['val'];
+
+  // Define click events for the control buttons.
+  Template.main.events({
+    'click input.up': function () {
+      DrawData.update(cur_num, {$inc: {val: 1}});
+    }
+    'click input.down': function () {
+      DrawData.update(cur_num, {$inc: {val: -1}});
     }
   });
+
 }
 
 if (Meteor.isServer) {
+
+  // Initialize the database with a document to hold
+  // the number currently being drawn.
   Meteor.startup(function () {
-    // code to run on server at startup
+    if (DrawData.find({type: "cur_num"}).count() == 0) {
+      DrawData.insert({
+        type: "cur_num",
+        val: "0"
+      })
+    }
   });
+
 }

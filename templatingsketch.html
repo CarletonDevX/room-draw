@@ -1,0 +1,25 @@
+{{!-- It would be awesome to do something like this: --}}
+
+{{#if netAvail 50 operator=">"}} {{!-- if the total number of dorms returned a query is more than 50, build the nice nav (this is a custom block helper see http://doginthehat.com.au/2012/02/comparison-block-helper-for-handlebars-templates/) --}}
+{{!-- do the whole carousel thing --}}
+<main id="carousel">
+{{/else}}
+{{!-- Put all the dorms in one list --}}
+<main id="simpleList">
+{{/ifgt}}
+
+{{#each dorm}}
+	<h2>{{dName}}<span>{{dAvail}}</span></h2> {{!-- the span would be made tiny and in the upper-right corner probs --}}
+	<div>
+	{{#each floor}}
+	<h3>{{fName}}: <span>{{fAvail}} rooms available</span></h3>
+	<ul>
+		{{#each room}}
+		<li style="color:RGB({{chancesColor}})"><span>{{name}} ({{occupancy}})</span></li>
+		{{/each}}
+	</ul>
+	{{/each}}
+	</div>
+{{/each}}
+
+</main>

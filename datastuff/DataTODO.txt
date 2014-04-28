@@ -1,12 +1,15 @@
 In roomtags.csv:
-- Rename rooms to match names in rawroomdata.csv (I’ll do this tonight)
-- Add tags corresponding to sub-free, quiet, men’s only and women’s only rooms. Just put an “x” in that column if it applies. When you’re done, cross it off this list:
+- Add tags corresponding to sub-free, quiet, men’s only and women’s only rooms. Just put an “x” in that column if it applies. When you’re done with a tag, cross it off this list:
 A. Sub-free
 B. Quiet
 C. Men’s only (we’ll have to wait a bit)
 D. Women’s only
-E. Remove rooms that are no longer available (if any)
 
-In roomtags.csv:
-- Add Fall 2013 data from roomtags.csv. (I’ll do this tonight)
-- Write a python script averager.py to add “draw numbers used”, “average draw number” and “standard deviation” columns to RoomTags and fill in those columns (I’ll at least start this tonight)
+- Remove/add rooms that are newly unavailable/available (if any)
+
+In roomdata.csv:
+- Write a python script averager.py to add “draw numbers used”, “average draw number” and “standard deviation” columns to roomtags. I’ll start this very soon.
+
+Misc notes:
+-I couldn’t find the labels corresponding to Henrickson House or Page House West in the old data, so I renamed them HENR and PAGE respectively. Also Henrickson doesn’t have a size…?
+-The unformatted data in the “rawdata” folder is pretty useless, but I think we should keep it around just in case. Plus the files aren’t very large.

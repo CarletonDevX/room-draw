@@ -1,6 +1,8 @@
-'''Uses data from roomdata.csv and roomtags.csv to fill in the columns NUMSUSED, AVGNUM and STDEV in finalroomtags.'''
+'''Uses data from roomdata.csv and roomtags.csv to fill in the columns NUMSUSED, AVGNUM, STDEV, HALL, and ROOMNUM in finalroomtags.
+David Pickart 4/28/14'''
 
 import numpy
+import namereplace
 
 def buildDict(file):
 	'''Builds a dictionary of rooms out of a csv file and returns that dictionary.
@@ -25,6 +27,14 @@ def buildDict(file):
 	#	print key, roomdict[key]
 	return roomdict
 
+def addHallAndNum(line, roomname):
+	'''Adds columns HALL and ROOMNUM to a row and fills them in using info from roomname'''
+	name = namereplace.keyToName(roomname)
+	number = roomname[5:]
+	line += "," + name + "," + number + "\n"
+	return line
+
+
 def findAvgStdev(line, usednames, roomdict):
 	'''Takes a row of data and returns that row with the avg and stdev columns filled in, as well
 	as a running list of rooms that were drawn in 2013.'''
@@ -42,9 +52,11 @@ def findAvgStdev(line, usednames, roomdict):
 			numlist.append(int(n))
 		avg = numsum / len(individual_nums)
 		stdev = numpy.std(numlist)
-		newline = roomname + ',' + values[1] + ",'','','',''," + numsused + ',' + str(avg) + ',' + str(stdev) + '\n'
+		newline = roomname + ',' + values[1] + ",'','','',''," + numsused + ',' + str(avg) + ',' + str(stdev)
 	else:
-		newline = line
+		newline = line.rstrip() #Remove the newline if there is one
+
+	newline = addHallAndNum(newline, roomname)
 	return newline, usednames
 
 def columnAdder(readfile, writefile, roomdict):
@@ -59,17 +71,16 @@ def columnAdder(readfile, writefile, roomdict):
 		newline, usednames = findAvgStdev(line, usednames, roomdict)
 		newtext += newline
 
-	#newtext += "END OF ROOMS DRAWN IN 2013,,,,,,,, \n"
+	#Optional separator:   newtext += "END OF ROOMS DRAWN IN 2013,,,,,,,, \n"
 
 	#Add rooms not drawn last year
-
 	for key in roomdict.keys():
 		if key not in usednames:
 			line = key + "," + str(roomdict[key])[1:-1]
 			newline, usednames = findAvgStdev(line, usednames, roomdict)
 			newtext += newline
 
-	newtext = "HOUSENAME,SIZE,SUBFREE,QUIET,MENS,WOMENS,NUMSUSED,AVGNUM,STDEV\n" + newtext
+	newtext = "HOUSENAME,SIZE,SUBFREE,QUIET,MENS,WOMENS,NUMSUSED,AVGNUM,STDEV,HALL,ROOMNUM\n" + newtext
 	writefile.write(newtext)
 	return
 

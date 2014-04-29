@@ -6,11 +6,9 @@ B. Quiet
 C. Men’s only (we’ll have to wait a bit)
 D. Women’s only
 
-
--After checking out Joe's sketches, I think we should add columns that hold the dorm name and room # for each room. 
-The room name is good as a unique identifier for each room, but it would be useful to split this stuff up to make it easier to query for different room attributes.
-I'll work on this tonight.
--Find out the size of Henrickson house rooms
+-What dorms/houses are these abbreviations? CHAN, PREN, STAD, WATH, WILM, FACX, GFRT
+-I guessed that HNTH was Huntington and HUNT was Hunt, but we should double-check this.
+-Find out the size of Henrickson house rooms.
 -TOP PRIORITY: Remove/add rooms that are newly unavailable/available (if any). Rooms without sizes listed (starting about halfway down) are rooms that weren’t drawn last year. 
 If it turns out a lot of these are available now, I can do some extra work to get the sizes for them too.
 

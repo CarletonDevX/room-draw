@@ -73,7 +73,7 @@ def columnAdder(readfile, writefile, roomdict):
 	writefile.write(newtext)
 	return
 
-if __name__ == "__main__":
+def main():
 	file = open('roomdata.csv', 'r')
 	roomdict = buildDict(file)
 	file.close()
@@ -82,3 +82,6 @@ if __name__ == "__main__":
 	columnAdder(readfile, writefile, roomdict)
 	readfile.close()
 	writefile.close()
+
+if __name__ == "__main__":
+	main()

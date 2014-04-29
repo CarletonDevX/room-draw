@@ -30,8 +30,7 @@ def main():
     if name not in d:
       d[name] = [values[3]]
     else:
-      existVals = d.getvalue(name)
-      values[3].append(existVals)
+      values[3].append(d[name])
     
   file.close()
   

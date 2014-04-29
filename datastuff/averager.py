@@ -1,7 +1,22 @@
-'''Trying because my other homework sucks!-Emily'''
+'''Don't have github installed on the computer I'm working on, so going to run/catch bugs on this code at like 8:45pm Monday.-Emily'''
 
-def average():
-  '''Inputs the average of a list of draw orders.'''
+def average(list):
+'''Returns the average of the draw order for a room.'''
+  sum=0.0
+  for item in list:
+    sum+=item
+  return sum/len(list)  
+  
+def stdev(list):
+'''Returns the standard deviation of the draw order for a room.'''  
+  avg=average(list)
+  sum=0.0
+  for item in list:
+    sum+=(item-avg)**(2)
+  return (sum/len(list))**(0.5)
+  
+def main():  
+  '''Opens roomdata.csv. Sorts information into a dictionary. Calls avg, stdev functions. Writes to roomCalcs.csv.'''
   
   file = open('roomdata.csv','r')
   d={}
@@ -12,20 +27,20 @@ def average():
     name = values[0]
   
     if !d.hasKey(name):
-      d[name] = [values[3],1]
+      d[name] = [values[3]]
     else:
       existVals = d.getvalue(name)
-      existVals[0]+=values[4]
-      existVals[1]+=1
+      values[3].append(existVals)
     
   file.close()
   
+  '''Data is way more fun when sorted!'''
   d.sorted()
   stuff=d.items()
   
+  '''Writing name, average, standard deviation to new file.'''
   for item in stuff:
-    average=float(item[1])/item[2]
-    newline=stuff[0]+ "," + average +"," + "\n"
+    newline=item[0]+ "," + average(item[1]) +"," + stdev(item[1]) + "\n"
     newtext+=newline
   
   file = open("roomCalcs.csv","w")
@@ -33,4 +48,4 @@ def average():
   file.close()
   
 if __name__ == "__main__":
-  average()
+  main()

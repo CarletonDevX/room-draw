@@ -19,6 +19,8 @@ def main():
   '''Opens roomdata.csv. Sorts information into a dictionary. Calls avg, stdev functions. Writes to roomCalcs.csv.'''
   
   file = open('roomdata.csv','r')
+  
+  '''Woot dictionaries. Sherri would be proud.'''
   d={}
   newtext=''
   

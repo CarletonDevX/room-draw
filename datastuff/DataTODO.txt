@@ -1,15 +1,13 @@
-In roomtags.csv:
+In finalroomtags.csv:
 - Add tags corresponding to sub-free, quiet, men’s only and women’s only rooms. Just put an “x” in that column if it applies. When you’re done with a tag, cross it off this list:
 A. Sub-free
 B. Quiet
 C. Men’s only (we’ll have to wait a bit)
 D. Women’s only
 
-- Remove/add rooms that are newly unavailable/available (if any)
-
-In roomdata.csv:
-- Write a python script averager.py to add “draw numbers used”, “average draw number” and “standard deviation” columns to roomtags. I’ll start this very soon.
+-Find out the size of Henrickson house rooms
+-TOP PRIORITY: Remove/add rooms that are newly unavailable/available (if any). Rooms without sizes listed (starting about halfway down) are rooms that weren’t drawn last year. If it turns out a lot of these are available now, I can do some extra work to get the sizes for them too.
 
 Misc notes:
--I couldn’t find the labels corresponding to Henrickson House or Page House West in the old data, so I renamed them HENR and PAGE respectively. Also Henrickson doesn’t have a size…?
 -The unformatted data in the “rawdata” folder is pretty useless, but I think we should keep it around just in case. Plus the files aren’t very large.
+-I might order finalroomtags at some point, but I’m leaving it how it is for now because there’s a clear line between rooms drawn last year and not drawn last year.

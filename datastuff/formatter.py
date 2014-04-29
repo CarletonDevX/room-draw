@@ -3,15 +3,22 @@ Creates two files: roomtags.csv (holds room attributes) and roomdata.csv (holds 
 David Pickart 4/28/14'''
 
 def makeRoomData():
-	'''Copies rawroomdata.csv into roomdata.csv, removing the Northfield Option in the process.'''
+	'''Copies rawroomdata.csv into roomdata.csv, removing the Northfield Option 
+	and changing MMRL and JAMES to JAME)'''
 
 	file = open('rawdata/rawroomdata.csv', 'r')
 	newtext = ''
 
 	for line in file:
 		values = line.split(",")
-		if values[0] != "NFLD OPT":
-			newtext += line
+		if  "MMRL" in values[0]:
+			values[0] = values[0].replace("MMRL", "JAME")
+		if  "JAMES" in values[0]:
+			values[0] = values[0].replace("JAMES", "JAME")
+
+		newline = values[0] + "," + values[1] + "," + values[2] + "," + values[3] + "\n"
+		if "NFLD OPT" not in values[0]:
+			newtext += newline
 
 	file.close()
 
@@ -49,7 +56,7 @@ def replacer(roomname):
 	if "Nason" in roomname:
 		roomname = "NASN"
 	elif "James" in roomname:
-		roomname = "JAMES"
+		roomname = "JAME"
 	elif "Burton" in roomname:
 		roomname = "BURT"
 	elif "Davis" in roomname: 

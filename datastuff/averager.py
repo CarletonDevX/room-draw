@@ -35,7 +35,7 @@ def main():
   file.close()
   
   '''Data is way more fun when sorted!'''
-  d.sorted()
+  #d.sorted()
   stuff=d.items()
   
   '''Writing name, average, standard deviation to new file.'''

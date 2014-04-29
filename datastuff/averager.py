@@ -40,7 +40,7 @@ def main():
   
   '''Writing name, average, standard deviation to new file.'''
   for item in stuff:
-    newline=item[0]+ "," + average(item[1]) +"," + stdev(item[1]) + "\n"
+    newline=item[0]+ "," + str(average(item[1])) +"," + str(stdev(item[1])) + "\n"
     newtext+=newline
   
   file = open("roomCalcs.csv","w")

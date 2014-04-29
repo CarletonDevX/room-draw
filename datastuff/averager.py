@@ -27,7 +27,7 @@ def main():
     values = line.split(",") #creating a list of RM Name, Term, Draw Number, Draw Order per line
     name = values[0]
   
-    if !d.hasKey(name):
+    if not d.hasKey(name):
       d[name] = [values[3]]
     else:
       existVals = d.getvalue(name)

@@ -4,7 +4,7 @@
 def average(list):
   sum=0.0
   for item in list:
-    sum+=item
+    sum+=float(item)
   return sum/len(list)  
 
 '''Returns the standard deviation of the draw order for a room.'''  
@@ -12,7 +12,7 @@ def stdev(list):
   avg=average(list)
   sum=0.0
   for item in list:
-    sum+=(item-avg)**(2)
+    sum+=(float(item)-avg)**(2)
   return (sum/len(list))**(0.5)
   
 '''Opens roomdata.csv. Sorts information into a dictionary. Calls avg, stdev functions. Writes to roomCalcs.csv.'''

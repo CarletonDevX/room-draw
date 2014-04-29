@@ -1,23 +1,22 @@
 '''Don't have github installed on the computer I'm working on, so going to run/catch bugs on this code at like 8:45pm Monday.-Emily'''
 
-def average(list):
 '''Returns the average of the draw order for a room.'''
+def average(list):
   sum=0.0
   for item in list:
     sum+=item
   return sum/len(list)  
-  
-def stdev(list):
+
 '''Returns the standard deviation of the draw order for a room.'''  
+def stdev(list):
   avg=average(list)
   sum=0.0
   for item in list:
     sum+=(item-avg)**(2)
   return (sum/len(list))**(0.5)
   
+'''Opens roomdata.csv. Sorts information into a dictionary. Calls avg, stdev functions. Writes to roomCalcs.csv.'''
 def main():  
-  '''Opens roomdata.csv. Sorts information into a dictionary. Calls avg, stdev functions. Writes to roomCalcs.csv.'''
-  
   file = open('roomdata.csv','r')
   
   '''Woot dictionaries. Sherri would be proud.'''

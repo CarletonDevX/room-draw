@@ -1,1 +1,7 @@
-/* CSS declarations go here */
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.cur_num {
+    font-size: 4em;
+}

@@ -12,7 +12,7 @@ if (Meteor.isClient) {
       cur_num_id = cur_num._id;
       return cur_num.val;
     } else {
-      return 666;
+      return NaN;
     }
   }
 

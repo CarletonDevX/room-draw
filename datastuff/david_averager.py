@@ -1,4 +1,4 @@
-'''Uses data from roomdata.csv and roomtags.csv to fill in the columns NUMSUSED, AVGNUM, STDEV, HALL, and ROOMNUM in finalroomtags.
+'''Uses data from roomdata.csv and roomtags.csv to fill in the columns NUMSUSED, AVGNUM, STDEV, HALL, and ROOMNUM in temproomtags.
 David Pickart 4/28/14'''
 
 import numpy
@@ -89,7 +89,7 @@ def main():
 	roomdict = buildDict(file)
 	file.close()
 	readfile = open('roomtags.csv', 'r')
-	writefile = open('finalroomtags.csv', 'w')
+	writefile = open('temproomtags.csv', 'w')
 	columnAdder(readfile, writefile, roomdict)
 	readfile.close()
 	writefile.close()

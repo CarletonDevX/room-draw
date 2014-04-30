@@ -60,6 +60,14 @@ def nameToKey(roomname):
 		roomname = "COLR"
 	elif "Clader" in roomname:
 		roomname = "CLAD"
+	elif "Chaney" in roomname:
+		roomname = "CHAN"
+	elif "Prentice" in roomname:		
+		roomname = "PREN"
+	elif "Williams" in roomname:		
+		roomname = "WILM"
+	elif "Geffert" in roomname:		
+		roomname = "GFRT"
 	elif "Page House West" in roomname:
 		roomname = "PAGW"
 	elif "Page House" in roomname:
@@ -131,7 +139,15 @@ def keyToName(roomname):
 		roomname = "Collier House"
 	elif "CLAD" in roomname:
 		roomname = "Clader House"
-	elif "PAGW" in roomname:		
+	elif "CHAN" in roomname:
+		roomname = "Chaney House"
+	elif "PREN" in roomname:		
+		roomname = "Prentice House"
+	elif "WILM" in roomname:		
+		roomname = "Williams House"
+	elif "GFRT" in roomname:		
+		roomname = "Geffert House"
+	elif "PAGW" in roomname:	
 		roomname = "Page House West"
 	elif "PAGE" in roomname:		
 		roomname = "Page House"

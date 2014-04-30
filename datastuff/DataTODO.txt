@@ -1,17 +1,14 @@
 In finalroomtags.csv:
-- Add tags corresponding to sub-free, quiet, men’s only and women’s only rooms. Just put an “x” in that column if it applies. 
+- Add tags; just put an “X” in that column if it applies. 
 When you’re done with a tag, cross it off this list:
-A. Sub-free
-B. Quiet
-C. Men’s only (we’ll have to wait a bit)
-D. Women’s only
+A. Men’s only (we’ll have to wait until Friday)
+B. Women’s only (we’ll have to wait until Friday)
+C. Should we add an off-board meal plan tag?
 
--What dorms/houses are these abbreviations? CHAN, PREN, STAD, WATH, WILM, FACX, GFRT
--I guessed that HNTH was Huntington and HUNT was Hunt, but we should double-check this.
--Find out the size of Henrickson house rooms.
--TOP PRIORITY: Remove/add rooms that are newly unavailable/available (if any). Rooms without sizes listed (starting about halfway down) are rooms that weren’t drawn last year. 
-If it turns out a lot of these are available now, I can do some extra work to get the sizes for them too.
+-Convert finalroomtags into a .json file when we’re done editing it.
+-What dorms/houses are these abbreviations? WATH, FACX, STAD
+
+-ON FRIDAY: Remove/add rooms that are newly unavailable/available (if any). Rooms without sizes listed are rooms that weren’t drawn last year. If it turns out a lot of these are available now, I can do some extra work to get the sizes for them too.
 
 Misc notes:
--The unformatted data in the “rawdata” folder is pretty useless, but I think we should keep it around just in case. Plus the files aren’t very large.
--I might order finalroomtags at some point, but I’m leaving it how it is for now because there’s a clear line between rooms drawn last year and rooms not drawn last year.
+-The unformatted data in the “rawdata” folder (and roomdata.csv and roomtags.csv) is pretty useless, but I think we should keep it around just in case. Plus the files aren’t very large.

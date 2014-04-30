@@ -51,9 +51,9 @@ def makeRoomTags():
 	file.write(newtext)
 	file.close()
 
-
-if __name__ == "__main__":
-	makeRoomData()
-	makeRoomTags()
+#Don't run me please
+#if __name__ == "__main__":
+#	makeRoomData()
+#	makeRoomTags()
 
 

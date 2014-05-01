@@ -134,7 +134,7 @@ def keyToName(roomname):
 	elif "SCOT" in roomname:
 		roomname = "Scott House"
 	elif "BRKS" in roomname:
-		roomname = "Brooks"
+		roomname = "Brooks House"
 	elif "COLR" in roomname:
 		roomname = "Collier House"
 	elif "CLAD" in roomname:

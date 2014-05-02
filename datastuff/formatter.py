@@ -30,20 +30,17 @@ def makeRoomData():
 
 def makeRoomTags():
 	'''Changes the names of houses in fall2013.csv and places them into roomtags.csv. 
-	Abbreviates names, concatenates name and number columns, and removes the Northfield Option.'''
+	Abbreviates names, concatenates name and number columns'''
 
 	file = open('rawdata/fall2013.csv', 'r')
 	newtext = ''
-
 	for line in file:
 		values = line.split(",")
 		roomname = values[0]
 		newname = namereplace.nameToKey(roomname) #Replace the name
 		newname += " " + values[1]
 		newline = newname + "," + values[2] + "," + values[3] + "," + values[4] + "," + values[5] + "," + values[6] + "\n"
-		
-		if newname != "Northfield Option":
-			newtext += newline
+		newtext += newline
 
 	file.close()
 
@@ -51,9 +48,8 @@ def makeRoomTags():
 	file.write(newtext)
 	file.close()
 
-#Don't run me please
-#if __name__ == "__main__":
-#	makeRoomData()
-#	makeRoomTags()
+if __name__ == "__main__":
+	makeRoomData()
+	makeRoomTags()
 
 

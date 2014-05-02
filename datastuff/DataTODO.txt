@@ -11,6 +11,7 @@ C. Should we add an off-board meal plan tag?
 -ON FRIDAY: 
 http://apps.carleton.edu/student/housing/Halls_Houses/housing/roomdraw/whatsnew/
 Remove/add rooms that are newly unavailable/available (if any). Rooms without sizes listed are rooms that weren’t drawn last year. If it turns out a lot of these are available now, I can do some extra work to get the sizes for them too.
+-Let's save finalroomtags somewhere before we do this, because some houses may become available in later years and we'll want to use the same data.
 
 Misc notes:
 -The unformatted data in the “rawdata” folder (and roomdata.csv and roomtags.csv) is pretty useless, but I think we should keep it around just in case. Plus the files aren’t very large.

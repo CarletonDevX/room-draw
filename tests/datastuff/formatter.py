@@ -44,7 +44,7 @@ def makeRoomTags():
     with open('roomtags.csv', 'w+') as f:
         f.write(newtext)
 
-
-if __name__ == '__main__':
-    makeRoomData()
-    makeRoomTags()
+#Please don't run me
+#if __name__ == '__main__':
+#    makeRoomData()
+#    makeRoomTags()

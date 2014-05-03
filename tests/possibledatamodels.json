@@ -27,3 +27,30 @@
 		}
 	}
 }
+
+//Matt's suggestions
+{
+	"name": "Myers",
+	"isHouse": false,
+	"hasFreshman": true,
+	"floors":[
+		{
+			"number":1,
+			"subFree":false,
+			"quiet":false,
+			"allFem":false,
+			"allMale":false, //do these exist?
+			"rooms":[
+				{
+					"size":4,
+					"number":113,
+					"breakdown":[1,1,2], //single + single + double
+					"chance":{}
+				}
+			]
+		},
+		{
+			"number":2 //etc
+		}
+	]
+}

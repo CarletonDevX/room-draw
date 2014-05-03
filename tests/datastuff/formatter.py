@@ -15,8 +15,8 @@ def makeRoomData():
     '''Copies rawroomdata.csv into roomdata.csv, removing the Northfield Option
     and changing MMRL and JAMES to JAME)'''
 
+    newtext = ''
     with open('rawdata/rawroomdata.csv', 'r') as f:
-        newtext = ''
         for line in f:
             values = line.split(",")
             if "MMRL" in values[0]:
@@ -36,21 +36,19 @@ def makeRoomTags():
     '''Changes the names of houses in fall2013.csv and places them into
     roomtags.csv. Abbreviates names, concatenates name and number columns'''
 
-    file = open('rawdata/fall2013.csv', 'r')
     newtext = ''
-    for line in file:
-        values = line.split(",")
-        roomname = values[0]
-        newname = namereplace.nameToKey(roomname)  # Replace the name
-        newname += " " + values[1]
-        newline = newname + ",".join(values[2:7]) + "\n"
-        newtext += newline
+    with open('rawdata/fall2013.csv', 'r') as f:
+        for line in f:
+            values = line.split(",")
+            roomname = values[0]
+            newname = namereplace.nameToKey(roomname)  # Replace the name
+            newname += " " + values[1]
+            newline = newname + ",".join(values[2:7]) + "\n"
+            newtext += newline
 
-    file.close()
+    with open("roomtags.csv", "w") as f:
+        f.write(newtext)
 
-    file = open("roomtags.csv", "w")
-    file.write(newtext)
-    file.close()
 
 if __name__ == "__main__":
     makeRoomData()

@@ -28,11 +28,92 @@ if (Meteor.isClient) {
 
 }
 
+/*
+ * Test functions to insert sample data that can be used to
+ * test the interfaces.
+ *
+ * A quarter of the rooms are randomly initialized as having
+ * been drawn.
+ *
+ * A dorm has a 25% chance of being a house. A floor has
+ * a 25% chance of being sub-free as well as a 25% chance
+ * of being a quiet floor and a 25% chance of being all female.
+ *
+ * A dorm has between 1 and 5 floors. A floor has between
+ * 10 and 40 rooms.
+ *
+ * by Ken
+ */
+
+function generateRooms(numRooms, floorNum) {
+  rooms = [];
+  for (int i = 0; i < numRooms; i++) {
+    room = {
+      "size": Math.floor(Math.random() * 5) + 1,
+      "number": floorNum * 100 + i + 1,
+      "breakdown": [size],
+      "chance": {},
+      "residents": "any", // This may conflict with an all-female floor.
+      "isDrawn": Math.random() < 0.25
+    }
+    rooms.push(room);
+  }
+  return rooms;
+}
+
+function generateFloors(numFloors) {
+  floors = [];
+  for (int i = 0; i < numFloors; i++) {
+    floor = {
+      "number": i + 1,
+      "subFree": Math.random() < 0.25,
+      "quiet": Math.random() < 0.25,
+      "allFem": Math.random() < 0.25,
+      "rooms": generateRooms(Math.floor(Math.random() * 31) + 10, i + 1)
+    };
+    floors.push(floor);
+  }
+  return floors;
+}
+
+function generateFakeDorm(dormName) {
+  return {
+    "name": dormName,
+    "isHouse": Math.random() < 0.25,
+    "floors": generateFloors(Math.floor(Math.random() * 5) + 1)
+  };
+}
+
+function insertSampleData() {
+  if (DrawData.find().count() === 0) {
+    fakeDormNames = ["Armenia", "Bulgaria", "Cyprus", "Denmark", "Estonia"];
+    for (dormName in fakeDormNames) {
+      DrawData.insert(generateFakeDorm(dormName));
+    }
+  }
+}
+
+/*
+ * Remove all data from the databse.
+ */
+
+ function removeAllData() {
+  DrawData.remove({});
+ }
+
+
 if (Meteor.isServer) {
 
   // Initialize the database with a document to hold
   // the number currently being drawn.
   Meteor.startup(function () {
+
+    // Uncomment to clear the database when the server starts up.
+    // removeAllData();
+
+    insertSampleData();
+
+
     if (DrawData.find({type: "cur_num"}).count() === 0) {
       DrawData.insert({
         type: "cur_num",

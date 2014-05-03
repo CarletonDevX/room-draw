@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>No Drawma</title>
+</head>
+<body>
+<header>
+  <div id="about">
+    <h1>No Drawma</h1>
+  </div>
+  <div id="lastNum">
+    <h2>Last Number Called</h2>
+    1234
+  </div>
+  <div id="lastRoom">
+    <h2>Last Room Drawn</h2>
+    Evans 124
+  </div>
+</header>
+<main id="carousel">
+  <nav id="queries">
+  Show me
+  <span class="option wide">
+    <input type="checkbox">
+    <label for>All Rooms</label>
+  </span>
+  <span class="option wide">
+    <input type="checkbox">
+    <label>Singles</label>
+  </span>
+  <span class="option wide">
+    <input type="checkbox">
+    <label>Doubles</label>
+  </span>
+  <span class="option wide">
+    <input type="checkbox">
+    <label>Triples</label>
+  </span>
+  <span class="option wide">
+    <input type="checkbox">
+    <label>Quads</label>
+  </span>
+  <span class="option wide">
+    <input type="checkbox">
+    <label>Quints</label>
+  </span>
+  <span class="option wide">
+    <input type="checkbox">
+    <label>Sub-Free</label>
+  </span>
+  <span class="option wide">
+    <input type="checkbox">
+    <label>Quiet</label>
+  </span>
+  <span class="option wide">
+    <input type="checkbox">
+    <label>Women-Only</label>
+  </span>
+  <span class="option wide">
+    <input type="checkbox">
+    <label>Only show available rooms</label>
+  </span>
+  <button id="finish">Go!</button>
+  </nav>
+  <ul class="dorms">
+    <li><h3>Evans</h3>
+      <ol class="floors">
+        <li><h4>1st Floor</h4>
+          <ol class="rooms">
+            <li><span class="chance"></span>101</li>
+            <li><span class="chance"></span>102</li>
+            <li><span class="chance"></span>103</li>
+            <li><span class="chance"></span>104</li>
+            <li><span class="chance"></span>105</li>
+            <li><span class="chance"></span>106</li>
+            <li><span class="chance"></span>107</li>
+            <li><span class="chance"></span>108</li>
+            <li><span class="chance"></span>109</li>
+            <li><span class="chance"></span>110</li>
+            <li><span class="chance"></span>111</li>
+            <li><span class="chance"></span>112</li>
+            <li><span class="chance"></span>113</li>
+            <li><span class="chance"></span>114</li>
+            <li><span class="chance"></span>115</li>
+            <li><span class="chance"></span>116</li>
+            <li><span class="chance"></span>117</li>
+            <li><span class="chance"></span>118</li>
+            <li><span class="chance"></span>119</li>
+            <li><span class="chance"></span>120</li>
+            <li><span class="chance"></span>121</li>
+            <li><span class="chance"></span>122</li>
+          </ol>
+        </li>
+        <li><h4>2nd Floor</h4>
+          <ol class="rooms">
+            <li><span class="chance"></span>201</li>
+            <li><span class="chance"></span>202</li>
+            <li><span class="chance"></span>203</li>
+            <li><span class="chance"></span>204</li>
+            <li><span class="chance"></span>205</li>
+            <li><span class="chance"></span>206</li>
+            <li><span class="chance"></span>207</li>
+            <li><span class="chance"></span>208</li>
+            <li><span class="chance"></span>209</li>
+            <li><span class="chance"></span>210</li>
+            <li><span class="chance"></span>211</li>
+            <li><span class="chance"></span>212</li>
+            <li><span class="chance"></span>213</li>
+            <li><span class="chance"></span>214</li>
+            <li><span class="chance"></span>215</li>
+            <li><span class="chance"></span>216</li>
+            <li><span class="chance"></span>217</li>
+            <li><span class="chance"></span>218</li>
+            <li><span class="chance"></span>219</li>
+            <li><span class="chance"></span>220</li>
+            <li><span class="chance"></span>221</li>
+            <li><span class="chance"></span>222</li>
+          </ol>
+        </li>
+        <li><h4>3rd Floor</h4>
+          <ol class="rooms">
+            <li><span class="chance"></span>301</li>
+            <li><span class="chance"></span>302</li>
+            <li><span class="chance"></span>303</li>
+            <li><span class="chance"></span>304</li>
+            <li><span class="chance"></span>305</li>
+            <li><span class="chance"></span>306</li>
+            <li><span class="chance"></span>307</li>
+            <li><span class="chance"></span>308</li>
+            <li><span class="chance"></span>309</li>
+            <li><span class="chance"></span>310</li>
+            <li><span class="chance"></span>311</li>
+            <li><span class="chance"></span>312</li>
+            <li><span class="chance"></span>313</li>
+            <li><span class="chance"></span>314</li>
+            <li><span class="chance"></span>315</li>
+            <li><span class="chance"></span>316</li>
+            <li><span class="chance"></span>317</li>
+            <li><span class="chance"></span>318</li>
+            <li><span class="chance"></span>319</li>
+            <li><span class="chance"></span>320</li>
+            <li><span class="chance"></span>321</li>
+            <li><span class="chance"></span>322</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><h3>Severance</h3>
+      <ol class="floors">
+        <li><h4>1st Floor</h4>
+          <ol class="rooms">
+            <li><span class="chance"></span>101</li>
+            <li><span class="chance"></span>102</li>
+            <li><span class="chance"></span>103</li>
+            <li><span class="chance"></span>104</li>
+            <li><span class="chance"></span>105</li>
+            <li><span class="chance"></span>106</li>
+            <li><span class="chance"></span>107</li>
+            <li><span class="chance"></span>108</li>
+            <li><span class="chance"></span>109</li>
+            <li><span class="chance"></span>110</li>
+            <li><span class="chance"></span>111</li>
+            <li><span class="chance"></span>112</li>
+            <li><span class="chance"></span>113</li>
+            <li><span class="chance"></span>114</li>
+            <li><span class="chance"></span>115</li>
+            <li><span class="chance"></span>116</li>
+            <li><span class="chance"></span>117</li>
+            <li><span class="chance"></span>118</li>
+            <li><span class="chance"></span>119</li>
+            <li><span class="chance"></span>120</li>
+            <li><span class="chance"></span>121</li>
+            <li><span class="chance"></span>122</li>
+          </ol>
+        </li>
+        <li><h4>2nd Floor</h4>
+          <ol class="rooms">
+            <li><span class="chance"></span>201</li>
+            <li><span class="chance"></span>202</li>
+            <li><span class="chance"></span>203</li>
+            <li><span class="chance"></span>204</li>
+            <li><span class="chance"></span>205</li>
+            <li><span class="chance"></span>206</li>
+            <li><span class="chance"></span>207</li>
+            <li><span class="chance"></span>208</li>
+            <li><span class="chance"></span>209</li>
+            <li><span class="chance"></span>210</li>
+            <li><span class="chance"></span>211</li>
+            <li><span class="chance"></span>212</li>
+            <li><span class="chance"></span>213</li>
+            <li><span class="chance"></span>214</li>
+            <li><span class="chance"></span>215</li>
+            <li><span class="chance"></span>216</li>
+            <li><span class="chance"></span>217</li>
+            <li><span class="chance"></span>218</li>
+            <li><span class="chance"></span>219</li>
+            <li><span class="chance"></span>220</li>
+            <li><span class="chance"></span>221</li>
+            <li><span class="chance"></span>222</li>
+          </ol>
+        </li>
+        <li><h4>3rd Floor</h4>
+          <ol class="rooms">
+            <li><span class="chance"></span>301</li>
+            <li><span class="chance"></span>302</li>
+            <li><span class="chance"></span>303</li>
+            <li><span class="chance"></span>304</li>
+            <li><span class="chance"></span>305</li>
+            <li><span class="chance"></span>306</li>
+            <li><span class="chance"></span>307</li>
+            <li><span class="chance"></span>308</li>
+            <li><span class="chance"></span>309</li>
+            <li><span class="chance"></span>310</li>
+            <li><span class="chance"></span>311</li>
+            <li><span class="chance"></span>312</li>
+            <li><span class="chance"></span>313</li>
+            <li><span class="chance"></span>314</li>
+            <li><span class="chance"></span>315</li>
+            <li><span class="chance"></span>316</li>
+            <li><span class="chance"></span>317</li>
+            <li><span class="chance"></span>318</li>
+            <li><span class="chance"></span>319</li>
+            <li><span class="chance"></span>320</li>
+            <li><span class="chance"></span>321</li>
+            <li><span class="chance"></span>322</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><h3>Burton</h3>
+      <ol class="floors">
+        <li><h4>1st Floor</h4>
+          <ol class="rooms">
+            <li><span class="chance"></span>101</li>
+            <li><span class="chance"></span>102</li>
+            <li><span class="chance"></span>103</li>
+            <li><span class="chance"></span>104</li>
+            <li><span class="chance"></span>105</li>
+            <li><span class="chance"></span>106</li>
+            <li><span class="chance"></span>107</li>
+            <li><span class="chance"></span>108</li>
+            <li><span class="chance"></span>109</li>
+            <li><span class="chance"></span>110</li>
+            <li><span class="chance"></span>111</li>
+            <li><span class="chance"></span>112</li>
+            <li><span class="chance"></span>113</li>
+            <li><span class="chance"></span>114</li>
+            <li><span class="chance"></span>115</li>
+            <li><span class="chance"></span>116</li>
+            <li><span class="chance"></span>117</li>
+            <li><span class="chance"></span>118</li>
+            <li><span class="chance"></span>119</li>
+            <li><span class="chance"></span>120</li>
+            <li><span class="chance"></span>121</li>
+            <li><span class="chance"></span>122</li>
+          </ol>
+        </li>
+        <li><h4>2nd Floor</h4>
+          <ol class="rooms">
+            <li><span class="chance"></span>201</li>
+            <li><span class="chance"></span>202</li>
+            <li><span class="chance"></span>203</li>
+            <li><span class="chance"></span>204</li>
+            <li><span class="chance"></span>205</li>
+            <li><span class="chance"></span>206</li>
+            <li><span class="chance"></span>207</li>
+            <li><span class="chance"></span>208</li>
+            <li><span class="chance"></span>209</li>
+            <li><span class="chance"></span>210</li>
+            <li><span class="chance"></span>211</li>
+            <li><span class="chance"></span>212</li>
+            <li><span class="chance"></span>213</li>
+            <li><span class="chance"></span>214</li>
+            <li><span class="chance"></span>215</li>
+            <li><span class="chance"></span>216</li>
+            <li><span class="chance"></span>217</li>
+            <li><span class="chance"></span>218</li>
+            <li><span class="chance"></span>219</li>
+            <li><span class="chance"></span>220</li>
+            <li><span class="chance"></span>221</li>
+            <li><span class="chance"></span>222</li>
+          </ol>
+        </li>
+        <li><h4>3rd Floor</h4>
+          <ol class="rooms">
+            <li><span class="chance"></span>301</li>
+            <li><span class="chance"></span>302</li>
+            <li><span class="chance"></span>303</li>
+            <li><span class="chance"></span>304</li>
+            <li><span class="chance"></span>305</li>
+            <li><span class="chance"></span>306</li>
+            <li><span class="chance"></span>307</li>
+            <li><span class="chance"></span>308</li>
+            <li><span class="chance"></span>309</li>
+            <li><span class="chance"></span>310</li>
+            <li><span class="chance"></span>311</li>
+            <li><span class="chance"></span>312</li>
+            <li><span class="chance"></span>313</li>
+            <li><span class="chance"></span>314</li>
+            <li><span class="chance"></span>315</li>
+            <li><span class="chance"></span>316</li>
+            <li><span class="chance"></span>317</li>
+            <li><span class="chance"></span>318</li>
+            <li><span class="chance"></span>319</li>
+            <li><span class="chance"></span>320</li>
+            <li><span class="chance"></span>321</li>
+            <li><span class="chance"></span>322</li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ul>
+</main>
+</body>
+</html>

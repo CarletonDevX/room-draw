@@ -111,9 +111,19 @@ if (Meteor.isServer) {
     // Uncomment to clear the database when the server starts up.
     // removeAllData();
 
+    // Generate fake data for testing.
     insertSampleData();
 
+    /* When the JSON is ready, use this to load data from JSON:
+    var roomData = {};
+    // this comes from the file: /private/seed_room_data.json
+    roomData = JSON.parse(Assets.getText("seed_room_data.json"));
+    roomData.forEach(funtion (hall) {
+      DrawData.insert(hall);
+    });
+    */
 
+    // Old code to insert a current number counter in the database.
     if (DrawData.find({type: "cur_num"}).count() === 0) {
       DrawData.insert({
         type: "cur_num",

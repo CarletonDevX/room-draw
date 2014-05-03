@@ -33,6 +33,15 @@ if (Meteor.isServer) {
   // Initialize the database with a document to hold
   // the number currently being drawn.
   Meteor.startup(function () {
+    /* When the data is complete, use this:
+    var roomData = {};
+    // this comes from the file: /private/seed_room_data.json
+    roomData = JSON.parse(Assets.getText("seed_room_data.json"));
+    roomData.forEach(funtion (hall) {
+      DrawData.insert(hall);
+    });
+    */
+
     if (DrawData.find({type: "cur_num"}).count() === 0) {
       DrawData.insert({
         type: "cur_num",

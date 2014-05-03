@@ -32,7 +32,7 @@
 {
 	"name": "Myers",
 	"isHouse": false,
-	"hasFreshman": true,
+	"hasFreshmen": true,
 	"floors":[
 		{
 			"number":1,

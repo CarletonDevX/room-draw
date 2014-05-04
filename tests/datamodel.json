@@ -9,7 +9,7 @@
 					"size":4,
 					"subFree":false,
 					"quiet":false,
-					"onlyFem":false,
+					"onlyFemale":false,
 					"onlyMale":false,
 					"number":113,
 					"chance":{},

@@ -12,7 +12,11 @@
 					"onlyFemale":false,
 					"onlyMale":false,
 					"name":113,
-					"chance":{},
+					"chance":{
+						"mean":12.5,
+						"stdev":0.2,
+						"offset":0
+					},
 					"isDrawn":false
 				}
 			]

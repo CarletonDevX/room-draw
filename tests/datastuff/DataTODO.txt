@@ -5,7 +5,6 @@ A. Men’s only
 B. Women’s only
 C. Should we add an off-board meal plan tag?
 
--Convert finalroomtags into a .json file when we’re done editing it.
 -What dorms/houses are these abbreviations? WATH, FACX, STAD
 
 -WHEN WE HAVE INFO: 

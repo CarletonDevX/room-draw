@@ -171,23 +171,16 @@ if (Meteor.isServer) {
 
 }
 
+Router.map(function () {
+  this.route('admin');
+  this.route('home',{path: '/'});
+});
+/*Router.map(function () {
+    this.route('admin', {
+        path: '/admin',
 
-// Problem: we need to filter the rooms based on various queries. This will be highly annoying if we
-// want to use reactive templating, as far as I know. the best solution I can think of is hiding the
-// rooms NOT in the current query with CSS, and using a pinch of JQuery to clean up floors and dorms
-// with all hidden rooms. A super clever way would be to make use of the fact that divs collapse when
-// all their contents are floated, but I have not yet been successful there.
-// See http://jsbin.com/toxigaho/1/edit?html,css,output
-
-// //hide floors containing no visible elements
-// $('.floor').each(function(){
-//  if($(this).children(':visible').length == 0) {
-//    $(this).hide();
-//  }
-// });
-
-// //or just add, remove separate <style></style> tags on the head. Hacky but oh so clean.
-// //adding
-//$('head').append('<style class="tempStyle">p:hover{color:red;}</style>');
-// //removing
-//$(".tempStyle").each(function(){$(this).remove();})
+        before: function () {
+            AccountsEntry.signInRequired(this)
+    	}
+	}
+});*/

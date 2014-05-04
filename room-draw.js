@@ -133,7 +133,6 @@ function generateFloors(numFloors) {
 function generateFakeDorm(dormName) {
   return {
     "name": dormName,
-    "isHouse": Math.random() < 0.25,
     "floors": generateFloors(Math.floor(Math.random() * 5) + 1)
   };
 }

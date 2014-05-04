@@ -54,46 +54,46 @@
 
       <!--Room size-->
       <h4>Room size</h4>
-      <input type="checkbox" id="input1">
-      <label for="input1">Single</label>
-      <input type="checkbox" id="input2">
-      <label for="input2">Double</label>
-      <input type="checkbox" id="input3">
-      <label for="input3">Triple</label>
-      <input type="checkbox" id="input4">
-      <label for="input4">Quad</label>
-      <input type="checkbox" id="input5">
-      <label for="input5">Quint</label>
+      <input type="checkbox" id="roomSize1">
+      <label for="roomSize1">Single</label>
+      <input type="checkbox" id="roomSize2">
+      <label for="roomSize2">Double</label>
+      <input type="checkbox" id="roomSize3">
+      <label for="roomSize3">Triple</label>
+      <input type="checkbox" id="roomSize4">
+      <label for="roomSize4">Quad</label>
+      <input type="checkbox" id="roomSize5">
+      <label for="roomSize5">Quint</label>
 
 
       <!--Sub-free, either, not-->
       <h4>Substance-free floor?</h4>
-      <input type="radio" name="subfree" id="input6">
-      <label for="input6">Yes</label>
-      <input type="radio" name="subfree" id="input7">
-      <label for="input7">No</label>
-      <input type="radio" name="subfree" id="input8">
-      <label for="input8">Either</label>
+      <input type="radio" name="subfree" id="subfreeYes">
+      <label for="subfreeYes">Yes</label>
+      <input type="radio" name="subfree" id="subfreeNo">
+      <label for="subfreeNo">No</label>
+      <input type="radio" name="subfree" id="subfreeEither">
+      <label for="subfreeEither">Either</label>
 
 
       <!--Quiet, either, not-->
       <h4>Quiet floor?</h4>
-      <input type="radio" name="quiet" id="input9">
-      <label for="input9">Yes</label>
-      <input type="radio" name="quiet" id="input10">
-      <label for="input10">No</label>
-      <input type="radio" name="quiet" id="input11">
-      <label for="input11">Either</label>
+      <input type="radio" name="quiet" id="quietYes">
+      <label for="quietYes">Yes</label>
+      <input type="radio" name="quiet" id="quietNo">
+      <label for="quietNo">No</label>
+      <input type="radio" name="quiet" id="quietEither">
+      <label for="quietEither">Either</label>
 
       <h4>Other Stuff:</h4>
       <!--Hide gender specific-->
-      <input type="checkbox" id="input12">
-      <label for="input12">Hide male only rooms</label>
-      <input type="checkbox" id="input13">
-      <label for="input13">Hide female only rooms</label>
+      <input type="checkbox" id="hideMale">
+      <label for="hideMale">Hide male only rooms</label>
+      <input type="checkbox" id="hideFemale">
+      <label for="hideFemale">Hide female only rooms</label>
       <!--Hide taken rooms-->
-      <input type="checkbox" id="input14">
-      <label for="input14">Hide taken rooms</label>
+      <input type="checkbox" id="hideTaken">
+      <label for="hideTaken">Hide taken rooms</label>
 
       <button id="go">Go!</button>
   </nav>
@@ -138,8 +138,15 @@
   <li style="color:RGB({{chancesColor}})">
     <span
       class=
-       "{{#if subFree}}
-        subFree
+       "{{#if subfree}}
+        subfree
+        {{else}}
+        notSubfree
+        {{/if}}
+        {{#if quiet}}
+        quiet
+        {{else}}
+        notQuiet
         {{/if}}
         {{#if onlyFemale}}
         onlyFemale

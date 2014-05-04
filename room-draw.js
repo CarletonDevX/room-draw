@@ -30,15 +30,54 @@ if (Meteor.isClient) {
     return DormData.find();
   }
 
+  /*
+   * Filter logic
+   */
   Template.query.events({
-    'click button.go': function() {
-      // @TODO: Make JS array of classes that should be hidden
+    'click button#go': function() {
+      hideClasses = []
+
+      // Hide room sizes that aren't checked
+      for (var i = 1; i < 6; i++) {
+        if (!$( '#roomSize' + i ).is(':checked')) {
+          hideClasses.push('.size' + i)
+        }
+      }
+
+      // Hide according to subfree preferences
+      if ($( '#subfreeYes' ).is(':checked')) {
+        hideClasses.push('.notSubfree');
+      } else if ($( '#subfreeNo' ).is(':checked')) {
+        hideClasses.push('.subfree');
+      }
+
+      // Hide according to quiet preferences
+      if ($( '#quietYes' ).is(':checked')) {
+        hideClasses.push('.notQuiet');
+      } else if ($( '#quietNo' ).is(':checked')) {
+        hideClasses.push('.quiet');
+      }
+
+      // Hide according to gender preferences
+      if ($( '#hideMale' ).is(':checked')) {
+        hideClasses.push('.onlyMale');
+      }
+      if ($( '#hideFemale' ).is(':checked')) {
+        hideClasses.push('.onlyFemale');
+      }
+
+      // Hide taken rooms if checked
+      if ($( '#hideTaken' ).is(':checked')) {
+        hideClasses.push('.isDrawn');
+      }
 
       // Remove the old temporary stylesheet.
       $(".tempStyle").each(function(){$(this).remove();})
 
-      // @TODO: Hide it like this:
-      // $('head').append('<style class="tempStyle">thing1,thing2,etc{display:none;}</style>');
+      // Apply a new temporary stylesheet to hide things.
+      classesString = hideClasses.join();
+      console.log(classesString);
+      $('head').append('<style class="tempStyle">' + classesString + '{display:none;}</style>');
     }
   })
 

@@ -10,7 +10,7 @@
 					"subFree":false,
 					"quiet":false,
 					"onlyFem":false,
-					"onlyMal":false,
+					"onlyMale":false,
 					"number":113,
 					"chance":{},
 					"isDrawn":false

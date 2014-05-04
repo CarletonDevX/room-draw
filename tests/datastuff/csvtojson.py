@@ -51,7 +51,10 @@ def main(outfile):
     dstring = '['
     for name, floors in dorms.iteritems():
         hallstr = '{"name":' + name + ',"floors":'
-        hallstr += str(floors).replace("'", '"')
+        floors = str(floors).replace("'", '"')
+        floors = floors.replace('False', 'false')
+        floors = floors.replace('True', 'true')
+        hallstr += floors
         hallstr += '},'
         dstring += hallstr
     dstring = dstring[:-1] + ']\n'

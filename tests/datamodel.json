@@ -11,7 +11,7 @@
 					"quiet":false,
 					"onlyFemale":false,
 					"onlyMale":false,
-					"number":113,
+					"name":113,
 					"chance":{},
 					"isDrawn":false
 				}

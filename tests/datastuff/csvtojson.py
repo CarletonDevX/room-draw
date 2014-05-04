@@ -50,7 +50,7 @@ def main(outfile):
                 })
     dstring = '['
     for name, floors in dorms.iteritems():
-        hallstr = '{"name":' + name + ',"floors":'
+        hallstr = '{"name":"' + name + '","floors":'
         floors = str(floors).replace("'", '"')
         floors = floors.replace('False', 'false')
         floors = floors.replace('True', 'true')

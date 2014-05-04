@@ -155,16 +155,18 @@ if (Meteor.isServer) {
     DormData.remove({});
 
     // Generate fake data for testing.
-    insertSampleData();
+    // insertSampleData();
 
-    /* When the JSON is ready, use this to load data from JSON:
-    var roomData = {};
-    // this comes from the file: /private/seed_room_data.json
-    roomData = JSON.parse(Assets.getText("seed_room_data.json"));
-    roomData.forEach(funtion (hall) {
-      DormData.insert(hall);
-    });
-    */
+    // Use the actual JSON to load real data:
+    if (DormData.find().count() === 0) {
+      var roomData = {};
+      // this comes from the file: /private/seed_room_data.json
+      roomData = JSON.parse(Assets.getText("seed_room_data.json"));
+      roomData.forEach(function (hall) {
+        DormData.insert(hall);
+      });
+    }
+    
 
   });
 

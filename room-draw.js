@@ -3,29 +3,6 @@ DormData = new Meteor.Collection("dormdata");
 
 if (Meteor.isClient) {
 
-  // ID in the Mongo database for the document holding
-  // the number currently being drawn.
-  var cur_num_id;
-  Template.main.cur_num = function() {
-    cur_num = DormData.find({type: "cur_num"}).fetch()[0];
-    if (cur_num) {
-      cur_num_id = cur_num._id;
-      return cur_num.val;
-    } else {
-      return NaN;
-    }
-  }
-
-  // Define click events for the control buttons.
-  Template.main.events({
-    'click input.up': function () {
-      DormData.update(cur_num_id, {$inc: {val: 1}});
-    },
-    'click input.down': function () {
-      DormData.update(cur_num_id, {$inc: {val: -1}});
-    }
-  });
-
   Template.main.dorms = function() {
     return DormData.find();
   }
@@ -71,13 +48,35 @@ if (Meteor.isClient) {
         hideClasses.push('.isDrawn');
       }
 
-      // Remove the old temporary stylesheet.
+      // Reset so that nothing is hidden.
       $(".tempStyle").each(function(){$(this).remove();})
+      $('.dorm').each(function(){$(this).show();})
+      $('.floor').each(function(){$(this).show();})
+      $('#dormSelect').children().removeAttr('disabled');
 
       // Apply a new temporary stylesheet to hide things.
       classesString = hideClasses.join();
       console.log(classesString);
-      $('head').append('<style class="tempStyle">' + classesString + '{display:none;}</style>');
+      $('head').append('<style class="tempStyle">'+ classesString + '{display:none;}</style>');
+
+      // Hide empty floors
+      $('.floor').each(function(){
+        console.log($(this).children('.rooms').children(':visible').length);
+        if($(this).children('.rooms').children(':visible').length == 0) {
+          $(this).hide();
+        }
+      });
+
+      // Hide empty dorms
+      $('.dorm').each(function(){
+        if($(this).children('.floors').children(':visible').length == 0) {
+          $(this).hide();
+          dormName = $(this).children('h4').text();
+          console.log("option[value*='" + dormName + "']");
+          $('#dormSelect').children("option[value*='" + dormName + "']").attr("disabled", "yea");
+        }
+      });
+
     }
   })
 
@@ -150,8 +149,6 @@ function insertSampleData() {
 
 if (Meteor.isServer) {
 
-  // Initialize the database with a document to hold
-  // the number currently being drawn.
   Meteor.startup(function () {
 
     // Clear the database when the server starts up.
@@ -168,14 +165,6 @@ if (Meteor.isServer) {
       DormData.insert(hall);
     });
     */
-
-    // Old code to insert a current number counter in the database.
-    if (DormData.find({type: "cur_num"}).count() === 0) {
-      DormData.insert({
-        type: "cur_num",
-        val: 0
-      });
-    }
 
   });
 

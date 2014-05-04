@@ -11,7 +11,6 @@ h1,h2,h3,h4{
 and (max-device-width: 480px) {
   header{
     width:100%;
-
   }
 }
 

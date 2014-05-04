@@ -1,0 +1,20 @@
+h1,h2,h3,h4{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+#info, #queries{
+  display:none;
+}
+
+@media only screen
+and (max-device-width: 480px) {
+  header{
+    width:100%;
+  }
+}
+
+@media only screen
+and (min-width: 481px){
+
+}

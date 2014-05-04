@@ -1,5 +1,5 @@
 // Mongo collection for all the data.
-DrawData = new Meteor.Collection("drawdata");
+DormData = new Meteor.Collection("dormdata");
 
 if (Meteor.isClient) {
 
@@ -7,7 +7,7 @@ if (Meteor.isClient) {
   // the number currently being drawn.
   var cur_num_id;
   Template.main.cur_num = function() {
-    cur_num = DrawData.find({type: "cur_num"}).fetch()[0];
+    cur_num = DormData.find({type: "cur_num"}).fetch()[0];
     if (cur_num) {
       cur_num_id = cur_num._id;
       return cur_num.val;
@@ -19,12 +19,28 @@ if (Meteor.isClient) {
   // Define click events for the control buttons.
   Template.main.events({
     'click input.up': function () {
-      DrawData.update(cur_num_id, {$inc: {val: 1}});
+      DormData.update(cur_num_id, {$inc: {val: 1}});
     },
     'click input.down': function () {
-      DrawData.update(cur_num_id, {$inc: {val: -1}});
+      DormData.update(cur_num_id, {$inc: {val: -1}});
     }
   });
+
+  Template.main.dorms = function() {
+    return DormData.find();
+  }
+
+  Template.query.events({
+    'click button.go': function() {
+      // @TODO: Make JS array of classes that should be hidden
+
+      // Remove the old temporary stylesheet.
+      $(".tempStyle").each(function(){$(this).remove();})
+
+      // @TODO: Hide it like this:
+      // $('head').append('<style class="tempStyle">thing1,thing2,etc{display:none;}</style>');
+    }
+  })
 
 }
 
@@ -47,14 +63,16 @@ if (Meteor.isClient) {
 
 function generateRooms(numRooms, floorNum) {
   rooms = [];
-  size = Math.floor(Math.random() * 5) + 1;
   for (var i = 0; i < numRooms; i++) {
+    size = Math.floor(Math.random() * 5) + 1;
     room = {
       "size": size,
-      "number": floorNum * 100 + i + 1,
-      "breakdown": [size],
+      "subFree": Math.random() < 0.25,
+      "quiet": Math.random() < 0.25,
+      "onlyFemale": Math.random() < 0.25,
+      "onlyMale": Math.random() < 0.25,
+      "name": floorNum * 100 + i + 1,
       "chance": {},
-      "residents": "any", // This may conflict with an all-female floor.
       "isDrawn": Math.random() < 0.25
     }
     rooms.push(room);
@@ -67,9 +85,6 @@ function generateFloors(numFloors) {
   for (var i = 0; i < numFloors; i++) {
     floor = {
       "number": i + 1,
-      "subFree": Math.random() < 0.25,
-      "quiet": Math.random() < 0.25,
-      "allFem": Math.random() < 0.25,
       "rooms": generateRooms(Math.floor(Math.random() * 31) + 10, i + 1)
     };
     floors.push(floor);
@@ -86,22 +101,13 @@ function generateFakeDorm(dormName) {
 }
 
 function insertSampleData() {
-  if (DrawData.find().count() === 0) {
+  if (DormData.find().count() === 0) {
     fakeDormNames = ["Armenia", "Bulgaria", "Cyprus", "Denmark", "Estonia"];
     for (i in fakeDormNames) {
-      DrawData.insert(generateFakeDorm(fakeDormNames[i]));
+      DormData.insert(generateFakeDorm(fakeDormNames[i]));
     }
   }
 }
-
-/*
- * Remove all data from the databse.
- */
-
- function removeAllData() {
-  DrawData.remove({});
- }
-
 
 if (Meteor.isServer) {
 
@@ -110,7 +116,7 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
 
     // Clear the database when the server starts up.
-    removeAllData();
+    DormData.remove({});
 
     // Generate fake data for testing.
     insertSampleData();
@@ -120,13 +126,13 @@ if (Meteor.isServer) {
     // this comes from the file: /private/seed_room_data.json
     roomData = JSON.parse(Assets.getText("seed_room_data.json"));
     roomData.forEach(funtion (hall) {
-      DrawData.insert(hall);
+      DormData.insert(hall);
     });
     */
 
     // Old code to insert a current number counter in the database.
-    if (DrawData.find({type: "cur_num"}).count() === 0) {
-      DrawData.insert({
+    if (DormData.find({type: "cur_num"}).count() === 0) {
+      DormData.insert({
         type: "cur_num",
         val: 0
       });
@@ -141,7 +147,7 @@ if (Meteor.isServer) {
 // want to use reactive templating, as far as I know. the best solution I can think of is hiding the
 // rooms NOT in the current query with CSS, and using a pinch of JQuery to clean up floors and dorms
 // with all hidden rooms. A super clever way would be to make use of the fact that divs collapse when
-// all their contents are floated, but I have not yet been successful there. 
+// all their contents are floated, but I have not yet been successful there.
 // See http://jsbin.com/toxigaho/1/edit?html,css,output
 
 // //hide floors containing no visible elements
@@ -150,48 +156,6 @@ if (Meteor.isServer) {
 //    $(this).hide();
 //  }
 // });
-
-// //modify embedded stylesheet
-// //see https://developer.mozilla.org/en-US/docs/Web/API/CSSStyleSheet.insertRule and .deteRule
-// function( $ ){
-//   $.style = {
-//     insertRule:function(selector,rules,contxt){
-//       var context=contxt||document,stylesheet;
-
-//       if(typeof context.styleSheets=='object'){
-//         if(context.styleSheets.length){
-//           stylesheet=context.styleSheets[context.styleSheets.length-1];
-//         }
-//         if(context.styleSheets.length){
-//           if(context.createStyleSheet){
-//             stylesheet=context.createStyleSheet();
-//           }
-//           else{
-//             context.getElementsByTagName('head')[0].appendChild(context.createElement('style'));
-//             stylesheet=context.styleSheets[context.styleSheets.length-1];
-//           }
-//         }
-//         if(stylesheet.addRule){
-//           for(var i=0;i<selector.length;++i){
-//             stylesheet.addRule(selector[i],rules);
-//           }
-//         }
-//       else{
-//           stylesheet.insertRule(selector.join(',') + '{' + rules + '}', stylesheet.cssRules.length);  
-//         }
-//       }
-//     }
-//   };
-// }
-// )( jQuery );
-// $(document).ready(
-//     function()
-//     {
-//         $.style.insertRule(['p','h1'],'color:red;');
-//         $.style.insertRule(['p'],'text-decoration:line-through;');
-//         $.style.insertRule(['div p'],'text-decoration:none;color:blue');
-//     }
-// );
 
 // //or just add, remove separate <style></style> tags on the head. Hacky but oh so clean.
 // //adding

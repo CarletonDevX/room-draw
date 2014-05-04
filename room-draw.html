@@ -1,17 +1,165 @@
 <head>
-  <title>Carleton Room Draw</title>
+  <title>No Drawma</title>
+  <meta name="viewport" content="initial-scale=1">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,100' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
+  {{> header}}
+  {{> info}}
+  {{> query}}
   {{> main}}
 </body>
 
-<template name="main">
-    <div class="cur_num">
-        {{cur_num}}
+<template name="header">
+  <header>
+    <div id="about">
+      <h1>No Drawma</h1>
     </div>
-    <div class="controls">
-        <input type="button" class="up" value="Up" />
-        <input type="button" class="down" value="Down" />
+    <div id="lastNum">
+      <h2>Last Number Called</h2>
+      {{lastNum}}
     </div>
+    <div id="lastRoom">
+      <h2>Last Room Drawn</h2>
+      {{lastRoom}}
+    </div>
+  </header>
 </template>
+
+<template name="info">
+  <div id="info">
+    <img class="logo" src=""/>
+    <h2>No Drawma!</h2>
+    Welcome! We'll use historical data to let you know your chances of drawing into each dorm room.
+    <div id="drawNumBox">
+      <label>My Draw Number is:</label>
+      <input type="text">
+    </div>
+    <h3>Legend</h3>
+    <ol class="legend">
+      <li><span class="chance" style="background-color: #92ff0c">94</span>= likely</li>
+      <li><span class="chance" style="background-color: #ffda0c">57</span>= risky</li>
+      <li><span class="chance" style="background-color: #ff0c0c">13</span>= unlikely</li>
+      <li><span class="chance" style="background-color: gray">0</span>= taken</li>
+    </ol>
+    <button>Ok</button>
+  </div>
+</template>
+
+<template name="query">
+    <nav id="queries">
+
+      <!--Room size-->
+      <h4>Room size</h4>
+      <input type="checkbox" id="input1">
+      <label for="input1">Single</label>
+      <input type="checkbox" id="input2">
+      <label for="input2">Double</label>
+      <input type="checkbox" id="input3">
+      <label for="input3">Triple</label>
+      <input type="checkbox" id="input4">
+      <label for="input4">Quad</label>
+      <input type="checkbox" id="input5">
+      <label for="input5">Quint</label>
+
+
+      <!--Sub-free, either, not-->
+      <h4>Substance-free floor?</h4>
+      <input type="radio" name="subfree" id="input6">
+      <label for="input6">Yes</label>
+      <input type="radio" name="subfree" id="input7">
+      <label for="input7">No</label>
+      <input type="radio" name="subfree" id="input8">
+      <label for="input8">Either</label>
+
+
+      <!--Quiet, either, not-->
+      <h4>Quiet floor?</h4>
+      <input type="radio" name="quiet" id="input9">
+      <label for="input9">Yes</label>
+      <input type="radio" name="quiet" id="input10">
+      <label for="input10">No</label>
+      <input type="radio" name="quiet" id="input11">
+      <label for="input11">Either</label>
+
+      <h4>Other Stuff:</h4>
+      <!--Hide gender specific-->
+      <input type="checkbox" id="input12">
+      <label for="input12">Hide male only rooms</label>
+      <input type="checkbox" id="input13">
+      <label for="input13">Hide female only rooms</label>
+      <!--Hide taken rooms-->
+      <input type="checkbox" id="input14">
+      <label for="input14">Hide taken rooms</label>
+
+      <button id="go">Go!</button>
+  </nav>
+</template>
+
+<template name="main">
+  <select>
+    {{#each dorms}}
+    <option value="{{name}}">{{name}}</option>
+    {{/each}}
+  </select>
+  <ul class="dorms">
+    {{#each dorms}}
+      {{> dorm}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="dorm">
+  <li>
+    <h3>{{name}}</h3>
+    <ol class="floors">
+      {{#each floors}}
+        {{> floor}}
+      {{/each}}
+    </ol>
+  </li>
+</template>
+
+<template name="floor">
+  <li>
+    <h4>{{name}}</h4>
+    <ol class="rooms">
+      {{#each rooms}}
+        {{> room}}
+      {{/each}}
+    </ol>
+  </li>
+</template>
+
+<template name="room">
+  <li style="color:RGB({{chancesColor}})">
+    <span
+      class=
+       "{{#if subFree}}
+        subFree
+        {{/if}}
+        {{#if onlyFemale}}
+        onlyFemale
+        {{/if}}
+        {{#if onlyMale}}
+        onlyMale
+        {{/if}}
+        {{#if isDrawn}}
+        isDrawn
+        {{/if}}
+        size{{size}}"
+    >{{name}} ({{size}})</span>
+  </li>
+</template>
+
+
+
+
+
+
+
+
+

@@ -2,8 +2,27 @@
 <html>
 <head>
   <title>No Drawma</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,100' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+<div id="info">
+  <img class="logo" src=""/>
+  <h2>No Drawma!</h2>
+  Welcome! We'll use historical data to let you know your chances of drawing into each dorm room.
+  <div id="drawNumBox">
+    <label>My Draw Number is:</label>
+    <input type="text">9999</input>
+  </div>
+  <h3>Legend</h3>
+  <ol>
+    <li><span id="likely"></span>= likely</li>
+    <li><span id="risky"></span>= risky</li>
+    <li><span id="unlikely"></span>= unlikely</li>
+    <li><span class="taken">213 (2)</span>= taken</li>
+  </ol>
+</div>
 <header>
   <div id="about">
     <h1>No Drawma</h1>
@@ -22,45 +41,45 @@
   Show me
   <span class="option wide">
     <input type="checkbox">
-    <label for>All Rooms</label>
+    <label>All Rooms</label>
   </span>
-  <span class="option wide">
+  <span class="option">
     <input type="checkbox">
     <label>Singles</label>
   </span>
-  <span class="option wide">
+  <span class="option">
     <input type="checkbox">
     <label>Doubles</label>
   </span>
-  <span class="option wide">
+  <span class="option">
     <input type="checkbox">
     <label>Triples</label>
   </span>
-  <span class="option wide">
+  <span class="option">
     <input type="checkbox">
     <label>Quads</label>
   </span>
-  <span class="option wide">
+  <span class="option">
     <input type="checkbox">
     <label>Quints</label>
   </span>
-  <span class="option wide">
+  <span class="option">
     <input type="checkbox">
     <label>Sub-Free</label>
   </span>
-  <span class="option wide">
+  <span class="option">
     <input type="checkbox">
     <label>Quiet</label>
   </span>
-  <span class="option wide">
+  <span class="option">
     <input type="checkbox">
     <label>Women-Only</label>
   </span>
-  <span class="option wide">
+  <span class="option">
     <input type="checkbox">
     <label>Only show available rooms</label>
   </span>
-  <button id="finish">Go!</button>
+  <button id="finish" class="wide">Go!</button>
   </nav>
   <ul class="dorms">
     <li><h3>Evans</h3>

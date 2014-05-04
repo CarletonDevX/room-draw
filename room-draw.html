@@ -114,7 +114,6 @@
 
 <template name="dorm">
   <li>
-    <h3>{{name}}</h3>
     <ol class="floors">
       {{#each floors}}
         {{> floor}}
@@ -135,9 +134,7 @@
 </template>
 
 <template name="room">
-  <li style="color:RGB({{chancesColor}})">
-    <span
-      class=
+  <li class=
        "{{#if subFree}}
         subFree
         {{/if}}
@@ -150,8 +147,9 @@
         {{#if isDrawn}}
         isDrawn
         {{/if}}
-        size{{size}}"
-    >{{name}} ({{size}})</span>
+        size{{size}}">
+    <span class="chance" style="color:RGB({{chancesColor}})">67{{!-chance-}}</span>
+    {{name}} ({{size}})
   </li>
 </template>
 

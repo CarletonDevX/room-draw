@@ -100,7 +100,7 @@
 </template>
 
 <template name="main">
-  <select>
+  <select id="dormSelect">
     {{#each dorms}}
     <option value="{{name}}">{{name}}</option>
     {{/each}}
@@ -113,7 +113,8 @@
 </template>
 
 <template name="dorm">
-  <li>
+  <li class="dorm">
+    <h4>{{name}}</h4>
     <ol class="floors">
       {{#each floors}}
         {{> floor}}
@@ -123,7 +124,7 @@
 </template>
 
 <template name="floor">
-  <li>
+  <li class="floor">
     <h4>{{name}}</h4>
     <ol class="rooms">
       {{#each rooms}}
@@ -134,8 +135,8 @@
 </template>
 
 <template name="room">
-  <li class=
-       "{{#if subFree}}
+  <li class="room
+        {{#if subFree}}
         subfree
         {{else}}
         notSubfree

@@ -47,9 +47,10 @@ if (Meteor.isClient) {
 
 function generateRooms(numRooms, floorNum) {
   rooms = [];
-  for (int i = 0; i < numRooms; i++) {
+  size = Math.floor(Math.random() * 5) + 1;
+  for (var i = 0; i < numRooms; i++) {
     room = {
-      "size": Math.floor(Math.random() * 5) + 1,
+      "size": size,
       "number": floorNum * 100 + i + 1,
       "breakdown": [size],
       "chance": {},
@@ -63,7 +64,7 @@ function generateRooms(numRooms, floorNum) {
 
 function generateFloors(numFloors) {
   floors = [];
-  for (int i = 0; i < numFloors; i++) {
+  for (var i = 0; i < numFloors; i++) {
     floor = {
       "number": i + 1,
       "subFree": Math.random() < 0.25,
@@ -87,8 +88,8 @@ function generateFakeDorm(dormName) {
 function insertSampleData() {
   if (DrawData.find().count() === 0) {
     fakeDormNames = ["Armenia", "Bulgaria", "Cyprus", "Denmark", "Estonia"];
-    for (dormName in fakeDormNames) {
-      DrawData.insert(generateFakeDorm(dormName));
+    for (i in fakeDormNames) {
+      DrawData.insert(generateFakeDorm(fakeDormNames[i]));
     }
   }
 }
@@ -108,8 +109,8 @@ if (Meteor.isServer) {
   // the number currently being drawn.
   Meteor.startup(function () {
 
-    // Uncomment to clear the database when the server starts up.
-    // removeAllData();
+    // Clear the database when the server starts up.
+    removeAllData();
 
     // Generate fake data for testing.
     insertSampleData();

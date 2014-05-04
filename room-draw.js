@@ -71,7 +71,7 @@ function generateRooms(numRooms, floorNum) {
       "quiet": Math.random() < 0.25,
       "onlyFemale": Math.random() < 0.25,
       "onlyMale": Math.random() < 0.25,
-      "number": floorNum * 100 + i + 1,
+      "name": floorNum * 100 + i + 1,
       "chance": {},
       "isDrawn": Math.random() < 0.25
     }
@@ -147,7 +147,7 @@ if (Meteor.isServer) {
 // want to use reactive templating, as far as I know. the best solution I can think of is hiding the
 // rooms NOT in the current query with CSS, and using a pinch of JQuery to clean up floors and dorms
 // with all hidden rooms. A super clever way would be to make use of the fact that divs collapse when
-// all their contents are floated, but I have not yet been successful there. 
+// all their contents are floated, but I have not yet been successful there.
 // See http://jsbin.com/toxigaho/1/edit?html,css,output
 
 // //hide floors containing no visible elements

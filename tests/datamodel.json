@@ -1,0 +1,26 @@
+// Final Format
+{
+	"name": "Myers",
+	"isHouse": false,
+	"floors":[
+		{
+			"number":1,
+			"subFree":false,
+			"quiet":false,
+			"allFem":false,
+			"rooms":[
+				{
+					"size":4,
+					"number":113,
+					"breakdown":[1,1,2], //single + single + double
+					"chance":{},
+					"residents":"male", // male, female, any
+					"isDrawn":false 
+				}
+			]
+		},
+		{
+			"number":2 //etc
+		}
+	]
+}

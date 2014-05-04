@@ -1,14 +1,14 @@
 In finalroomtags.csv:
 - Add tags; just put an “X” in that column if it applies. 
 When you’re done with a tag, cross it off this list:
-A. Men’s only (we’ll have to wait until Friday)
-B. Women’s only (we’ll have to wait until Friday)
+A. Men’s only
+B. Women’s only
 C. Should we add an off-board meal plan tag?
 
 -Convert finalroomtags into a .json file when we’re done editing it.
 -What dorms/houses are these abbreviations? WATH, FACX, STAD
 
--ON FRIDAY: 
+-WHEN WE HAVE INFO: 
 http://apps.carleton.edu/student/housing/Halls_Houses/housing/roomdraw/whatsnew/
 Remove/add rooms that are newly unavailable/available (if any). Rooms without sizes listed are rooms that weren’t drawn last year. If it turns out a lot of these are available now, I can do some extra work to get the sizes for them too.
 -Let's save finalroomtags somewhere before we do this, because some houses may become available in later years and we'll want to use the same data.

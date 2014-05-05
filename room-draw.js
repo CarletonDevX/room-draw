@@ -6,12 +6,6 @@ Router.map(function () {
   this.route('home');
 });
 
-// Routing
-Router.map(function () {
-  this.route('admin');
-  this.route('home',{path: '/'});
-});
-
 // Collections
 Dorms = new Meteor.Collection("dorms");
 Floors = new Meteor.Collection("floors");

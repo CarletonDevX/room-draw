@@ -209,14 +209,14 @@ if (Meteor.isServer) {
     // Generate fake data for testing.
     if (Dorms.find().count() === 0) {
       insertSampleData();
-    }
+    };
     if (DrawData.find().count() === 0) {
       DrawData.insert({
         "lastNum": 2314,
         "lastDorm": "James",
         "lastRoom": "213"
       })
-    }
+    };
 
     // Use the actual JSON to load real data:
     // if (DormData.find().count() === 0) {
@@ -228,8 +228,10 @@ if (Meteor.isServer) {
     //   });
     // }
     
+    AccountsEntry.config({
+      signupCode: 's3cr3t'
+    });
 
-	AccountsEntry.config({
-    signupCode: 's3cr3t'
   });
-}
+
+};

@@ -1,0 +1,152 @@
+body{
+  position:relative;
+  z-index:-100;
+}
+
+#info{
+  font-family: 'Roboto',sans-serif;
+  font-weight:300;
+  background-color:#ececec; 
+  position:relative;
+ z-index:-2;
+}
+
+
+#info label{
+  text-align: center;
+}
+
+#info h1{
+   font-size: 120%;  
+   text-align: center; 
+}
+#info span.chance{
+  color: rgba(0,0,0,.7);
+  border-radius: 50%;
+  width:20px; 
+  height:20px;
+  display: inline-block;
+}
+
+.key{
+  float:left;
+  margin-top: 10%;
+  width: 100px;
+  height: 100px;
+}
+
+#info ol{
+  list-style-type: none;
+
+}
+
+#info button{
+  display: block;
+  position: relative;
+  left:30%;
+  background-color: #97f29b;
+  -moz-border-radius: 10px;
+  -webkit-border-radius:10px;
+  font-weight: 100;
+  border: none;
+  width: 130px;
+  height:40px; 
+}
+#info button:active {
+    top:3px;
+}
+
+#info button:active, button:hover{
+  background-color:#8ee893;
+}
+
+#info button::before{
+  content: "";
+  position: absolute;
+  -moz-border-radius: 10px;
+  -webkit-border-radius:10px;
+  left:0;
+  top:0;
+  width: 130px;
+  height: 43px;
+  background-color: #6ac86e;
+  z-index: -1;
+}
+
+#info button:active::before{
+  display:none;
+}
+
+#drawNumBox label{
+  font-weight: bold;
+  display: block;
+  position: relative;
+  margin-top: 5%;
+  margin-right: auto;
+  margin-left: auto;
+  font-weight: 400px;
+  
+}
+
+#drawNumBox input{
+  display: block;
+  position: relative;
+  margin-top: 5%;
+  margin-right: auto;
+  margin-left: auto;
+  color: white;
+  border: none;
+  -webkit-border-radius:15px;
+  -moz-border-radius:15px;
+  width: 40%;
+  height: 40px;
+  
+}
+
+#buttomLabel{
+  text-align: center;
+  background-color: #ccc;
+  height: 20%;
+}
+#buttomLabel p{
+  font-weight: 400;
+  position: relative;
+  padding-top: 5%;
+  
+}
+
+#info h2{
+  text-align: center;
+   font-size: 120%;
+}
+
+#info h3{
+  float:left;
+  margin: 20px;
+}
+
+h1,h2,h3,h4{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+#info, #queries{
+  display:none;
+}
+
+@media only screen
+and (max-width: 480px) { /* change to device width */
+  header{
+    width:100%;
+    border:1px solid red;
+  }
+
+  header h1{display:none;}
+
+
+}
+
+@media only screen
+and (min-width: 481px){
+
+}

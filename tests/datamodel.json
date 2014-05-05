@@ -1,29 +1,27 @@
-// Final Format
-[{
-	"name": "Myers",
-	"floors":[
-		{
-			"number":1,
-			"rooms":[
-				{
-					"size":4,
-					"subFree":false,
-					"quiet":false,
-					"onlyFemale":false,
-					"onlyMale":false,
-					"name":"113",
-					"chance":{
-						"mean":12.5,
-						"stdev":0.2,
-						"offset":0
-					},
-					"isDrawn":false
-				}
-			]
-		},
-		{
-			"number":2 //etc
-			//...
-		}
-	]
-}]
+Floors:
+{
+	"name":"Burton"
+}
+
+Floors:
+{
+	"number":1,
+	"dormID":"1234asdf"
+}
+
+Rooms:
+{
+	"name":"113",
+	"floorID":"asdfasdf",
+	"isDrawn":false,
+	"size":4,
+	"subFree":false,
+	"quiet":false,
+	"onlyFemale":false,
+	"onlyMale":false,
+	"chance":{
+		"mean":12.5,
+		"stdev":0.2,
+		"offset":0
+	}
+}

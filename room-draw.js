@@ -10,6 +10,7 @@ Router.map(function () {
 Dorms = new Meteor.Collection("dorms");
 Floors = new Meteor.Collection("floors");
 Rooms = new Meteor.Collection("rooms");
+DrawData = new Meteor.Collection("drawdata");
 
 if (Meteor.isClient) {
 
@@ -146,10 +147,18 @@ if (Meteor.isServer) {
     Dorms.remove({});
     Floors.remove({});
     Rooms.remove({});
+    DrawData.remove({});
 
     // Generate fake data for testing.
     if (Dorms.find().count() === 0) {
       insertSampleData();
+    }
+    if (DrawData.find().count() === 0) {
+      DrawData.insert({
+        "lastNum": 0,
+        "lastRoom": "",
+        "lastDorm": ""
+      })
     }
 
     // Use the actual JSON to load real data:

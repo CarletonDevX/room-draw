@@ -32,18 +32,20 @@
   <div id="info">
     <img class="logo" src=""/>
     <h2>No Drawma!</h2>
-    Welcome! We'll use historical data to let you know your chances of drawing into each dorm room.
+    <p>Welcome! We'll use historical data to let you know your chances of drawing into each dorm room.</p>
     <div id="drawNumBox">
       <label>My Draw Number is:</label>
       <input type="text" id="myNumber">
     </div>
-    <h3>Legend</h3>
-    <ol class="legend">
-      <li><span class="chance" style="background-color: #92ff0c">94</span>= likely</li>
-      <li><span class="chance" style="background-color: #ffda0c">57</span>= risky</li>
-      <li><span class="chance" style="background-color: #ff0c0c">13</span>= unlikely</li>
-      <li><span class="chance" style="background-color: gray">0</span>= taken</li>
-    </ol>
+    <div id="legendBox">
+      <h3>Key:</h3>
+      <ul class="legend">
+        <li><span class="chance" style="background-color: #92ff0c">94</span>= likely</li>
+        <li><span class="chance" style="background-color: #ffda0c">57</span>= risky</li>
+        <li><span class="chance" style="background-color: #ff0c0c">13</span>= unlikely</li>
+        <li><span class="chance" style="background-color: gray">0</span>= taken</li>
+      </ul>
+    </div>
     <button>Ok</button>
   </div>
 </template>

@@ -205,7 +205,7 @@ li.room {
    ...
  **********************/
 
-#info, #queries{
+#queries{
   display:none;
 }
 

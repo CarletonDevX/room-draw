@@ -97,7 +97,7 @@ function insertSampleData() {
           "quiet": Math.random() < 0.25,
           "onlyMale": Math.random() < 0.25,
           "onlyFemale": Math.random() < 0.25,
-          "chance": {}
+          "chance": {"mean": Math.random() * 100, "stddev": 1 + Math.random() * 3}
         });
       }
     }

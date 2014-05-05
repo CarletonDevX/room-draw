@@ -30,9 +30,10 @@ if (Meteor.isClient) {
   }
 
   Template.room.chanceCalc = function() {
-    // var vars = this.chance;
-    // var num =
-    return 0;
+    var vars = this.chance;
+    var num = parseInt(Session.get('clientDrawNumber')) || 0;
+    var p = normalProb(num, vars.mean, vars.stddev);
+    return Math.round((1-p)*100);
   }
   /*
    * Header info

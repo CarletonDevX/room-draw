@@ -14,7 +14,7 @@ body {
 }
 
 header {
-    height: 60px;
+    height: 72px;
 }
 
 header > div {
@@ -28,22 +28,23 @@ header .right { width: 50%; }
 
 header .logo {
     width: 100%;
-    height: 24px;
+    height: 28px;
     background-color: #ddd;
 }
 
 header .info {
     width: 100%;
-    height: 36px;
+    height: 44px;
     background-color: #eee;
     border-right: 6px solid white;
     box-sizing: border-box;
 }
 
 header h2 {
-    height: 24px;
-    line-height: 22px;
-    font-size: 12px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 13px;
+    font-weight: 500;
     vertical-align: center;
     background-color: #ddd;
     /*padding: 4px 4px 6px;*/
@@ -51,8 +52,9 @@ header h2 {
 }
 
 header h3 {
-    height: 36px;
-    font-size: 28px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 34px;
     background-color: #eee;
     margin-top: 0;
     border-left: 6px solid white;
@@ -69,7 +71,7 @@ header > div:last-child h3 span {
     /*font-weight: 300;*/
 }
 
-/*** Filter Box ***/
+/*** Query Box ***/
 
 #queryBox {
     width: 100%;
@@ -109,6 +111,7 @@ header > div:last-child h3 span {
     height: 48px;
     line-height: 48px;
     font-size: 28px;
+    font-weight: 300;
     vertical-align: center;
     background: #d9ffdb;
     color: #666;
@@ -170,7 +173,7 @@ header > div:last-child h3 span {
 ul.dorms{
     /* Position */
     position: absolute;
-    top: 140px; /* Sum size of header, queryBox, selectBox. */
+    top: 152px; /* Sum size of header, queryBox, selectBox. */
     bottom: 0;
     left: 0;
     width: 100%;

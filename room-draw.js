@@ -13,8 +13,6 @@ if (Meteor.isClient) {
     return DormData.find();
   }
 
-  Template.amain.dorms = Template.main.dorms;
-
   /*
    * Filter logic
    */

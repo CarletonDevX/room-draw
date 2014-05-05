@@ -1,10 +1,14 @@
 if (Meteor.isClient) {
-    Template.aroom.column = function() {
-        n = this.name % 100 - 1;
-        return "column" + Math.floor(n / 10) % 4 + 1;
-    }
-    Template.aroom.reset = function() {
-        n = this.name % 100 - 1;
-        return n % 10 == 0 && n > 0? "reset" : "";
-    }
+
+    Template.amain.dorms = function() {
+        return DormData.find();
+    };
+
+    Template.aroom.events({
+        'click input': function() {
+            console.log(this._id);
+            // DormData.update(this._id, {isDrawn: !this.isDrawn});
+        }
+    });
+
 }

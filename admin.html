@@ -1,0 +1,60 @@
+<head>
+    <title>No Drawma ADMIN</title>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,100' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    {{> main}}
+</body>
+
+<template name="main">
+  <ul class="dorms">
+    {{#each dorms}}
+      {{> dorm}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="dorm">
+  <li class="dorm">
+    <h4>{{name}}</h4>
+    <ul class="floors">
+      {{#each floors}}
+        {{> floor}}
+      {{/each}}
+    </ul>
+  </li>
+</template>
+
+<template name="floor">
+  <li class="floor">
+    <h4>Floor {{number}}</h4>
+    <ul class="rooms">
+      {{#each rooms}}
+        {{> room}}
+      {{/each}}
+    </ul>
+  </li>
+</template>
+
+<template name="room">
+  <li class="room {{column}} {{reset}}">
+    {{#if isDrawn}}
+        <input type="checkbox" checked>
+    {{else}}
+        <input type="checkbox">
+    {{/if}}
+    <label>Room {{name}} (occupancy: {{size}})</label>
+  </li>
+</template>
+
+
+
+
+
+
+
+
+

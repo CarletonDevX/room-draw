@@ -7,17 +7,21 @@
 </head>
 
 <body>
-	<div id="header">
-		<a href='/sign-out'> Sign Out </a>
-		<form action="demo_form.asp">
-		Draw Number: <input type="text" name="Draw Number"><br>
-		<button type="button">Up</button>
- 		<button type="button">Down</button>	
- 		<input type="submit" value="Submit">	
-		</form>
-	</div>
-    {{> amain}}
+  {{> aheader}}
+  {{> amain}}
 </body>
+</template>
+
+<template name="aheader">
+  <div id="header">
+    <a href='/sign-out'> Sign Out </a>
+    <form action="demo_form.asp">
+    Draw Number: <input type="text" value="{{lastNum}}" name="Draw Number"><br>
+    <button type="button">Up</button>
+    <button type="button">Down</button> 
+    <input type="submit" value="Submit">  
+    </form>
+  </div>
 </template>
 
 <template name="amain">
@@ -53,10 +57,10 @@
 <template name="aroom">
   <li class="aroom {{column}} {{reset}}">
     {{#if isDrawn}}
-        <input type="checkbox" id="{{id}}" checked>
+        <input type="checkbox" id="{{_id}}" checked>
     {{else}}
-        <input type="checkbox" id="{{id}}">
+        <input type="checkbox" id="{{_id}}">
     {{/if}}
-    <label for="{{id}}">Room {{name}} (occupancy: {{size}})</label>
+    <label for="{{_id}}">Room {{name}} (occupancy: {{size}})</label>
   </li>
 </template>

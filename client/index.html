@@ -2,7 +2,7 @@
 <head>
   <title>No Drawma</title>
   <meta name="viewport" content="initial-scale=1">
-  <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,100' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,300,200,100' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -18,12 +18,17 @@
 <template name="header">
   <header>
     <div class="left">
-      <img src="logo.png" />
+      <div class="logo"><img src="logo.png" /></div>
+      <div class="info"><img src="info.png" /></div>
       <h1>No Drawma</h1>
     </div>
     <div class="mid">
-      <h2>Last Room Drawn:</h2>
-      <h3>{{lastDorm}}&nbsp;{{lastRoom}} by #{{lastNum}}</h3>
+      <h2>Last number called:</h2>
+      <h3>{{lastNum}}</h3>
+    </div>
+    <div class="right">
+      <h2>Last room chosen:</h2>
+      <h3>{{lastDorm}}&nbsp;<span>{{lastRoom}}</span></h3>
     </div>
   </header>
 </template>
@@ -109,7 +114,6 @@
       Showing:
       <span id="query">
         <span id="queryLabel">&nbsp;{{queryLabel}}</span>
-        <span class="triangle">▼</span> 
       </span>
     </div>
   </div>
@@ -119,18 +123,16 @@
       <a id="dormLeft">〈</a>
     </div>
     <div class="mid">
+      <span class="triangle">▼</span>
       <select id="dormSelect">
         {{#each dorms}}
         <option value="{{index}}">{{name}}</option>
         {{/each}}
-      </select><!-- <span class="triangle">▼</span> -->
+      </select>
     </div>
     <div class="right">
       <a id="dormRight">〉</a>
     </div>
-  </div>
-
-  <div id="shadowBox">
   </div>
 
   <ul class="dorms">
@@ -153,7 +155,7 @@
 
 <template name="floor"><!--
 --><li class="floor">
-    <h4>{{ordinal}} Floor:</h4>
+    <h4>{{ordinal}} Floor&nbsp;:</h4>
     <ol class="rooms">
       {{#each rooms}}<!--
      -->{{> room}}<!--

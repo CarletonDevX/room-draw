@@ -1,14 +1,21 @@
 if (Meteor.isClient) {
 
-    Template.amain.dorms = function() {
-        return DormData.find();
-    };
+  Template.amain.dorms = function() {
+    return Dorms.find();
+  }
 
-    Template.aroom.events({
-        'click input': function() {
-            console.log(this._id);
-            // DormData.update(this._id, {isDrawn: !this.isDrawn});
-        }
-    });
+  Template.adorm.floors = function() {
+    return Floors.find({'dormID': this._id});
+  }
+
+  Template.afloor.rooms = function() {
+    return Rooms.find({'floorID': this._id});
+  }
+
+  Template.aroom.events({
+    'click input': function() {
+      Rooms.update(this._id, {$set: {isDrawn: !this.isDrawn}});
+    }
+  });
 
 }

@@ -72,12 +72,12 @@
 
       <!--Sub-free, either, not-->
       <h4>Substance-free floor?</h4>
-      <input type="radio" name="subfree" id="subfreeYes">
-      <label for="subfreeYes">Yes</label>
-      <input type="radio" name="subfree" id="subfreeNo">
-      <label for="subfreeNo">No</label>
-      <input type="radio" name="subfree" id="subfreeEither" checked="checked">
-      <label for="subfreeEither">Either</label>
+      <input type="radio" name="subFree" id="subFreeYes">
+      <label for="subFreeYes">Yes</label>
+      <input type="radio" name="subFree" id="subFreeNo">
+      <label for="subFreeNo">No</label>
+      <input type="radio" name="subFree" id="subFreeEither" checked="checked">
+      <label for="subFreeEither">Either</label>
 
 
       <!--Quiet, either, not-->
@@ -141,9 +141,9 @@
 <template name="room">
   <li class="room
         {{#if subFree}}
-        subfree
+        subFree
         {{else}}
-        notSubfree
+        notSubFree
         {{/if}}
         {{#if quiet}}
         quiet

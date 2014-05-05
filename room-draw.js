@@ -13,12 +13,22 @@ Router.map(function () {
 });
 
 // Collections
-DormData = new Meteor.Collection("dormdata");
+Dorms = new Meteor.Collection("dorms");
+Floors = new Meteor.Collection("floors");
+Rooms = new Meteor.Collection("rooms");
 
 if (Meteor.isClient) {
 
   Template.main.dorms = function() {
-    return DormData.find();
+    return Dorms.find();
+  }
+
+  Template.dorm.floors = function() {
+    return Floors.find({'dormID': this._id});
+  }
+
+  Template.floor.rooms = function() {
+    return Rooms.find({'floorID': this._id});
   }
 
   /*
@@ -101,64 +111,35 @@ AccountsEntry.config({
 
 /*
  * Test functions to insert sample data that can be used to
- * test the interfaces.
- *
- * A quarter of the rooms are randomly initialized as having
+ * test the interfaces. A quarter of the rooms are randomly initialized as having
  * been drawn.
- *
- * A dorm has a 25% chance of being a house. A floor has
- * a 25% chance of being sub-free as well as a 25% chance
- * of being a quiet floor and a 25% chance of being all female.
- *
- * A dorm has between 1 and 5 floors. A floor has between
- * 10 and 40 rooms.
- *
- * by Ken
  */
-
-function generateRooms(numRooms, floorNum) {
-  rooms = [];
-  for (var i = 0; i < numRooms; i++) {
-    size = Math.floor(Math.random() * 5) + 1;
-    room = {
-      "size": size,
-      "subFree": Math.random() < 0.25,
-      "quiet": Math.random() < 0.25,
-      "onlyFemale": Math.random() < 0.25,
-      "onlyMale": Math.random() < 0.25,
-      "name": floorNum * 100 + i + 1,
-      "chance": {},
-      "isDrawn": Math.random() < 0.25
-    }
-    rooms.push(room);
-  }
-  return rooms;
-}
-
-function generateFloors(numFloors) {
-  floors = [];
-  for (var i = 0; i < numFloors; i++) {
-    floor = {
-      "number": i + 1,
-      "rooms": generateRooms(Math.floor(Math.random() * 31) + 10, i + 1)
-    };
-    floors.push(floor);
-  }
-  return floors;
-}
-
-function generateFakeDorm(dormName) {
-  return {
-    "name": dormName,
-    "floors": generateFloors(Math.floor(Math.random() * 5) + 1)
-  };
-}
-
 function insertSampleData() {
-  if (DormData.find().count() === 0) {
-    fakeDormNames = ["Armenia", "Bulgaria", "Cyprus", "Denmark", "Estonia"];
-    for (i in fakeDormNames) {
-      DormData.insert(generateFakeDorm(fakeDormNames[i]));
+  fakeDormNames = ["Armenia", "Bulgaria", "Cyprus", "Denmark", "Estonia"];
+  for (i in fakeDormNames) {
+    var dormID = Dorms.insert({
+      "name": fakeDormNames[i]
+    });
+    var numFloors = Math.floor(Math.random() * 5) + 1;
+    for (var j = 0; j < numFloors; j++) {
+      var floorID = Floors.insert({
+        "number": j + 1,
+        "dormID": dormID
+      });
+      var numRooms = Math.floor(Math.random() * 31) + 10;
+      for (var k = 0; k < numRooms; k++) {
+        Rooms.insert({
+          "name": "" + ((j + 1) * 100 + k + 1),
+          "floorID": floorID,
+          "isDrawn": Math.random() < 0.25,
+          "size": Math.floor(Math.random() * 5) + 1,
+          "subFree": Math.random() < 0.25,
+          "quiet": Math.random() < 0.25,
+          "onlyMale": Math.random() < 0.25,
+          "onlyFemale": Math.random() < 0.25,
+          "chance": {}
+        });
+      }
     }
   }
 }
@@ -168,20 +149,24 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
 
     // Clear the database when the server starts up.
-    DormData.remove({});
+    Dorms.remove({});
+    Floors.remove({});
+    Rooms.remove({});
 
     // Generate fake data for testing.
-    // insertSampleData();
+    if (Dorms.find().count() === 0) {
+      insertSampleData();
+    }
 
     // Use the actual JSON to load real data:
-    if (DormData.find().count() === 0) {
-      var roomData = {};
-      // this comes from the file: /private/seed_room_data.json
-      roomData = JSON.parse(Assets.getText("seed_room_data.json"));
-      roomData.forEach(function (hall) {
-        DormData.insert(hall);
-      });
-    }
+    // if (DormData.find().count() === 0) {
+    //   var roomData = {};
+    //   // this comes from the file: /private/seed_room_data.json
+    //   roomData = JSON.parse(Assets.getText("seed_room_data.json"));
+    //   roomData.forEach(function (hall) {
+    //     DormData.insert(hall);
+    //   });
+    // }
     
 	AccountsEntry.config({
     signupCode: 's3cr3t',

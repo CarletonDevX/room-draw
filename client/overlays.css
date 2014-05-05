@@ -4,15 +4,17 @@
   background-color: #ececec;
   position: fixed;
   z-index: 2;
-  bottom: 0;
-  right: 0;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
   text-align: center;
   border: solid 20px rgba(0,0,0,.6);
+  background-clip: padding-box;
 }
 
 #info p{
+  font-size: 12px;
   text-align: justify;
   display: inline-block;
   margin: 0 10px; 
@@ -23,14 +25,13 @@
   text-align: center;
 }
 #info span.chance{
-  color: #000;
+  color: rgba(0,0,0,.6);
   border-radius: 50%;
-  border: solid 1px #444;
   padding: 2px;
   margin: 2px;
   width: 20px;
   height: 20px;
-  font-weight: 500;
+  font-weight: 300;
   display: inline-block;
   text-align: center;
 }
@@ -76,13 +77,11 @@
 }
 
 #drawNumBox label{
-  font-weight: bold;
+  font-weight: 400;
   display: block;
   position: relative;
-  margin-top: 5%;
-  margin-right: auto;
-  margin-left: auto;
-  font-weight: 400px;
+  margin-top: 8px;
+  font-size: 16px;
 }
 
 #drawNumBox input{
@@ -120,7 +119,10 @@
 
 #info h2{
   text-align: center;
-  font-size: 120%;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
 #legendBox{

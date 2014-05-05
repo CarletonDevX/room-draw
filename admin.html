@@ -16,7 +16,13 @@
   <div id="header">
     <a class="signout" href='/sign-out'> Sign Out </a>
     <div class="container">
-      Draw Number: <input type="text" value="{{lastNum}}" id="lastNum"><br>
+      <div>
+        Last Number:
+        <input type="text" value="{{lastNum}}" id="lastNum">
+      </div>
+      <div>
+        Last Room: {{lastDorm}} room {{lastRoom}}
+      </div>
       <button type="button" id="numUp">Up</button>
       <button type="button" id="numDown">Down</button> 
     </div>

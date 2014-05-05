@@ -30,8 +30,12 @@ ul
     text-align: center;
 }
 
-.container input {
-    margin-bottom: 1em;
+.container div {
+    margin-bottom: .25em;
+}
+
+.container button {
+    margin-top: 0.25em;
 }
 
 ul.arooms {

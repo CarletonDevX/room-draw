@@ -14,12 +14,21 @@ if (Meteor.isClient) {
 
   Template.aroom.events({
     'click input': function() {
-      Rooms.update(this._id, {$set: {isDrawn: !this.isDrawn}});
+      if (this.isDrawn) {
+        Rooms.update(this._id, {$set: {isDrawn: false}});
+      } else {
+        Rooms.update(this._id, {$set: {isDrawn: true}});
+        var dataID = DrawData.findOne()._id;
+        var floor = Floors.findOne({_id: this.floorID});
+        var dorm = Dorms.findOne({_id: floor.dormID});
+        DrawData.update(dataID, {$set: {lastDorm: dorm.name}});
+        DrawData.update(dataID, {$set: {lastRoom: this.name}});
+      }
     }
   });
 
   /*
-   * Last number drawn
+   * Last number drawn.
    */
 
   Template.aheader.lastNum = function() {
@@ -30,21 +39,41 @@ if (Meteor.isClient) {
 
   Template.aheader.events({
     'click button#numUp': function() {
-      var numID = DrawData.findOne()._id;
-      DrawData.update(numID, {$inc: {lastNum: 1}});
+      var dataID = DrawData.findOne()._id;
+      DrawData.update(dataID, {$inc: {lastNum: 1}});
     },
     'click button#numDown': function() {
-      var numID = DrawData.findOne()._id;
-      DrawData.update(numID, {$inc: {lastNum: -1}});
+      var dataID = DrawData.findOne()._id;
+      DrawData.update(dataID, {$inc: {lastNum: -1}});
     },
     'keypress input#lastNum': function(event) {
       if (event.charCode == 13) {
-        var numID = DrawData.findOne()._id;
+        var dataID = DrawData.findOne()._id;
         var newValue = parseInt($( '#lastNum' ).val());
-        DrawData.update(numID, {$set: {lastNum: newValue}});
+        DrawData.update(dataID, {$set: {lastNum: newValue}});
         $( '#lastNum' ).blur();
       }
     }
   });
+
+  /*
+   * Last dorm drawn.
+   */
+
+   Template.aheader.lastDorm = function() {
+    var obj = DrawData.findOne();
+    if (obj) return obj.lastDorm;
+    return "";
+  }
+
+  /*
+   * Last room drawn.
+   */
+
+  Template.aheader.lastRoom = function() {
+    var obj = DrawData.findOne();
+    if (obj) return obj.lastRoom;
+    return "";
+  }
 
 }

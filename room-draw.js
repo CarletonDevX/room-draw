@@ -47,12 +47,12 @@ if (Meteor.isClient) {
   /*
    * Header info
    */
-   Template.header.lastNum = function() {
+  Template.header.lastNum = function() {
     var obj = DrawData.findOne();
     if (obj) return obj.lastNum;
     return "";
-   }
-   Template.header.lastDorm = function() {
+  }
+  Template.header.lastDorm = function() {
     var obj = DrawData.findOne();
     if (obj) return obj.lastDorm;
     return "";
@@ -134,11 +134,11 @@ if (Meteor.isClient) {
       });
 
     }
-  })
-AccountsEntry.config({
-  showSignupCode: true
-});
+  });
 
+  AccountsEntry.config({
+    showSignupCode: true
+  });
 }
 
 /*
@@ -219,6 +219,7 @@ if (Meteor.isServer) {
     };
 
     // Use the actual JSON to load real data:
+<<<<<<< HEAD
     // if (DormData.find().count() === 0) {
     //   var roomData = {};
     //   // this comes from the file: /private/seed_room_data.json
@@ -232,6 +233,32 @@ if (Meteor.isServer) {
       signupCode: 's3cr3t'
     });
 
+=======
+    if (Dorms.find().count() === 0) {
+      var roomData = {};
+      // this comes from the file: /private/seed_room_data.json
+      roomData = JSON.parse(Assets.getText("seed_room_data.json"));
+      roomData.forEach(function (hall) {
+        var dormID = Dorms.insert({
+          "name": hall["name"]
+        });
+        hall["floors"].forEach(function (floor) {
+          var floorID = Floors.insert({
+            "number": floor["number"],
+            "dormID": dormID
+          });
+          floor["rooms"].forEach(function (room) {
+            room["floorID"] = floorID;
+            Rooms.insert(room);
+          });
+        });
+      });
+    }
+
+    AccountsEntry.config({
+      signupCode: 's3cr3t'
+    });
+>>>>>>> FETCH_HEAD
   });
 
 };

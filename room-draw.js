@@ -79,6 +79,9 @@ if (Meteor.isClient) {
 
     }
   })
+AccountsEntry.config({
+  showSignupCode: true
+});
 
 }
 
@@ -166,14 +169,22 @@ if (Meteor.isServer) {
       });
     }
     
-
+	AccountsEntry.config({
+    signupCode: 's3cr3t',
+    defaultProfile: {
+    	someDefault: 'default'
+    	}
+  	});
   });
 
 }
 
 Router.map(function () {
-  this.route('admin');
+  this.route('admin', {before: function() {return AccountsEntry.signInRequired(this);}
+  });
   this.route('home',{path: '/'});
+  //another option is typing /home
+  this.route('home');
 });
 /*Router.map(function () {
     this.route('admin', {

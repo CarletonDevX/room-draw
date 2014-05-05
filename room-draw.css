@@ -85,7 +85,7 @@ header h3 {
     line-height: 48px;
     font-size: 28px;
     vertical-align: center;
-    background: palegreen;
+    background: #d9ffdb;
 }
 
 #selectBox > div {
@@ -181,12 +181,6 @@ ul, ol {
     padding-left: 0;
 }
 
-ol.rooms {
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    -moz-column-count: 2; /* Firefox */
-    column-count: 2;
-}
-
 /**********************
    ...
  **********************/
@@ -200,7 +194,14 @@ and (max-width: 480px) { /* change to device width */
   header{
     width:100%;
   }
-  header h1{display:none;}
+  header h1{
+  	display:none;
+  }
+  ol.rooms {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+	}
 }
 
 @media only screen

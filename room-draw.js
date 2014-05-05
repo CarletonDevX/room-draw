@@ -13,6 +13,9 @@ Rooms = new Meteor.Collection("rooms");
 DrawData = new Meteor.Collection("drawdata");
 
 if (Meteor.isClient) {
+  Template.main.queryLabel = function() {
+    return "All rooms";
+  }
 
   Template.main.dorms = function() {
     return Dorms.find();
@@ -40,10 +43,11 @@ if (Meteor.isClient) {
     }
   }
 
-  Template.main.queryLabel = function() {
-    return "All rooms";
+  Template.room.chanceCalc = function() {
+    // var vars = this.chance;
+    // var num =
+    return 0;
   }
-
   /*
    * Header info
    */
@@ -196,7 +200,7 @@ if (Meteor.isServer) {
       }
     });
 
-    Rooms.allow({
+    DrawData.allow({
       'update': function(userId, docs, fields, modifier) {
         console.log(userId);
         if(userId) {

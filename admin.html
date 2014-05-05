@@ -1,5 +1,53 @@
-<template name='admin'>
+<template name="admin">
+  <head>
+    <title>No Drawma ADMIN</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
 <body>
-Welcome to the admin page
+    {{> amain}}
 </body>
+</template>
+
+<template name="amain">
+  <ul class="adorms">
+    {{#each dorms}}
+      {{> adorm}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="adorm">
+  <li class="adorm">
+    <h4>{{name}}</h4>
+    <ul class="afloors">
+      {{#each floors}}
+        {{> afloor}}
+      {{/each}}
+    </ul>
+  </li>
+</template>
+
+<template name="afloor">
+  <li class="afloor">
+    <h4>Floor {{number}}</h4>
+    <ul class="arooms">
+      {{#each rooms}}
+        {{> aroom}}
+      {{/each}}
+    </ul>
+  </li>
+</template>
+
+<template name="aroom">
+  <li class="aroom {{column}} {{reset}}">
+    {{#if isDrawn}}
+        <input type="checkbox" checked>
+    {{else}}
+        <input type="checkbox">
+    {{/if}}
+    <label>Room {{name}} (occupancy: {{size}})</label>
+  </li>
 </template>

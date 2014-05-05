@@ -1,4 +1,10 @@
-// Mongo collection for all the data.
+// Routing
+Router.map(function () {
+  this.route('admin');
+  this.route('home',{path: '/'});
+});
+
+// Collections
 DormData = new Meteor.Collection("dormdata");
 
 if (Meteor.isClient) {
@@ -178,6 +184,7 @@ if (Meteor.isServer) {
   });
 
 }
+<<<<<<< HEAD
 
 Router.map(function () {
   this.route('admin', {before: function() {return AccountsEntry.signInRequired(this);}
@@ -195,3 +202,5 @@ Router.map(function () {
     	}
 	}
 });*/
+=======
+>>>>>>> FETCH_HEAD

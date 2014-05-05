@@ -1,6 +1,5 @@
 h1, h2, h3, h4 {
-  font-family: 'Helvetica', 'Roboto', sans-serif;
-  font-weight: 400;
+    font-weight: 400;
 }
 
 /**********************
@@ -10,38 +9,64 @@ h1, h2, h3, h4 {
 /*** Header ***/
 
 body {
+    font-family: 'Roboto', sans-serif;
     background-color: white;
 }
 
 header {
-    height: 72px;
+    height: 60px;
 }
 
 header > div {
     height: 100%;
     float: left;
-}
-
-header .left {
-    width: 10%;
-}
-
-header .mid {
-    width: 80%;
     text-align: center;
 }
+header .left { width: 15%; }
+header .mid { width: 35%; }
+header .right { width: 50%; }
 
-h2 {
-    font-size: 12px;
+header .logo {
+    width: 100%;
+    height: 24px;
+    background-color: #ddd;
+}
+
+header .info {
+    width: 100%;
+    height: 36px;
+    background-color: #eee;
+    border-right: 6px solid white;
+    box-sizing: border-box;
 }
 
 header h2 {
-    margin-bottom: 6px;
+    height: 24px;
+    line-height: 22px;
+    font-size: 12px;
+    vertical-align: center;
+    background-color: #ddd;
+    /*padding: 4px 4px 6px;*/
+    margin: 0;
 }
 
 header h3 {
-    margin-top: 0;
+    height: 36px;
     font-size: 28px;
+    background-color: #eee;
+    margin-top: 0;
+    border-left: 6px solid white;
+    border-right: 6px solid white;
+}
+
+header > div:last-child h3 {
+    font-weight: 200;
+    color: #666;
+    border-right-color: #eee;
+}
+
+header > div:last-child h3 span {
+    /*font-weight: 300;*/
 }
 
 /*** Filter Box ***/
@@ -49,14 +74,14 @@ header h3 {
 #queryBox {
     width: 100%;
     height: 32px;
-    line-height: 22px;
+    line-height: 20px;
     font-size: 16px;
     text-align: center;
-    background-image: linear-gradient(
+    /*background-image: linear-gradient(
         #eee,
         #fff 15%,
         #fff 90%,
-        #f0f0f0);
+        #f0f0f0);*/
 }
 
 #queryThings {
@@ -86,6 +111,7 @@ header h3 {
     font-size: 28px;
     vertical-align: center;
     background: #d9ffdb;
+    color: #666;
     /* Disable selection */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -110,13 +136,12 @@ header h3 {
     cursor: pointer;
 }
 
-/*#selectBox .triangle {
+#selectBox .triangle {
+    font-size: 12px;
     position: relative;
-    left: -3em;
+    left: 22px;
     top: -2px;
-    font-size: 14px;
-    z-index:0;
-}*/
+}
 
 #selectBox select {
     background: none;
@@ -124,10 +149,10 @@ header h3 {
     border-radius: 0;
     text-align: center;
     cursor: pointer;
-    /*position:relative;*/
-    /*z-index:10;*/
-    /*padding-left: 1.5em;*/
-    /*padding-right:1em;*/
+    position: relative;
+    z-index: 1;
+    padding-left: 20px;
+    padding-right: 20px;
 
     /* Normalize/unstyle */
     appearance: none;
@@ -140,24 +165,16 @@ header h3 {
     display: none;
 }
 
-/*** Shadow Box ***/
-
-#shadowBox {
-    height: 24px;
-    background-image: linear-gradient(
-        #eee,
-        #fff 15%);
-}
-
 /*** Dorms ***/
 
 ul.dorms{
     /* Position */
     position: absolute;
-    top: 152px; /* Sum size of header, queryBox, selectBox. */
+    top: 140px; /* Sum size of header, queryBox, selectBox. */
     bottom: 0;
     left: 0;
     width: 100%;
+    margin: 0;
     /* Clear list style */
     padding: 0;
     list-style: none;
@@ -182,7 +199,7 @@ ul.dorms > li:first-child {
     margin-left: 0%;
 }
 
-/*** Floors and Rooms **/
+/*** Floors and rooms **/
 
 ol.floors, ol.rooms {
     padding: 0;
@@ -193,19 +210,54 @@ li.floor h4 {
     font-weight: bold;
     text-align: center;
     font-size: 18px;
+    margin-top: 14px;
+    margin-bottom: 0;
 }
 
 li.room {
     text-align: center;
     font-size: 18px;
-    line-height: 36px;
+}
+
+/*** Dorm view shadow ****/
+
+/**
+ * Based on scrolling shadows by @kizmarh and @leaverou
+ * Only works in browsers supporting background-attachment: local; & CSS gradients
+ * Degrades gracefully
+ */
+
+ul.dorms > li {
+    overflow: auto;
+    background:
+        /* Shadow covers */
+        linear-gradient(white 30%, rgba(255,255,255,0)),
+        linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+        
+        /* Shadows */
+        radial-gradient(50% 0, farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)),
+        radial-gradient(50% 100%,farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+    background:
+        /* Shadow covers */
+        linear-gradient(white 30%, rgba(255,255,255,0)),
+        linear-gradient(rgba(255,255,255,0), white 70%) 0 100%,
+        
+        /* Shadows */
+        radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.2), rgba(0,0,0,0)),
+        radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+    
+    /* Opera doesn't support this in the shorthand */
+    background-attachment: local, local, scroll, scroll;
 }
 
 /**********************
    ...
  **********************/
 
-#info, #queries{
+#queries{
   display:none;
 }
 

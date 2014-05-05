@@ -1,72 +1,70 @@
-body{
-  position:relative;
-  z-index:-100;
-}
-
 #info{
   font-family: 'Roboto',sans-serif;
-  font-weight:300;
-  background-color:#ececec; 
-  position:relative;
- z-index:-2;
+  font-weight: 300;
+  background-color: #ececec;
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  left: 0;
+  text-align: center;
+  border: solid 20px rgba(0,0,0,.6);
 }
 
-
-#info label{
-  text-align: center;
+#info p{
+  text-align: justify;
+  display: inline-block;
+  margin: 0 10px; 
 }
 
 #info h1{
-   font-size: 120%;  
-   text-align: center; 
+  font-size: 120%;
+  text-align: center;
 }
 #info span.chance{
-  color: rgba(0,0,0,.7);
+  color: #000;
   border-radius: 50%;
-  width:20px; 
-  height:20px;
+  border: solid 1px #444;
+  padding: 2px;
+  margin: 2px;
+  width: 20px;
+  height: 20px;
+  font-weight: 500;
   display: inline-block;
-}
-
-.key{
-  float:left;
-  margin-top: 10%;
-  width: 100px;
-  height: 100px;
-}
-
-#info ol{
-  list-style-type: none;
-
+  text-align: center;
 }
 
 #info button{
   display: block;
   position: relative;
-  left:30%;
+  left: 50%;
   background-color: #97f29b;
-  -moz-border-radius: 10px;
-  -webkit-border-radius:10px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
   font-weight: 100;
   border: none;
   width: 130px;
-  height:40px; 
+  margin-left: -65px;
+  height: 40px;
 }
 #info button:active {
-    top:3px;
+    top: 3px;
 }
 
 #info button:active, button:hover{
-  background-color:#8ee893;
+  background-color: #8ee893;
 }
 
 #info button::before{
   content: "";
   position: absolute;
-  -moz-border-radius: 10px;
-  -webkit-border-radius:10px;
-  left:0;
-  top:0;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  left: 0;
+  top: 0;
   width: 130px;
   height: 43px;
   background-color: #6ac86e;
@@ -74,7 +72,7 @@ body{
 }
 
 #info button:active::before{
-  display:none;
+  display: none;
 }
 
 #drawNumBox label{
@@ -85,22 +83,27 @@ body{
   margin-right: auto;
   margin-left: auto;
   font-weight: 400px;
-  
 }
 
 #drawNumBox input{
   display: block;
   position: relative;
-  margin-top: 5%;
+  margin-top: 5px;
+  padding: 8px;
   margin-right: auto;
   margin-left: auto;
-  color: white;
   border: none;
-  -webkit-border-radius:15px;
-  -moz-border-radius:15px;
-  width: 40%;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  width: 50%;
   height: 40px;
-  
+  font-weight: 400;
+  font-size: 38px;
+  text-align: center;
+}
+#drawNumBox input:focus{
+  box-shadow: inset 0 0 3px 3px #d8d8d8;
 }
 
 #buttomLabel{
@@ -117,36 +120,23 @@ body{
 
 #info h2{
   text-align: center;
-   font-size: 120%;
+  font-size: 120%;
 }
 
-#info h3{
-  float:left;
-  margin: 20px;
+#legendBox{
+  white-space: nowrap;
 }
-
-h1,h2,h3,h4{
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+#legendBox h3{
+  display: inline-block;
+  margin-top: 20px;
+  vertical-align: top;
+  padding-left: 20px;
 }
-
-#info, #queries{
-  display:none;
-}
-
-@media only screen
-and (max-width: 480px) { /* change to device width */
-  header{
-    width:100%;
-    border:1px solid red;
-  }
-
-  header h1{display:none;}
-
-
-}
-
-@media only screen
-and (min-width: 481px){
-
+#legendBox ul{
+  padding-left: 5px; 
+  vertical-align: top;
+  text-align: left;
+  display: inline-block;
+  list-style-type: none;
+  line-height: 1.2;
 }

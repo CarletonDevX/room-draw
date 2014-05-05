@@ -92,6 +92,8 @@ a {
  * Improve readability when focused and also mouse hovered in all browsers.
  */
 
+input,
+button,
 a:active,
 a:hover {
   outline: 0;

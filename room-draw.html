@@ -55,48 +55,52 @@
 <template name="query">
     <nav id="queries">
 
-      <!--Room size-->
       <h4>Room size</h4>
-      <input type="checkbox" id="roomSize1" checked="checked">
-      <label for="roomSize1">Single</label>
-      <input type="checkbox" id="roomSize2" checked="checked">
-      <label for="roomSize2">Double</label>
-      <input type="checkbox" id="roomSize3" checked="checked">
-      <label for="roomSize3">Triple</label>
-      <input type="checkbox" id="roomSize4" checked="checked">
-      <label for="roomSize4">Quad</label>
-      <input type="checkbox" id="roomSize5" checked="checked">
-      <label for="roomSize5">Quint</label>
+      <div id="check1">
+        <!--Room size-->
+        <input type="checkbox" id="roomSize1" checked="checked">
+        <label for="roomSize1">Single</label>
+        <input type="checkbox" id="roomSize2" checked="checked">
+        <label for="roomSize2">Double</label>
+        <input type="checkbox" id="roomSize3" checked="checked">
+        <label for="roomSize3">Triple</label>
+        <input type="checkbox" id="roomSize4" checked="checked">
+        <label for="roomSize4">Quad</label>
+        <input type="checkbox" id="roomSize5" checked="checked">
+        <label for="roomSize5">Quint</label>
+      </div>
 
+      <div id="check2">
+        <!--Sub-free, either, not-->
+        <h4>Substance-free floor?</h4>
+        <input type="radio" name="subFree" id="subFreeYes">
+        <label for="subFreeYes">Yes</label>
+        <input type="radio" name="subFree" id="subFreeNo">
+        <label for="subFreeNo">No</label>
+        <input type="radio" name="subFree" id="subFreeEither" checked="checked">
+        <label for="subFreeEither">Either</label>
 
-      <!--Sub-free, either, not-->
-      <h4>Substance-free floor?</h4>
-      <input type="radio" name="subFree" id="subFreeYes">
-      <label for="subFreeYes">Yes</label>
-      <input type="radio" name="subFree" id="subFreeNo">
-      <label for="subFreeNo">No</label>
-      <input type="radio" name="subFree" id="subFreeEither" checked="checked">
-      <label for="subFreeEither">Either</label>
-
-
-      <!--Quiet, either, not-->
-      <h4>Quiet floor?</h4>
-      <input type="radio" name="quiet" id="quietYes">
-      <label for="quietYes">Yes</label>
-      <input type="radio" name="quiet" id="quietNo">
-      <label for="quietNo">No</label>
-      <input type="radio" name="quiet" id="quietEither" checked="checked">
-      <label for="quietEither">Either</label>
+        <!--Quiet, either, not-->
+        <h4>Quiet floor?</h4>
+        <input type="radio" name="quiet" id="quietYes">
+        <label for="quietYes">Yes</label>
+        <input type="radio" name="quiet" id="quietNo">
+        <label for="quietNo">No</label>
+        <input type="radio" name="quiet" id="quietEither" checked="checked">
+        <label for="quietEither">Either</label>
+      </div>
 
       <h4>Other Stuff:</h4>
-      <!--Hide gender specific-->
-      <input type="checkbox" id="hideMale">
-      <label for="hideMale">Hide male only rooms</label>
-      <input type="checkbox" id="hideFemale">
-      <label for="hideFemale">Hide female only rooms</label>
-      <!--Hide taken rooms-->
-      <input type="checkbox" id="hideTaken">
-      <label for="hideTaken">Hide taken rooms</label>
+      <div id="check3">
+        <!--Hide gender specific-->
+        <input type="checkbox" id="hideMale">
+        <label for="hideMale">Hide male only rooms</label>
+        <input type="checkbox" id="hideFemale">
+        <label for="hideFemale">Hide female only rooms</label>
+        <!--Hide taken rooms-->
+        <input type="checkbox" id="hideTaken">
+        <label for="hideTaken">Hide taken rooms</label>
+      </div>
 
       <button id="go">Go!</button>
   </nav>
@@ -163,12 +167,3 @@
     {{name}} ({{size}})
   </li>
 </template>
-
-
-
-
-
-
-
-
-

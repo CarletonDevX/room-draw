@@ -140,21 +140,46 @@ header h3 {
     background-image: linear-gradient(
         #eee,
         #fff 15%);
-    margin-bottom: -24px;
 }
 
-/*** Dorm Box ***/
+/*** Dorms ***/
 
-#dormsBox {
-    width: 500%;
+ul.dorms{
+    /* Position */
+    position: absolute;
+    top: 152px; /* Sum size of header, queryBox, selectBox. */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Clear list style */
+    padding: 0;
+    list-style: none;
+    /* Overflow */
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
-.dormBox {
-    /*display: inline-block;*/
-    width: 20%;
-    position: relative;
-    float: left;
-    overflow: hidden;
+ul.dorms > li {
+    /* Postiion */
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+    display: inline-block;
+    /* Overflow */
+    overflow-y: auto;
+}
+
+ul.dorms > li:first-child {
+    margin-left: 0%;
+    background: yellow;
+}
+
+/*** Floors and Rooms **/
+
+ol.floors, ol.rooms {
+    padding: 0;
+    list-style: none;
 }
 
 li.floor h4 {
@@ -163,22 +188,10 @@ li.floor h4 {
     font-size: 18px;
 }
 
-ul.dorms {
-    margin: 0;
-}
-
-li.floor {
-    padding-bottom: 1em;
-}
-
 li.room {
     text-align: center;
     font-size: 18px;
     line-height: 36px;
-}
-
-ul, ol {
-    padding-left: 0;
 }
 
 /**********************

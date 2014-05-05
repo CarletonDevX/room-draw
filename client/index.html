@@ -133,41 +133,37 @@
   <div id="shadowBox">
   </div>
 
-  <div id="dormsBox">
-    <ul class="dorms">
-      {{#each dorms}}
-        {{> dorm}}
-      {{/each}}
-    </ul>
-  </div>
+  <ul class="dorms">
+    {{#each dorms}}<!--
+   -->{{> dorm}}<!--
+ -->{{/each}}
+  </ul>
 
 </template>
 
-<template name="dorm">
-  <div class="dormBox">
-    <li class="dorm">
-      <ol class="floors">
-        {{#each floors}}
-          {{> floor}}
-        {{/each}}
-      </ol>
-    </li>
-  </div>
-</template>
+<template name="dorm"><!--
+--><li class="dorm">
+    <ol class="floors">
+      {{#each floors}}<!--
+     -->{{> floor}}<!--
+   -->{{/each}}
+    </ol>
+  </li><!--
+--></template>
 
-<template name="floor">
-  <li class="floor">
+<template name="floor"><!--
+--><li class="floor">
     <h4>{{ordinal}} Floor:</h4>
     <ol class="rooms">
-      {{#each rooms}}
-        {{> room}}
-      {{/each}}
+      {{#each rooms}}<!--
+     -->{{> room}}<!--
+   -->{{/each}}
     </ol>
-  </li>
-</template>
+  </li><!--
+--></template>
 
-<template name="room">
-  <li class="room
+<template name="room"><!--
+--><li class="room
         {{#if subFree}}
         subFree
         {{else}}
@@ -190,5 +186,5 @@
         size{{size}}">
     <span class="chance" style="color:RGB({{chancesColor}})">{{chanceCalc}}</span>
     {{name}} ({{size}})
-  </li>
-</template>
+  </li><!--
+--></template>

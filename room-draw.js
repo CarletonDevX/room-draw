@@ -219,21 +219,6 @@ if (Meteor.isServer) {
     };
 
     // Use the actual JSON to load real data:
-<<<<<<< HEAD
-    // if (DormData.find().count() === 0) {
-    //   var roomData = {};
-    //   // this comes from the file: /private/seed_room_data.json
-    //   roomData = JSON.parse(Assets.getText("seed_room_data.json"));
-    //   roomData.forEach(function (hall) {
-    //     DormData.insert(hall);
-    //   });
-    // }
-    
-    AccountsEntry.config({
-      signupCode: 's3cr3t'
-    });
-
-=======
     if (Dorms.find().count() === 0) {
       var roomData = {};
       // this comes from the file: /private/seed_room_data.json
@@ -258,7 +243,6 @@ if (Meteor.isServer) {
     AccountsEntry.config({
       signupCode: 's3cr3t'
     });
->>>>>>> FETCH_HEAD
   });
 
 };

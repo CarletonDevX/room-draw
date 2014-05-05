@@ -35,11 +35,13 @@
 
 <template name="info">
   <div id="info">
-    <img class="logo" src=""/>
+    <div id="logobox">
+      <img class="logo" src="logo.png"/>
+    </div>
     <h2>No More Drawma.</h2>
-    <p>Welcome! We'll use historical data to let you know your chances of drawing into each dorm room.</p>
+    <p>De-stress your Carleton room draw experience! We'll use historical data to keep you updated on your chances.</p>
     <div id="drawNumBox">
-      <label>My Draw Number is:</label>
+      <label>My Number is:</label>
       <input type="text" id="myNumber">
     </div>
     <div id="legendBox">
@@ -51,7 +53,7 @@
         <li><span class="chance" style="background-color: #838383">0</span>= taken</li>
       </ul>
     </div>
-    <button>Ok</button>
+    <button>Got it.</button>
   </div>
 </template>
 

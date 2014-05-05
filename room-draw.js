@@ -1,6 +1,6 @@
 Router.map(function () {
-  this.route('admin', {onBeforeAction: function() {return AccountsEntry.signInRequired(this);}
-  });
+  this.route('admin',
+    {onBeforeAction: function() {return AccountsEntry.signInRequired(this);}});
   this.route('home',{path: '/'});
   //another option is typing /home
   this.route('home');
@@ -149,6 +149,26 @@ if (Meteor.isServer) {
     Rooms.remove({});
     DrawData.remove({});
 
+    Rooms.allow({
+      'update': function(userId, docs, fields, modifier) {
+        console.log(userId);
+        if(userId) {
+          return true;
+        }
+        return false;
+      }
+    });
+
+    Rooms.allow({
+      'update': function(userId, docs, fields, modifier) {
+        console.log(userId);
+        if(userId) {
+          return true;
+        }
+        return false;
+      }
+    });
+
     // Generate fake data for testing.
     if (Dorms.find().count() === 0) {
       insertSampleData();
@@ -172,10 +192,7 @@ if (Meteor.isServer) {
     // }
     
 	AccountsEntry.config({
-    signupCode: 's3cr3t',
-    defaultProfile: {
-    	someDefault: 'default'
-    	}
+    signupCode: 's3cr3t'
   	});
   });
 

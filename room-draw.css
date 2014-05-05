@@ -1,7 +1,25 @@
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+h1,h2,h3,h4{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
-.cur_num {
-    font-size: 4em;
+#info, #queries{
+  display:none;
+}
+
+@media only screen
+and (max-width: 480px) { /* change to device width */
+  header{
+    width:100%;
+    border:1px solid red;
+  }
+
+  header h1{display:none;}
+
+
+}
+
+@media only screen
+and (min-width: 481px){
+
 }

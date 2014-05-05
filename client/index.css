@@ -106,6 +106,10 @@ header h3 {
      width: 10%;
 }
 
+#selectBox a {
+    cursor: pointer;
+}
+
 /*#selectBox .triangle {
     position: relative;
     left: -3em;
@@ -171,6 +175,7 @@ ul.dorms > li {
 }
 
 ul.dorms > li:first-child {
+    transition: margin-left .5s ease;
     margin-left: 0%;
     background: yellow;
 }

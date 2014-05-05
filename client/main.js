@@ -4,7 +4,10 @@ if (Meteor.isClient) {
   }
 
   Template.main.dorms = function() {
-    return Dorms.find();
+    return Dorms.find({}, {sort: {'name': 1}}).map(function(dorm, index) {
+      dorm.index = index;
+      return dorm;
+    });
   }
 
   Template.dorm.floors = function() {
@@ -30,6 +33,7 @@ if (Meteor.isClient) {
   }
 
   Template.room.chanceCalc = function() {
+    return 0;
     var vars = this.chance;
     var num = parseInt(Session.get('clientDrawNumber')) || 0;
     var p = normalProb(num, vars.mean, vars.stddev);

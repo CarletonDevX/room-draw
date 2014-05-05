@@ -1,12 +1,37 @@
+.adorms {
+    margin-top: 8em;
+    margin-bottom: 4em;
+}
+
 ul
 {
     list-style: none;
 }
 
-#header{
-  right: 0;
-  top: 0;
-  position: fixed
+#header {
+    right: 0;
+    top: 0;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.85);
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding: 1em 0;
+}
+
+.signout {
+    float: right;
+    margin-right: 2em;
+}
+
+.container {
+    margin: 0 auto;
+    width: 600px;
+    padding: 0 2em;
+    text-align: center;
+}
+
+.container input {
+    margin-bottom: 1em;
 }
 
 ul.arooms {

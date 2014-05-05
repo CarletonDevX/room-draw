@@ -7,27 +7,19 @@
 </head>
 
 <body>
-	<div id="header">
-		<a href='/sign-out'> Sign Out </a>
-		<form action="demo_form.asp">
-		Draw Number: <input type="text" name="Draw Number"><br>
-		<button type="button">Up</button>
- 		<button type="button">Down</button>		
-		</form>
-	</div>
-    {{> amain}}
+  {{> aheader}}
+  {{> amain}}
 </body>
 </template>
 
 <template name="aheader">
   <div id="header">
-    <a href='/sign-out'> Sign Out </a>
-    <form action="demo_form.asp">
-    Draw Number: <input type="text" value="{{lastNum}}" name="Draw Number"><br>
-    <button type="button">Up</button>
-    <button type="button">Down</button> 
-    <input type="submit" value="Submit">  
-    </form>
+    <a class="signout" href='/sign-out'> Sign Out </a>
+    <div class="container">
+      Draw Number: <input type="text" value="{{lastNum}}" id="lastNum"><br>
+      <button type="button" id="numUp">Up</button>
+      <button type="button" id="numDown">Down</button> 
+    </div>
   </div>
 </template>
 

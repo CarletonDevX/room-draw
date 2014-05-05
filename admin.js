@@ -18,4 +18,33 @@ if (Meteor.isClient) {
     }
   });
 
+  /*
+   * Last number drawn
+   */
+
+  Template.aheader.lastNum = function() {
+    var obj = DrawData.findOne();
+    if (obj) return obj.lastNum;
+    return NaN;
+  }
+
+  Template.aheader.events({
+    'click button#numUp': function() {
+      var numID = DrawData.findOne()._id;
+      DrawData.update(numID, {$inc: {lastNum: 1}});
+    },
+    'click button#numDown': function() {
+      var numID = DrawData.findOne()._id;
+      DrawData.update(numID, {$inc: {lastNum: -1}});
+    },
+    'keypress input#lastNum': function(event) {
+      if (event.charCode == 13) {
+        var numID = DrawData.findOne()._id;
+        var newValue = parseInt($( '#lastNum' ).val());
+        DrawData.update(numID, {$set: {lastNum: newValue}});
+        $( '#lastNum' ).blur();
+      }
+    }
+  });
+
 }

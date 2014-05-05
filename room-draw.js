@@ -121,7 +121,7 @@ function insertSampleData() {
         "number": j + 1,
         "dormID": dormID
       });
-      var numRooms = Math.floor(Math.random() * 31) + 10;
+      var numRooms = Math.floor(Math.random() * 1) + 10;
       for (var k = 0; k < numRooms; k++) {
         Rooms.insert({
           "name": "" + ((j + 1) * 100 + k + 1),

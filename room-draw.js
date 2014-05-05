@@ -1,5 +1,5 @@
 Router.map(function () {
-  this.route('admin', {before: function() {return AccountsEntry.signInRequired(this);}
+  this.route('admin', {onBeforeAction: function() {return AccountsEntry.signInRequired(this);}
   });
   this.route('home',{path: '/'});
   //another option is typing /home

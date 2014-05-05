@@ -53,10 +53,10 @@
 <template name="aroom">
   <li class="aroom {{column}} {{reset}}">
     {{#if isDrawn}}
-        <input type="checkbox" checked>
+        <input type="checkbox" id="{{id}}" checked>
     {{else}}
-        <input type="checkbox">
+        <input type="checkbox" id="{{id}}">
     {{/if}}
-    <label>Room {{name}} (occupancy: {{size}})</label>
+    <label for="{{id}}">Room {{name}} (occupancy: {{size}})</label>
   </li>
 </template>

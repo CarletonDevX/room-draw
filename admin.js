@@ -18,4 +18,8 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.aroom.id = function() {
+    this._id.substring(6);
+  }
+
 }

@@ -14,3 +14,11 @@ ul.arooms {
     -moz-column-count:3; /* Firefox */
     column-count:3;
 }
+
+li.aroom {
+    transition: color 0.1s ease;
+}
+
+li.aroom:hover {
+    color: darkred;
+}

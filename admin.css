@@ -3,6 +3,12 @@ ul
     list-style: none;
 }
 
+#header{
+  right: 0;
+  top: 0;
+  position: fixed
+}
+
 ul.arooms {
     -webkit-column-count:3; /* Chrome, Safari, Opera */
     -moz-column-count:3; /* Firefox */

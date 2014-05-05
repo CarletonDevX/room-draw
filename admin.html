@@ -7,9 +7,14 @@
 </head>
 
 <body>
-	<a href='/sign-out'> Sign Out </a>
+	<div id="header">
+		<a href='/sign-out'> Sign Out </a>
+		<form action="demo_form.asp">
+		Room: <input type="text" name="Room"><br>
+		<input type="submit" value="Submit">
+		</form>
+	</div>
     {{> amain}}
-    <a href='/sign-out'> Sign Out </a>
 </body>
 </template>
 

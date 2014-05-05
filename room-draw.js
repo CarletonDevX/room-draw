@@ -1,4 +1,10 @@
-// Mongo collection for all the data.
+// Routing
+Router.map(function () {
+  this.route('admin');
+  this.route('home',{path: '/'});
+});
+
+// Collections
 DormData = new Meteor.Collection("dormdata");
 
 if (Meteor.isClient) {
@@ -6,6 +12,8 @@ if (Meteor.isClient) {
   Template.main.dorms = function() {
     return DormData.find();
   }
+
+  Template.amain.dorms = Template.main.dorms;
 
   /*
    * Filter logic
@@ -170,17 +178,3 @@ if (Meteor.isServer) {
   });
 
 }
-
-Router.map(function () {
-  this.route('admin');
-  this.route('home',{path: '/'});
-});
-/*Router.map(function () {
-    this.route('admin', {
-        path: '/admin',
-
-        before: function () {
-            AccountsEntry.signInRequired(this)
-    	}
-	}
-});*/

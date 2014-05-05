@@ -1,4 +1,5 @@
-<head>
+<template name="admin">
+  <head>
     <title>No Drawma ADMIN</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,100' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="normalize.css">
@@ -6,41 +7,42 @@
 </head>
 
 <body>
-    {{> main}}
+    {{> amain}}
 </body>
+</template>
 
-<template name="main">
-  <ul class="dorms">
+<template name="amain">
+  <ul class="adorms">
     {{#each dorms}}
-      {{> dorm}}
+      {{> adorm}}
     {{/each}}
   </ul>
 </template>
 
-<template name="dorm">
-  <li class="dorm">
+<template name="adorm">
+  <li class="adorm">
     <h4>{{name}}</h4>
-    <ul class="floors">
+    <ul class="afloors">
       {{#each floors}}
-        {{> floor}}
+        {{> afloor}}
       {{/each}}
     </ul>
   </li>
 </template>
 
-<template name="floor">
-  <li class="floor">
+<template name="afloor">
+  <li class="afloor">
     <h4>Floor {{number}}</h4>
-    <ul class="rooms">
+    <ul class="arooms">
       {{#each rooms}}
-        {{> room}}
+        {{> aroom}}
       {{/each}}
     </ul>
   </li>
 </template>
 
-<template name="room">
-  <li class="room {{column}} {{reset}}">
+<template name="aroom">
+  <li class="aroom {{column}} {{reset}}">
     {{#if isDrawn}}
         <input type="checkbox" checked>
     {{else}}

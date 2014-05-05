@@ -1,5 +1,5 @@
 h1, h2, h3, h4 {
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Helvetica', 'Roboto', sans-serif;
   font-weight: 400;
 }
 
@@ -86,27 +86,27 @@ header h3 {
     font-size: 28px;
     vertical-align: center;
     background: #d9ffdb;
+    /* Disable selection */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #selectBox > div {
     height: 100%;
+    text-align: center;
     float: left;
 }
-
-#selectBox .left {
-    width: 10%;
-}
-
-#selectBox .mid {
-    text-align: center;
-    width: 80%;
-}
-
-#selectBox .right {
-     width: 10%;
-}
+#selectBox .left { width: 18%; }
+#selectBox .mid { width: 64%; }
+#selectBox .right { width: 18%; }
 
 #selectBox a {
+    display: inline-block;
+    width: 100%;
     cursor: pointer;
 }
 
@@ -122,14 +122,17 @@ header h3 {
     background: none;
     border: none;
     border-radius: 0;
+    text-align: center;
+    cursor: pointer;
     /*position:relative;*/
     /*z-index:10;*/
+    /*padding-left: 1.5em;*/
+    /*padding-right:1em;*/
+
+    /* Normalize/unstyle */
     appearance: none;
     -moz-appearance: window;
     -webkit-appearance: none;
-    /*padding-left: 1.5em;*/
-    /*padding-right:1em;*/
-    cursor: pointer;
 }
 
 /* Internet Explorer bs */
@@ -177,7 +180,6 @@ ul.dorms > li {
 ul.dorms > li:first-child {
     transition: margin-left .5s ease;
     margin-left: 0%;
-    background: yellow;
 }
 
 /*** Floors and Rooms **/

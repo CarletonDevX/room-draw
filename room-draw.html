@@ -17,17 +17,13 @@
 
 <template name="header">
   <header>
-    <div id="about">
+    <div class="left">
       <img src="logo.png" />
       <h1>No Drawma</h1>
     </div>
-    <div id="lastNum">
-      <h2>Last Number Called</h2>
-      {{lastNum}}
-    </div>
-    <div id="lastRoom">
-      <h2>Last Room Drawn</h2>
-      {{lastRoom}}
+    <div class="mid">
+      <h2>Last Room Drawn:</h2>
+      <h3>{{lastDorm}}&nbsp;{{lastRoom}} by {{lastNum}}</h3>
     </div>
   </header>
 </template>
@@ -107,32 +103,61 @@
 </template>
 
 <template name="main">
-  <select id="dormSelect">
-    {{#each dorms}}
-    <option value="{{name}}">{{name}}</option>
-    {{/each}}
-  </select>
-  <ul class="dorms">
-    {{#each dorms}}
-      {{> dorm}}
-    {{/each}}
-  </ul>
+
+  <div id="queryBox">
+    <div id="queryThings">
+      Showing:
+      <span id="query">
+        <span id="queryLabel">&nbsp;{{queryLabel}}</span>
+        <span class="triangle">▼</span> 
+      </span>
+    </div>
+  </div>
+
+  <div id="selectBox">
+    <div class="left">
+      <span>〈</span>
+    </div>
+    <div class="mid">
+      <select id="dormSelect">
+        {{#each dorms}}
+        <option value="{{name}}">{{name}}</option>
+        {{/each}}
+      </select><!-- <span class="triangle">▼</span> -->
+    </div>
+    <div class="right">
+      <span>〉</span>
+    </div>
+  </div>
+
+  <div id="shadowBox">
+  </div>
+
+  <div id="dormsBox">
+    <ul class="dorms">
+      {{#each dorms}}
+        {{> dorm}}
+      {{/each}}
+    </ul>
+  </div>
+
 </template>
 
 <template name="dorm">
-  <li class="dorm">
-    <h4>{{name}}</h4>
-    <ol class="floors">
-      {{#each floors}}
-        {{> floor}}
-      {{/each}}
-    </ol>
-  </li>
+  <div class="dormBox">
+    <li class="dorm">
+      <ol class="floors">
+        {{#each floors}}
+          {{> floor}}
+        {{/each}}
+      </ol>
+    </li>
+  </div>
 </template>
 
 <template name="floor">
   <li class="floor">
-    <h4>{{name}}</h4>
+    <h4>{{ordinal}} Floor:</h4>
     <ol class="rooms">
       {{#each rooms}}
         {{> room}}

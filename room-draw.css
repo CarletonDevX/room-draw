@@ -1,7 +1,195 @@
-h1,h2,h3,h4{
-  font-family: 'Roboto', sans-serif;
+h1, h2, h3, h4 {
+  font-family: 'Helvetica', sans-serif;
   font-weight: 400;
 }
+
+/**********************
+   Main View
+ **********************/
+
+/*** Header ***/
+
+body {
+    background-color: white;
+}
+
+header {
+    height: 72px;
+}
+
+header > div {
+    height: 100%;
+    float: left;
+}
+
+header .left {
+    width: 10%;
+}
+
+header .mid {
+    width: 80%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 12px;
+}
+
+header h2 {
+    margin-bottom: 6px;
+}
+
+header h3 {
+    margin-top: 0;
+    font-size: 28px;
+}
+
+/*** Filter Box ***/
+
+#queryBox {
+    width: 100%;
+    height: 32px;
+    line-height: 22px;
+    font-size: 16px;
+    text-align: center;
+    background-image: linear-gradient(
+        #eee,
+        #fff 15%,
+        #fff 90%,
+        #f0f0f0);
+}
+
+#queryThings {
+    position: relative;
+    top: 4px;
+}
+
+#queryLabel {
+    text-align: left;
+    display: inline-block;
+    width: 50%;
+    border-bottom: 1px solid black;
+}
+
+#query .triangle {
+    position: relative;
+    font-size: 12px;
+    left: -1.5em;
+}
+
+/*** Select Box ***/
+
+#selectBox {
+    width: 100%;
+    height: 48px;
+    line-height: 48px;
+    font-size: 28px;
+    vertical-align: center;
+    background: palegreen;
+}
+
+#selectBox > div {
+    height: 100%;
+    float: left;
+}
+
+#selectBox .left {
+    width: 10%;
+}
+
+#selectBox .mid {
+    text-align: center;
+    width: 80%;
+}
+
+#selectBox .right {
+     width: 10%;
+}
+
+/*#selectBox .triangle {
+    position: relative;
+    left: -3em;
+    top: -2px;
+    font-size: 14px;
+    z-index:0;
+}*/
+
+#selectBox select {
+    background: none;
+    border: none;
+    border-radius: 0;
+    /*position:relative;*/
+    /*z-index:10;*/
+    appearance: none;
+    -moz-appearance: window;
+    -webkit-appearance: none;
+    /*padding-left: 1.5em;*/
+    /*padding-right:1em;*/
+    cursor: pointer;
+}
+
+/* Internet Explorer bs */
+#selectBox select::-ms-expand {
+    display: none;
+}
+
+/*** Shadow Box ***/
+
+#shadowBox {
+    height: 24px;
+    background-image: linear-gradient(
+        #eee,
+        #fff 15%);
+    margin-bottom: -24px;
+}
+
+/*** Dorm Box ***/
+
+#dormsBox {
+    width: 500%;
+}
+
+.dormBox {
+    /*display: inline-block;*/
+    width: 20%;
+    position: relative;
+    float: left;
+    overflow: hidden;
+}
+
+li.floor h4 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+}
+
+ul.dorms {
+    margin: 0;
+}
+
+li.floor {
+    padding-bottom: 1em;
+}
+
+li.room {
+    text-align: center;
+    font-size: 18px;
+    line-height: 36px;
+}
+
+ul, ol {
+    padding-left: 0;
+}
+
+ol.rooms {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}
+
+/**********************
+   ...
+ **********************/
 
 #info, #queries{
   display:none;
@@ -11,12 +199,8 @@ h1,h2,h3,h4{
 and (max-width: 480px) { /* change to device width */
   header{
     width:100%;
-    border:1px solid red;
   }
-
   header h1{display:none;}
-
-
 }
 
 @media only screen

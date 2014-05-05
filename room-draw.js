@@ -26,6 +26,43 @@ if (Meteor.isClient) {
     return Rooms.find({'floorID': this._id});
   }
 
+  Template.floor.ordinal = function() {
+    var n = this.number;
+    switch(n) {
+      case 1:
+        return '1st';
+      case 2:
+        return '2nd';
+      case 3:
+        return '3rd';
+      default:
+        return n + 'th';
+    }
+  }
+
+  Template.main.queryLabel = function() {
+    return "All rooms";
+  }
+
+  /*
+   * Header info
+   */
+   Template.header.lastNum = function() {
+    var obj = DrawData.findOne();
+    if (obj) return obj.lastNum;
+    return "";
+   }
+   Template.header.lastDorm = function() {
+    var obj = DrawData.findOne();
+    if (obj) return obj.lastDorm;
+    return "";
+  }
+  Template.header.lastRoom = function() {
+    var obj = DrawData.findOne();
+    if (obj) return obj.lastRoom;
+    return "";
+  }
+
   /*
    * Filter logic
    */
@@ -175,9 +212,9 @@ if (Meteor.isServer) {
     }
     if (DrawData.find().count() === 0) {
       DrawData.insert({
-        "lastNum": 0,
-        "lastDorm": "<none>",
-        "lastRoom": "<none>"
+        "lastNum": 2314,
+        "lastDorm": "James",
+        "lastRoom": "213"
       })
     }
 

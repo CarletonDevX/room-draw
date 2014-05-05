@@ -1,3 +1,11 @@
+Router.map(function () {
+  this.route('admin', {before: function() {return AccountsEntry.signInRequired(this);}
+  });
+  this.route('home',{path: '/'});
+  //another option is typing /home
+  this.route('home');
+});
+
 // Routing
 Router.map(function () {
   this.route('admin');
@@ -184,23 +192,3 @@ if (Meteor.isServer) {
   });
 
 }
-<<<<<<< HEAD
-
-Router.map(function () {
-  this.route('admin', {before: function() {return AccountsEntry.signInRequired(this);}
-  });
-  this.route('home',{path: '/'});
-  //another option is typing /home
-  this.route('home');
-});
-/*Router.map(function () {
-    this.route('admin', {
-        path: '/admin',
-
-        before: function () {
-            AccountsEntry.signInRequired(this)
-    	}
-	}
-});*/
-=======
->>>>>>> FETCH_HEAD

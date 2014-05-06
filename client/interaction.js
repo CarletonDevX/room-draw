@@ -63,7 +63,7 @@ if (Meteor.isClient) {
    **************************************/
 
   Template.query.events({
-    'click button': function() {
+    'click button:not(.cancel)': function() {
       $('#queries').hide();
       hideClasses = []
 

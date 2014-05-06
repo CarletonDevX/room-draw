@@ -23,7 +23,7 @@
       <h1>No Drawma</h1>
     </div>
     <div class="mid">
-      <h2>Last number called:</h2>
+      <h2>Last draw #:</h2>
       <h3>{{lastNum}}</h3>
     </div>
     <div class="right">
@@ -34,81 +34,115 @@
 </template>
 
 <template name="info">
-  <div id="info" class="overlay">
-    <div id="logobox">
-      <img class="logo" src="logo.png"/>
+  <div id="info" class="modalbox">
+
+    <div class="header">
+      <img class="logo" src="logo.png" />
     </div>
-    <h2>No More Drawma.</h2>
-    <p>De-stress your Carleton room draw experience! We'll use historical data to keep you updated on your chances.</p>
-    <div id="drawNumBox">
-      <label>My Number is:</label>
-      <input type="text" id="myNumber">
+
+    <div class="contentbox">
+      <div class="content">
+        <h2>No More Drawma.</h2>
+        <p>De-stress your Carleton room draw experience! We'll use historical data to keep you updated on your chances.</p>
+        <div id="drawNumBox">
+          <label>My Number is:</label>
+          <input type="text" id="myNumber">
+        </div>
+        <div id="legendBox">
+          <h3>Key:</h3>
+          <ul class="legend">
+            <li><span class="chance" style="background-color: #b2f67c">94</span>= Likely</li>
+            <li><span class="chance" style="background-color: #f6e77c">57</span>= Risky</li>
+            <li><span class="chance" style="background-color: #f67c7c">13</span>= Unlikely</li>
+            <li><span class="chance" style="background-color: #838383">0</span>= Taken</li>
+          </ul>
+        </div>
+        <button class="pushme">Got it.</button>
+        <div id="credits">
+          This is a Carleton DevX project. <a href="/credits">Credits</a>
+        </div>
+      </div>
     </div>
-    <div id="legendBox">
-      <h3>Key:</h3>
-      <ul class="legend">
-        <li><span class="chance" style="background-color: #b2f67c">94</span>= likely</li>
-        <li><span class="chance" style="background-color: #f6e77c">57</span>= risky</li>
-        <li><span class="chance" style="background-color: #f67c7c">13</span>= unlikely</li>
-        <li><span class="chance" style="background-color: #838383">0</span>= taken</li>
-      </ul>
-    </div>
-    <button>Got it.</button>
   </div>
+
 </template>
 
 <template name="query">
-    <nav id="queries" class="overlay">
+  <div id="queries" class="modalbox">
 
-      <h4>Room size</h4>
-      <div id="check1">
-        <!--Room size-->
-        <input type="checkbox" id="roomSize1" checked="checked">
-        <label for="roomSize1">Single</label>
-        <input type="checkbox" id="roomSize2" checked="checked">
-        <label for="roomSize2">Double</label>
-        <input type="checkbox" id="roomSize3" checked="checked">
-        <label for="roomSize3">Triple</label>
-        <input type="checkbox" id="roomSize4" checked="checked">
-        <label for="roomSize4">Quad</label>
-        <input type="checkbox" id="roomSize5" checked="checked">
-        <label for="roomSize5">Quint</label>
+    <div class="header">
+      <h2>Filter Rooms</h2>
+    </div>
+
+    <div class="contentbox">
+
+      <div class="content">
+        <h4>Room/suite size:</h4>
+        <div id="check1">
+          <!--Room size-->
+          <input type="checkbox" id="roomSize1" checked
+         ><label class="pushme" for="roomSize1">Single</label
+         ><input type="checkbox" id="roomSize2" checked
+         ><label class="pushme" for="roomSize2">Double</label
+         ><input type="checkbox" id="roomSize3" checked
+         ><label class="pushme" for="roomSize3">Triple</label
+         ><input type="checkbox" id="roomSize4" checked
+         ><label class="pushme" for="roomSize4">Quad</label
+         ><input type="checkbox" id="roomSize5" checked
+         ><label class="pushme" for="roomSize5">Quint</label>
+        </div>
+
+        <div id="check2">
+          <div>
+            <!--Sub-free, either, not-->
+            <h4>Substance-free floor?</h4>
+            <input type="radio" name="subFree" id="subFreeYes"
+           ><label class="pushme" for="subFreeYes">Yes</label
+           ><input type="radio" name="subFree" id="subFreeNo"
+           ><label class="pushme" for="subFreeNo">No</label
+           ><input type="radio" name="subFree" id="subFreeEither" checked="checked"
+           ><label class="pushme" for="subFreeEither">Either</label>
+          </div>
+
+          <div>
+            <!--Quiet, either, not-->
+            <h4>Quiet floor?</h4>
+            <input type="radio" name="quiet" id="quietYes"
+           ><label class="pushme" for="quietYes">Yes</label
+           ><input type="radio" name="quiet" id="quietNo"
+           ><label class="pushme" for="quietNo">No</label
+           ><input type="radio" name="quiet" id="quietEither" checked="checked"
+           ><label class="pushme" for="quietEither">Either</label>
+          </div>
+        </div>
+
+        <h4>Other stuff:</h4>
+        <div id="check3">
+          <!--Hide gender specific-->
+          <div class="checkwrap">
+            <input type="checkbox" id="hideMale">
+            <label for="hideMale">Hide male-only rooms</label>
+          </div>
+          <div class="checkwrap">
+            <input type="checkbox" id="hideFemale">
+            <label for="hideFemale">Hide female-only rooms</label>
+          </div>
+          <!--Hide taken rooms-->
+          <div class="checkwrap">
+            <input type="checkbox" id="hideTaken">
+            <label for="hideTaken">Hide taken rooms</label>
+          </div>
+        </div>
       </div>
 
-      <div id="check2">
-        <!--Sub-free, either, not-->
-        <h4>Substance-free floor?</h4>
-        <input type="radio" name="subFree" id="subFreeYes">
-        <label for="subFreeYes">Yes</label>
-        <input type="radio" name="subFree" id="subFreeNo">
-        <label for="subFreeNo">No</label>
-        <input type="radio" name="subFree" id="subFreeEither" checked="checked">
-        <label for="subFreeEither">Either</label>
-
-        <!--Quiet, either, not-->
-        <h4>Quiet floor?</h4>
-        <input type="radio" name="quiet" id="quietYes">
-        <label for="quietYes">Yes</label>
-        <input type="radio" name="quiet" id="quietNo">
-        <label for="quietNo">No</label>
-        <input type="radio" name="quiet" id="quietEither" checked="checked">
-        <label for="quietEither">Either</label>
+      <div class="footer">
+        <button class="pushme cancel">Cancel</button
+       ><button class="pushme">Go!</button>
       </div>
 
-      <h4>Other Stuff:</h4>
-      <div id="check3">
-        <!--Hide gender specific-->
-        <input type="checkbox" id="hideMale">
-        <label for="hideMale">Hide male-only rooms</label>
-        <input type="checkbox" id="hideFemale">
-        <label for="hideFemale">Hide female-only rooms</label>
-        <!--Hide taken rooms-->
-        <input type="checkbox" id="hideTaken">
-        <label for="hideTaken">Hide rooms that are already taken</label>
-      </div>
+    </div>
 
-      <button>Apply filter</button>
-  </nav>
+  </div>
 </template>
 
 <template name="main">

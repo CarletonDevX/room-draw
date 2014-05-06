@@ -1,66 +1,92 @@
-.overlay {
-  font-family: 'Roboto',sans-serif;
-  font-weight: 300;
-  background-color: #ececec;
+/*
+ * Joe's magic modal
+ */
+
+div.modalbox {
   position: fixed;
-  z-index: 2;
   top: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
   right: 0;
-  text-align: center;
-  border: solid 20px rgba(0, 0, 0, .6);
-  background-clip: padding-box;
 }
 
-#info p{
-  font-size: 12px;
-  text-align: justify;
-  display: inline-block;
-  margin: 0 16px;
-  line-height: 1.1;
+div.header {
+  position: absolute;
+  top: 25px;
+  height: 40px;
+  left: 25px;
+  right: 25px;
+}
+div.contentbox {
+  position: absolute;
+  left: 25px;
+  top: 65px; /* Set to padding + header height */
+  right: 25px;
+  bottom: 25px; /* Set to padding + footer height */
+  overflow: visible;
 }
 
-#info h1{
-  font-size: 120%;
-  text-align: center;
+div.content {
+  overflow-y: auto;
+  max-height: 100%;
 }
-#info span.chance{
-  color: rgba(0,0,0,.6);
-  border-radius: 50%;
-  padding: 2px;
-  margin: 2px;
-  width: 20px;
-  height: 20px;
+
+div.footer {
+  width: 100%;
+}
+
+/*
+ * General modal styling
+ */
+
+.modalbox {
+  font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  display: inline-block;
-  text-align: center;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-.overlay button {
-  display: block;
+.modalbox .header {
+  background-color: #fff;
+}
+
+.modalbox .content {
+  background-color: #ececec;
+}
+
+/*
+ * Fancy buttons
+ */
+
+.modalbox button.pushme {
+  display: inline-block;
+  text-align: center;
+  font-weight: 400;
+  background: none;
+}
+
+.modalbox .pushme {
   position: relative;
-  left: 50%;
-  background-color: #97f29b;
+  padding: 10px 40px;
+  border: none;
   -moz-border-radius: 8px;
   -webkit-border-radius: 8px;
   border-radius: 8px;
   font-weight: 100;
-  border: none;
-  width: 130px;
-  margin-left: -65px;
-  height: 40px;
-}
-.overlay button:active {
-    top: 3px;
+  cursor: pointer;
+  z-index: 3;
 }
 
-.overlay button:active,
-.overlay button:hover{
+.modalbox .pushme:active::after {
+    top: 2px;
+}
+
+.modalbox .pushme:active::after,
+.modalbox .pushme:hover::after{
   background-color: #8ee893;
 }
 
-.overlay button::before{
+.modalbox .pushme::after {
   content: "";
   position: absolute;
   -moz-border-radius: 8px;
@@ -68,14 +94,88 @@
   border-radius: 8px;
   left: 0;
   top: 0;
-  width: 130px;
-  height: 42px;
-  background-color: #6ac86e;
+  width: 100%;
+  height: 100%;
+  background-color: #97f29b;
   z-index: -1;
 }
 
-.overlay button:active::before{
-  display: none;
+.modalbox .pushme::before {
+  content: "";
+  position: absolute;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  left: 0;
+  top: 2px;
+  width: 100%;
+  height: 100%;
+  background-color: #6ac86e;
+  z-index: -2;
+}
+
+.modalbox .pushme:active::before{
+  /*display: none;*/
+}
+
+/*
+ * Info modal
+ */
+
+#info {
+  text-align: center;
+}
+
+#info .contentbox {
+  top: 80px;
+}
+
+#info .header {
+  height: 50px;
+  padding-top: 5px;
+  width: auto;
+  background-color: #fff;
+}
+
+#info .header img {
+  height: 85%;
+}
+
+#info #credits {
+  background-color: #ddd;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: center;
+  font-size: 11px;
+}
+
+#info p {
+  font-size: 12px;
+  text-align: justify;
+  display: inline-block;
+  margin: 0 16px 8px;
+  line-height: 1.2;
+}
+
+#info h1 {
+  font-size: 120%;
+  text-align: center;
+}
+
+#info span.chance {
+  color: rgba(0,0,0,.6);
+  border-radius: 50%;
+  padding: 2px;
+  margin: 4px;
+  width: 20px;
+  height: 20px;
+  font-weight: 300;
+  display: inline-block;
+  text-align: center;
+}
+
+#info .content button {
+  margin-bottom: 20px;
 }
 
 #drawNumBox label{
@@ -103,6 +203,7 @@
   font-size: 38px;
   text-align: center;
 }
+
 #drawNumBox input:focus{
   box-shadow: inset 0 0 3px 3px #d8d8d8;
 }
@@ -145,12 +246,210 @@
   line-height: 1.2;
 }
 
-#logobox img{
-  height: 40px;
-  width: auto;
+/*
+ * Query modal
+ */
+
+#queries .contentbox {
+  top: 79px;
+  bottom: 85px;
 }
-#logobox{
-  width: 100%;
-  padding-top: 5px;
+
+#queries .header {
+  height: 54px;
   background-color: #fff;
+}
+
+#queries .header h2 {
+  line-height: 54px;
+  text-align: center;
+  margin: 0;
+}
+
+#queries .content {
+  padding: 0 20px;
+}
+
+#queries h4 {
+    text-align: left;
+    font-size: 20px;
+    margin: 14px 0 10px;
+}
+
+#queries input[type=checkbox],
+#queries input[type=radio] {
+  display: none;
+}
+
+#queries .footer {
+  height: 55px;
+}
+
+#queries .footer button {
+  display: inline-block;
+  width: 50%;
+  height: 100%;
+  font-size: 20px;
+}
+
+#queries .footer button.cancel::after {
+  background-color: #fbb;
+}
+
+#queries .footer button.cancel::before {
+  background-color: #f99;
+}
+
+#queries .footer button:not(.cancel)::before,
+#queries .footer button:not(.cancel)::after {
+  border-bottom-left-radius: 0;
+}
+
+#queries .footer button.cancel::before,
+#queries .footer button.cancel::after {
+  border-bottom-right-radius: 0;
+}
+
+#queries .footer button::after {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/*
+ * Queries sections 1 and 2
+ */
+
+#check1,
+#check2 {
+  width: 100%;
+}
+
+#check1 label,
+#check2 label {
+  display: inline-block;
+  height: auto;
+  padding: 10px 0;
+  text-align: center;
+  color: #000;
+}
+
+#check1 label {
+  width: 50%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  margin-bottom: 4px;
+}
+
+#check1 label:nth-of-type(odd) {
+  border-right: 2px solid transparent;
+}
+
+#check1 label:nth-of-type(even) {
+  border-left: 2px solid transparent;
+}
+
+#check2 label {
+    width: 33.333%;
+}
+
+#check1 label::after,
+#check2 label::after {
+  background-color: #b3c9ea;
+}
+
+#check1 label::before,
+#check2 label::before {
+  background-color: #6692d5;
+}
+
+#check2 label::after,
+#check2 label::before {
+  border-radius: 0;
+  -webkit-box-sizing: border-box;
+  -mox-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#check2 label:first-of-type::after,
+#check2 label:first-of-type::before {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-right: 1px solid #5587c8;
+}
+
+#check2 label:last-of-type::after,
+#check2 label:last-of-type::before {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-left: 1px solid #5587c8;
+}
+
+#check1 input[type=checkbox]:checked + label,
+#check2 input[type=radio]:checked + label {
+  color: #fff;
+  font-weight: 300;
+}
+
+#check1 input[type=checkbox]:checked + label::after,
+#check2 input[type=radio]:checked + label::after {
+    background-color: #5587c8;
+    top: 4px;
+    height: 39px;
+}
+
+#check1 input[type=checkbox]:checked + label::before,
+#check2 input[type=radio]:checked + label::before {
+  background-color: #254d87;
+  top: 2px;
+}
+
+/*
+ * Section 3
+ */
+
+#check3 input[type=checkbox] + label::before {
+  content: "";
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  left: -15px;
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border: 1px solid #999;
+}
+
+#check3 input[type=checkbox]:checked + label::before {
+  content: "X";
+  font-weight: bold;
+}
+
+#check3 {
+  background-color: #ccc;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+#check3 .checkwrap {
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  color: #333;
+  padding: 7px 16px 7px 40px;
+  font-size: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #999;
+}
+
+#check3 label {
+  display: block;
+  text-align: left;
+}
+
+#check3 .checkwrap:last-child {
+  border-bottom: 0;
 }

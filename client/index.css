@@ -1,4 +1,4 @@
-#queries{
+#info {
   display:none;
 }
 
@@ -46,8 +46,8 @@ header .infoButton {
 }
 
 header .logo img {
-    height: 18px;
-    margin-top: 4px;
+    height: 14px;
+    margin-top: 6px;
 }
 
 header .infoButton img {
@@ -269,6 +269,32 @@ ul.dorms > li {
         radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
     background-repeat: no-repeat;
     background-color: white;
+    background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
+    
+    /* Opera doesn't support this in the shorthand */
+    background-attachment: local, local, scroll, scroll;
+}
+
+.modalbox .content {
+    overflow: auto;
+    background:
+        /* Shadow covers */
+        linear-gradient(#ececec 30%, rgba(255,255,255,0)),
+        linear-gradient(rgba(255,255,255,0), #ececec 70%) 0 100%,
+        
+        /* Shadows */
+        radial-gradient(50% 0, farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)),
+        radial-gradient(50% 100%,farthest-side, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+    background:
+        /* Shadow covers */
+        linear-gradient(#ececec 30%, rgba(255,255,255,0)),
+        linear-gradient(rgba(255,255,255,0), #ececec 70%) 0 100%,
+        
+        /* Shadows */
+        radial-gradient(farthest-side at 50% 0, rgba(0,0,0,.2), rgba(0,0,0,0)),
+        radial-gradient(farthest-side at 50% 100%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
+    background-repeat: no-repeat;
+    /*background-color: #ececec;*/
     background-size: 100% 40px, 100% 40px, 100% 14px, 100% 14px;
     
     /* Opera doesn't support this in the shorthand */

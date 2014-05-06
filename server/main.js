@@ -35,7 +35,7 @@ if (Meteor.isServer) {
     if (DrawData.find().count() === 0) {
       DrawData.insert({
         "lastNum": 2314,
-        "lastDorm": "Huntington House",
+        "lastDorm": "James",
         "lastRoom": "213"
       })
     };

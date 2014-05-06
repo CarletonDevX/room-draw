@@ -1,4 +1,4 @@
-#info, #queries {
+.overlay {
   font-family: 'Roboto',sans-serif;
   font-weight: 300;
   background-color: #ececec;
@@ -37,7 +37,7 @@
   text-align: center;
 }
 
-#info button{
+.overlay button {
   display: block;
   position: relative;
   left: 50%;
@@ -51,15 +51,16 @@
   margin-left: -65px;
   height: 40px;
 }
-#info button:active {
+.overlay button:active {
     top: 3px;
 }
 
-#info button:active, button:hover{
+.overlay button:active,
+.overlay button:hover{
   background-color: #8ee893;
 }
 
-#info button::before{
+.overlay button::before{
   content: "";
   position: absolute;
   -moz-border-radius: 8px;
@@ -68,12 +69,12 @@
   left: 0;
   top: 0;
   width: 130px;
-  height: 43px;
+  height: 42px;
   background-color: #6ac86e;
   z-index: -1;
 }
 
-#info button:active::before{
+.overlay button:active::before{
   display: none;
 }
 

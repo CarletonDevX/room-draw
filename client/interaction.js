@@ -1,20 +1,20 @@
 if (Meteor.isClient) {
 
-  /*
+  /**************************************
    * Main interface
-   */
+   **************************************/
 
   Template.header.events({
     'click .infoButton': function() {
       $('#info').show();
     }
-  })
+  });
 
   Template.main.events({
-    'click .queryField': function() {
+    'click #queryField': function() {
       $('#queries').show();
     }
-  })
+  });
 
   Template.main.events(function () {
     var selectedDorm = 0;
@@ -45,9 +45,9 @@ if (Meteor.isClient) {
       }
     };}());
 
-  /*
+  /**************************************
    * Info screen interface
-   */
+   **************************************/
 
   Template.info.events({
     'keydown input#myNumber': function() {
@@ -58,12 +58,13 @@ if (Meteor.isClient) {
     }
   });
 
-  /*
-   * Filter logic
-   */
+  /**************************************
+   * Queries logic and interface
+   **************************************/
 
   Template.query.events({
-    'click button#go': function() {
+    'click button': function() {
+      $('#queries').hide();
       hideClasses = []
 
       // Hide room sizes that aren't checked
@@ -108,12 +109,10 @@ if (Meteor.isClient) {
 
       // Apply a new temporary stylesheet to hide things.
       classesString = hideClasses.join();
-      console.log(classesString);
       $('head').append('<style class="tempStyle">'+ classesString + '{display:none;}</style>');
 
       // Hide empty floors
       $('.floor').each(function(){
-        console.log($(this).children('.rooms').children(':visible').length);
         if($(this).children('.rooms').children(':visible').length == 0) {
           $(this).hide();
         }
@@ -124,7 +123,6 @@ if (Meteor.isClient) {
         if($(this).children('.floors').children(':visible').length == 0) {
           $(this).hide();
           dormName = $(this).children('h4').text();
-          console.log("option[value*='" + dormName + "']");
           $('#dormSelect').children("option[value*='" + dormName + "']").attr("disabled", "yea");
         }
       });

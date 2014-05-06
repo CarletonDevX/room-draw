@@ -1,4 +1,4 @@
-#info{
+#queries{
   display:none;
 }
 
@@ -104,6 +104,10 @@ header > div:last-child h3 span {
 #queryThings {
     position: relative;
     top: 4px;
+}
+
+#queryField {
+    cursor: pointer;
 }
 
 #queryLabel {

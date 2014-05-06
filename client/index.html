@@ -34,7 +34,7 @@
 </template>
 
 <template name="info">
-  <div id="info">
+  <div id="info" class="overlay">
     <div id="logobox">
       <img class="logo" src="logo.png"/>
     </div>
@@ -58,7 +58,7 @@
 </template>
 
 <template name="query">
-    <nav id="queries">
+    <nav id="queries" class="overlay">
 
       <h4>Room size</h4>
       <div id="check1">
@@ -99,15 +99,15 @@
       <div id="check3">
         <!--Hide gender specific-->
         <input type="checkbox" id="hideMale">
-        <label for="hideMale">Hide male only rooms</label>
+        <label for="hideMale">Hide male-only rooms</label>
         <input type="checkbox" id="hideFemale">
-        <label for="hideFemale">Hide female only rooms</label>
+        <label for="hideFemale">Hide female-only rooms</label>
         <!--Hide taken rooms-->
         <input type="checkbox" id="hideTaken">
-        <label for="hideTaken">Hide taken rooms</label>
+        <label for="hideTaken">Hide rooms that are already taken</label>
       </div>
 
-      <button id="go">Go!</button>
+      <button>Apply filter</button>
   </nav>
 </template>
 
@@ -116,9 +116,9 @@
   <div id="queryBox">
     <div id="queryThings">
       Showing:
-      <span id="queryField">
+      <a id="queryField">
         <span id="queryLabel">&nbsp;{{queryLabel}}</span>
-      </span>
+      </a>
     </div>
   </div>
 

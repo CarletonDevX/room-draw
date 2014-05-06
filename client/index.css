@@ -1,5 +1,5 @@
-#info {
-    display: none;
+#info{
+  display:none;
 }
 
 h1, h2, h3, h4 {
@@ -30,23 +30,29 @@ header .left { width: 15%; }
 header .mid { width: 35%; }
 header .right { width: 50%; }
 
-header img {
-    height: 18px;
-    margin-top: 4px;
-}
-
 header .logo {
     width: 100%;
     height: 28px;
     background-color: #ddd;
 }
 
-header .info {
+header .infoButton {
     width: 100%;
     height: 44px;
     background-color: #eee;
     border-right: 6px solid white;
     box-sizing: border-box;
+    cursor: pointer;
+}
+
+header .logo img {
+    height: 18px;
+    margin-top: 4px;
+}
+
+header .infoButton img {
+    height: 28px;
+    margin-top: 7px;
 }
 
 header h2 {
@@ -268,10 +274,6 @@ ul.dorms > li {
 /**********************
    ...
  **********************/
-
-#queries{
-  display:none;
-}
 
 @media only screen
 and (max-width: 480px) { /* change to device width */

@@ -1,4 +1,4 @@
-#info{
+#info, #queries {
   font-family: 'Roboto',sans-serif;
   font-weight: 300;
   background-color: #ececec;
@@ -9,7 +9,7 @@
   bottom: 0;
   right: 0;
   text-align: center;
-  border: solid 20px rgba(0,0,0,.6);
+  border: solid 20px rgba(0, 0, 0, .6);
   background-clip: padding-box;
 }
 

@@ -1,13 +1,20 @@
 if (Meteor.isClient) {
 
-  Template.info.events({
-    'keydown input#myNumber': function() {
-      Session.set('clientDrawNumber', $('#myNumber').val());
-    },
-    'click button': function () {
-      $('#info').hide();
+  /*
+   * Main interface
+   */
+
+  Template.header.events({
+    'click .infoButton': function() {
+      $('#info').show();
     }
-  });
+  })
+
+  Template.main.events({
+    'click .queryField': function() {
+      $('#queries').show();
+    }
+  })
 
   Template.main.events(function () {
     var selectedDorm = 0;
@@ -39,8 +46,22 @@ if (Meteor.isClient) {
     };}());
 
   /*
+   * Info screen interface
+   */
+
+  Template.info.events({
+    'keydown input#myNumber': function() {
+      Session.set('clientDrawNumber', $('#myNumber').val());
+    },
+    'click button': function () {
+      $('#info').hide();
+    }
+  });
+
+  /*
    * Filter logic
    */
+
   Template.query.events({
     'click button#go': function() {
       hideClasses = []

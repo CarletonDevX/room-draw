@@ -30,12 +30,12 @@ if (Meteor.isServer) {
 
     // Generate fake data for testing.
     if (Dorms.find().count() === 0) {
-      insertSampleData();
+      // insertSampleData();
     };
     if (DrawData.find().count() === 0) {
       DrawData.insert({
         "lastNum": 2314,
-        "lastDorm": "James",
+        "lastDorm": "Huntington House",
         "lastRoom": "213"
       })
     };

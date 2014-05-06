@@ -24,7 +24,7 @@ normalProb = function (num, mean, stdev) {
       }
     }else{
       Prob = normalcdf((num-mean)/stdev);
-      Prob = round(100000*Prob)/100000;
+      // Prob = round(100000*Prob)/100000;
     }
   }
   return Prob;

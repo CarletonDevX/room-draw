@@ -6,7 +6,7 @@ if (Meteor.isClient) {
 
   Template.header.events({
     'click .infoButton': function() {
-      $('#info').show();
+      $('#info').show("fast");
     }
   });
 
@@ -50,11 +50,21 @@ if (Meteor.isClient) {
    **************************************/
 
   Template.info.events({
-    'keydown input#myNumber': function() {
-      Session.set('clientDrawNumber', $('#myNumber').val());
+    'keyup input#myNumber': function(event) { //little bit
+      var $el = $(event.target);
+      var num = parseInt($el.val().slice(-4).replace(/\D/g,''));
+      if (num == 0 || isNaN(num)){ num = ""; }
+      $el.val(num);
+      Session.set('clientDrawNumber', num);
     },
     'click button': function () {
-      $('#info').hide();
+      $('#info').hide("fast");
+    },
+    'click #info': function(event) {
+      $(event.target).hide("fast");
+    },
+    'click #info>div': function(event) {
+      event.stopPropagation();
     }
   });
 

@@ -57,13 +57,10 @@ if (Meteor.isClient) {
       $el.val(num);
       Session.set('clientDrawNumber', num);
     },
-    'click button': function () {
+    'click button, click #info': function () {
       $('#info').hide("fast");
     },
-    'click #info': function(event) {
-      $(event.target).hide("fast");
-    },
-    'click #info>div': function(event) {
+    'click #info .header, click #info .content': function(event) {
       event.stopPropagation();
     }
   });

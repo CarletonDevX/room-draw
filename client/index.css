@@ -1,7 +1,3 @@
-#info {
-  display:none;
-}
-
 h1, h2, h3, h4 {
     font-weight: 400;
 }
@@ -311,16 +307,75 @@ and (max-width: 480px) { /* change to device width */
     width:100%;
   }
   header h1{
-  	display:none;
+    display:none;
+  }
+  #queries {
+    display:none;
   }
   ol.rooms {
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
     column-count: 2;
-	}
+    }
 }
 
 @media only screen
 and (min-width: 481px){
+    header{
+        width:350px;
+    }
 
+    main{
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:362px;
+        right:0;
+    }
+
+    #info .header, #info .contentbox{
+        max-width:300px;
+        margin:0 auto;
+    }
+
+    #queryBox{
+        display:none;
+    }
+
+    #queries{
+        display:block !important;
+        position:absolute;
+        z-index:0;
+        left:0;
+        width:350px;
+        top:85px;
+        background-color:#ECECEC;
+    }
+
+    #queries button.cancel{
+        display:none;
+    }
+
+    ul.dorms{
+        top:48px;
+    }
+}
+
+@media only screen
+and (min-width: 650px)
+and (max-width: 950px){
+    ol.rooms {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+    }
+}
+
+@media only screen
+and (min-width: 951px){
+    ol.rooms {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+    }
 }

@@ -21,6 +21,8 @@ if (Meteor.isClient) {
   Template.floor.ordinal = function() {
     var n = this.number;
     switch(n) {
+      case 0:
+      	return 'Ground';
       case 1:
         return '1st';
       case 2:

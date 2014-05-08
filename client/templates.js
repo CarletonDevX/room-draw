@@ -3,6 +3,11 @@ if (Meteor.isClient) {
     return "All rooms";
   }
 
+  // Template.main.isLoaded = function() {
+  //   Meteor.setTimeout(function(){Template.main.isLoaded = function() {return true}}, 2000);
+  //   return false;
+  // }
+
   Template.main.dorms = function() {
     return Dorms.find({}, {sort: {'name': 1}}).map(function(dorm, index) {
       dorm.index = index;

@@ -320,12 +320,12 @@ div.footer {
  * Queries sections 1 and 2
  */
 
-#check1,
+/*#check1,*/
 #check2 {
   width: 100%;
 }
 
-#check1 label,
+/*#check1 label,*/
 #check2 label {
   display: inline-block;
   height: auto;
@@ -334,33 +334,33 @@ div.footer {
   color: #000;
 }
 
-#check1 label {
-  width: 50%;
+/*#check1 label {*/
+/*  width: 50%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   background-clip: padding-box;
   margin-bottom: 4px;
-}
+}*/
 
-#check1 label:nth-of-type(odd) {
-  border-right: 2px solid transparent;
+/*#check1 label:nth-of-type(odd) {*/
+/*  border-right: 2px solid transparent;
 }
-
-#check1 label:nth-of-type(even) {
-  border-left: 2px solid transparent;
-}
+*/
+/*#check1 label:nth-of-type(even) {*/
+/*  border-left: 2px solid transparent;
+}*/
 
 #check2 label {
     width: 33.333%;
 }
 
-#check1 label::after,
+/*#check1 label::after,*/
 #check2 label::after {
   background-color: #b3c9ea;
 }
 
-#check1 label::before,
+/*#check1 label::before,*/
 #check2 label::before {
   background-color: #6692d5;
 }
@@ -387,20 +387,20 @@ div.footer {
     border-left: 1px solid #5587c8;
 }
 
-#check1 input[type=checkbox]:checked + label,
+/*#check1 input[type=checkbox]:checked + label,*/
 #check2 input[type=radio]:checked + label {
   color: #fff;
   font-weight: 300;
 }
 
-#check1 input[type=checkbox]:checked + label::after,
+/*#check1 input[type=checkbox]:checked + label::after,*/
 #check2 input[type=radio]:checked + label::after {
     background-color: #5587c8;
     top: 4px;
     height: 39px;
 }
 
-#check1 input[type=checkbox]:checked + label::before,
+/*#check1 input[type=checkbox]:checked + label::before,*/
 #check2 input[type=radio]:checked + label::before {
   background-color: #254d87;
   top: 2px;
@@ -410,29 +410,49 @@ div.footer {
  * Section 3
  */
 
+#check1 input[type=checkbox] + label::before,
 #check3 input[type=checkbox] + label::before {
-  content: "";
+  /*content: "";*/
   display: inline-block;
   position: relative;
   top: 2px;
   left: -15px;
   width: 14px;
   height: 14px;
-  background-color: white;
-  border: 1px solid #999;
+  /*background-color: white;*/
+  /*border: 1px solid #999;*/
+
+  content: "";
+  /*display: inline-block;  */
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  margin-right: 10px;
+  /*position: absolute;  */
+  /*left: 0;  */
+  /*bottombottom: 1px;  */
+  background-color: #aaa;
+  box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
 }
 
+#check1 input[type=checkbox]:checked + label::before,
 #check3 input[type=checkbox]:checked + label::before {
-  content: "X";
-  font-weight: bold;
+  content: "\2713";
+  /*font-weight: bold;*/
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+  font-size: 16px;
+  color: #f3f3f3;
+  text-align: center;
 }
 
+#check1,
 #check3 {
   background-color: #ccc;
   border-radius: 8px;
   margin-bottom: 25px;
 }
 
+#check1 .checkwrap,
 #check3 .checkwrap {
   display: inline-block;
   -webkit-box-sizing: border-box;
@@ -440,17 +460,19 @@ div.footer {
   box-sizing: border-box;
   width: 100%;
   color: #333;
-  padding: 7px 16px 7px 40px;
   font-size: 15px;
-  cursor: pointer;
   border-bottom: 1px solid #999;
 }
 
+#check1 label,
 #check3 label {
+  padding: 7px 16px 7px 40px;
   display: block;
   text-align: left;
+  cursor: pointer;
 }
 
+#check1 .checkwrap:last-child,
 #check3 .checkwrap:last-child {
   border-bottom: 0;
 }

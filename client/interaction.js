@@ -1,6 +1,8 @@
 if (Meteor.isClient) {
 
-  /* COMMON */
+  /**************************************
+   * Common
+   **************************************/
 
   var showOverlay = function(name) {
     $(name).show();

@@ -41,6 +41,10 @@ header .infoButton {
     cursor: pointer;
 }
 
+header .infoButton:hover {
+box-shadow: inset 0 0 2px 2px #aaa;
+}
+
 header .logo img {
     height: 14px;
     margin-top: 6px;
@@ -342,7 +346,7 @@ and (min-width: 481px){
         display:none;
     }
 
-    #queries{
+    div#queries{
         display:block !important;
         position:absolute;
         z-index:0;

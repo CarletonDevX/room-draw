@@ -79,13 +79,17 @@ if (Meteor.isClient) {
 
   Template.query.events({
     'click button.cancel, click #queries': function() {
-      hideOverlay('#queries');
+      if($( window ).width() <= 480){ //smallest media query
+        hideOverlay('#queries');
+      }
     },
     'click #queries .header, click #queries .content, click #queries .footer': function(event) {
       event.stopPropagation();
     },
-    'click button:not(.cancel)': function() {
-      hideOverlay('#queries');
+    'click button.go': function() {
+      if($( window ).width() <= 480){ //smallest media query
+        hideOverlay('#queries');
+      }
       hideClasses = []
 
       // Hide room sizes that aren't checked

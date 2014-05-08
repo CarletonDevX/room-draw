@@ -309,7 +309,7 @@ and (max-width: 480px) { /* change to device width */
   header h1{
     display:none;
   }
-  #info {
+  #queries {
     display:none;
   }
   ol.rooms {

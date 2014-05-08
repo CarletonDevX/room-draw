@@ -152,6 +152,12 @@ if (Meteor.isClient) {
         }
       });
 
+      if (hideClasses.length) {
+        Session.set('queryLabel', 'Filtered…');
+      } else {
+        Session.set('queryLabel', 'All rooms');
+      }
+
     }
   });
 

@@ -1,20 +1,31 @@
 if (Meteor.isClient) {
 
+  /* COMMON */
+
+  var showOverlay = function(name) {
+    $(name).show();
+    $('# .header, # .contentbox, # .footer'.replace(/#/g, name)).hide().show(300);
+    $(name).show(1).css({'background-color': 'rgba(0, 0, 0, 0.6)'});
+  }
+
+  var hideOverlay = function(name) {
+    $('# .header, # .contentbox, # .footer'.replace(/#/g, name)).hide(300);
+    $(name).css({'background-color': 'rgba(0, 0, 0, 0)'}).delay(300).hide(1);
+  }
+
   /**************************************
    * Main interface
    **************************************/
 
   Template.header.events({
     'click .infoButton': function() {
-      $('#info').show();
-      $('#info .header, #info .contentbox, #info .footer').hide().show(300);
-      $('#info').show(1).css({'background-color': 'rgba(0, 0, 0, 0.6)'});
+      showOverlay('#info');
     }
   });
 
   Template.main.events({
     'click #queryField': function() {
-      $('#queries').show();
+      showOverlay('#queries');
     }
   });
 
@@ -53,8 +64,7 @@ if (Meteor.isClient) {
 
   Template.info.events({
     'click button, click #info': function () {
-      $('#info .header, #info .contentbox, #info .footer').hide(300);
-      $('#info').css({'background-color': 'rgba(0, 0, 0, 0)'}).delay(300).hide(1);
+      hideOverlay('#info');
     },
     'click #info .header, click #info .content': function(event) {
       event.stopPropagation();
@@ -66,11 +76,14 @@ if (Meteor.isClient) {
    **************************************/
 
   Template.query.events({
-    'click button.cancel': function() {
-      $('#queries').hide();
+    'click button.cancel, click #queries': function() {
+      hideOverlay('#queries');
+    },
+    'click #queries .header, click #queries .content, click #queries .footer': function(event) {
+      event.stopPropagation();
     },
     'click button:not(.cancel)': function() {
-      $('#queries').hide();
+      hideOverlay('#queries');
       hideClasses = []
 
       // Hide room sizes that aren't checked

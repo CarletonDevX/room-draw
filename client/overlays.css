@@ -301,8 +301,8 @@ div.footer {
   background-color: #f99;
 }
 
-#queries .footer button:not(.cancel)::before,
-#queries .footer button:not(.cancel)::after {
+#queries .footer button.go::before,
+#queries .footer button.go(.cancel)::after {
   border-bottom-left-radius: 0;
 }
 

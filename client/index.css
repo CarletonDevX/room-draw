@@ -352,8 +352,12 @@ and (min-width: 481px){
         background-color:#ECECEC;
     }
 
-    #queries button.cancel{
+    #queries .footer button.cancel{
         display:none;
+    }
+
+    #queries .footer button.go{
+        width: 100%;
     }
 
     ul.dorms{

@@ -301,6 +301,24 @@ ul.dorms > li {
     background-attachment: local, local, scroll, scroll;
 }
 
+
+span.chance {
+  color: rgba(0,0,0,.6);
+  border-radius: 50%;
+  padding: 2px;
+  margin: 4px;
+  width: 20px;
+  height: 20px;
+  font-weight: 300;
+  display: inline-block;
+  text-align: center;
+  background-color: #eee;
+}
+
+.isDrawn{
+    text-decoration: line-through;
+}
+
 /**********************
    ...
  **********************/

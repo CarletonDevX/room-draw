@@ -290,7 +290,7 @@ div.footer {
 }
 
 #queries .footer button.go::before,
-#queries .footer button.go(.cancel)::after {
+#queries .footer button.go::after {
   border-bottom-left-radius: 0;
 }
 
@@ -400,25 +400,15 @@ div.footer {
 
 #check1 input[type=checkbox] + label::before,
 #check3 input[type=checkbox] + label::before {
-  /*content: "";*/
+  content: "";
   display: inline-block;
   position: relative;
   top: 2px;
   left: -15px;
-  width: 14px;
-  height: 14px;
-  /*background-color: white;*/
-  /*border: 1px solid #999;*/
-
-  content: "";
-  /*display: inline-block;  */
   width: 16px;
   height: 16px;
   border-radius: 3px;
   margin-right: 10px;
-  /*position: absolute;  */
-  /*left: 0;  */
-  /*bottombottom: 1px;  */
   background-color: #aaa;
   box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
 }
@@ -426,7 +416,6 @@ div.footer {
 #check1 input[type=checkbox]:checked + label::before,
 #check3 input[type=checkbox]:checked + label::before {
   content: "\2713";
-  /*font-weight: bold;*/
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
   font-size: 16px;
   color: #f3f3f3;
@@ -454,7 +443,7 @@ div.footer {
 
 #check1 label,
 #check3 label {
-  padding: 7px 16px 7px 40px;
+  padding: 10px 16px 10px 40px;
   display: block;
   text-align: left;
   cursor: pointer;

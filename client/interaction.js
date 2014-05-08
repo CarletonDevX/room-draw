@@ -68,11 +68,14 @@ if (Meteor.isClient) {
    **************************************/
 
   Template.info.events({
-    'click button, click #info': function () {
+    'click button, click #info': function() {
       hideOverlay('#info');
     },
     'click #info .header, click #info .content': function(event) {
       event.stopPropagation();
+    },
+    'keypress #myNumber': function(event) {
+      event.charCode == 13 && $( '#info button' ).click();
     }
   });
 

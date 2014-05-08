@@ -117,8 +117,10 @@ header > div:last-child h3 span {
     border-bottom: 1px solid black;
 }
 
-#queryBox .triangle {
-    font-size: 10px;
+#queryBox img {
+    text-align: right;
+    position: relative;
+    left: -24px;
 }
 
 /*** Select Box ***/

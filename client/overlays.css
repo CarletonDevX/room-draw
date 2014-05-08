@@ -28,6 +28,7 @@ div.contentbox {
 
 div.content {
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   max-height: 100%;
 }
 
@@ -415,7 +416,7 @@ div.footer {
 
 #check1 input[type=checkbox]:checked + label::before,
 #check3 input[type=checkbox]:checked + label::before {
-  content: "\2713";
+  content: "\2713"; /* check */
   text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
   font-size: 16px;
   color: #f3f3f3;

@@ -33,30 +33,33 @@ if (Meteor.isClient) {
 
   Template.main.events(function () {
     var selectedDorm = 0;
-
-    var goToSelectedDorm = function() {
-      margin = selectedDorm * -100;
-      $( 'ul.dorms > li:first-child' ).css('margin-left', margin + '%');
+    var goToDorm = function(newDorm) {
+      var dormCount = Dorms.find().count();
+      if (newDorm >= 0 && newDorm < dormCount) {
+        selectedDorm = newDorm;
+        $( '#dormSelect' ).val(newDorm);
+        margin = selectedDorm * -100;
+        $( 'ul.dorms > li:first-child' ).css('margin-left', margin + '%');
+        $( '#dormLeft' ).show();
+        $( '#dormRight' ).show();
+        if (newDorm == 0) {
+          $( '#dormLeft' ).hide();
+        } else if (newDorm == dormCount - 1) {
+          $( '#dormRight' ).hide();
+        }
+      }
     };
 
     return {
       'click #dormLeft': function() {
-        if (selectedDorm > 0) {
-          selectedDorm--;
-          $( '#dormSelect' ).val(selectedDorm);
-          goToSelectedDorm();
-        }
+        goToDorm(selectedDorm - 1);
       },
       'click #dormRight': function() {
-        if (selectedDorm < Dorms.find().count() - 1) {
-          selectedDorm++;
-          $( '#dormSelect' ).val(selectedDorm);
-          goToSelectedDorm();
-        }
+        goToDorm(selectedDorm + 1);
       },
       'change #dormSelect': function() {
         selectedDorm = $( '#dormSelect' ).val();
-        goToSelectedDorm();
+        goToDorm(selectedDorm);
       }
     };}());
 

@@ -6,7 +6,9 @@ if (Meteor.isClient) {
 
   Template.header.events({
     'click .infoButton': function() {
-      $('#info').show("fast");
+      $('#info').show();
+      $('#info .header, #info .contentbox, #info .footer').hide().show(300);
+      $('#info').show(1).css({'background-color': 'rgba(0, 0, 0, 0.6)'});
     }
   });
 
@@ -51,7 +53,8 @@ if (Meteor.isClient) {
 
   Template.info.events({
     'click button, click #info': function () {
-      $('#info').hide("fast");
+      $('#info .header, #info .contentbox, #info .footer').hide(300);
+      $('#info').css({'background-color': 'rgba(0, 0, 0, 0)'}).delay(300).hide(1);
     },
     'click #info .header, click #info .content': function(event) {
       event.stopPropagation();
@@ -133,5 +136,17 @@ if (Meteor.isClient) {
     }
   });
 
+   /**************************************
+   * Bonus round
+   **************************************/
+   
+  // Try to hide address bar on mobile
+  window.addEventListener("load",function() {
+    // Set a timeout...
+    setTimeout(function(){
+      // Hide the address bar!
+      window.scrollTo(0, 1);
+    }, 0);
+  });
 
 }

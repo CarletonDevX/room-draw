@@ -44,6 +44,7 @@ div.footer {
   font-weight: 300;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease;
 }
 
 .modalbox .header {

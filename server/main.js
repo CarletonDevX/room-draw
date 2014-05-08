@@ -30,7 +30,7 @@ if (Meteor.isServer) {
 
     // Generate fake data for testing.
     if (Dorms.find().count() === 0) {
-      insertSampleData();
+      // insertSampleData();
     };
     if (DrawData.find().count() === 0) {
       DrawData.insert({

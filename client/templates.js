@@ -1,6 +1,8 @@
 if (Meteor.isClient) {
+
+  Session.set('queryLabel', 'All rooms');
   Template.main.queryLabel = function() {
-    return "All rooms";
+    return Session.get('queryLabel');
   }
 
   // Template.main.isLoaded = function() {

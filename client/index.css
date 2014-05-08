@@ -113,14 +113,12 @@ header > div:last-child h3 span {
 #queryLabel {
     text-align: left;
     display: inline-block;
-    width: 50%;
+    width: 150px;
     border-bottom: 1px solid black;
 }
 
-#query .triangle {
-    position: relative;
-    font-size: 12px;
-    left: -1.5em;
+#queryBox .triangle {
+    font-size: 10px;
 }
 
 /*** Select Box ***/

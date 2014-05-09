@@ -379,7 +379,8 @@ and (min-width: 481px) {
         background-color:#ECECEC;
     }
 
-    #queries .footer button.cancel {
+    #queries .footer button.cancel,
+    #queries .footer button.go {
         display: none;
     }
 

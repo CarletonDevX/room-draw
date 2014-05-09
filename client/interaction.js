@@ -89,21 +89,21 @@ if (Meteor.isClient) {
 
   Template.query.events({
     'click button.cancel, click #queries': function() {
-      hideOverlay('#queries');
-      loadQueryState();
+      if ($( window ).width() <= 480) {
+        hideOverlay('#queries');
+        loadQueryState();
+      }
     },
     'click #queries .header, click #queries .content, click #queries .footer': function(event) {
       event.stopPropagation();
     },
     'click button.go': function() {
-      if ($( window ).width() <= 480) { //smallest media query
-        hideOverlay('#queries');
-      }
+      hideOverlay('#queries');
       applyQueries();
     },
     'click #queries label': function() {
       if ($( window ).width() > 480) {
-        setTimeout(applyQueries, 100);
+        setTimeout(applyQueries, 50);
       }
     }
   });

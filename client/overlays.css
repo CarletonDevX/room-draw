@@ -261,6 +261,16 @@ div.modalbox div.footer {
   padding: 0 20px;
 }
 
+#queries label {
+  /* Disable selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 #queries h4 {
     text-align: left;
     font-size: 20px;

@@ -125,6 +125,6 @@ if (Meteor.isClient) {
     else {
       navigator.app.exitApp();
     }
-  }
+  });
 
 }

@@ -116,4 +116,15 @@ if (Meteor.isClient) {
   //   }, 0);
   // });
 
+  document.addEventListener('backbutton', function() {
+    if (true) { // If overlay is visible
+      // Hide the overlay
+      console.log("Interrupted Android back button event.");
+      return false;
+    }
+    else {
+      navigator.app.exitApp();
+    }
+  }
+
 }

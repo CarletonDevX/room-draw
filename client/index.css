@@ -347,12 +347,12 @@ and (max-width: 480px) { /* change to device width */
 }
 
 @media only screen
-and (min-width: 481px){
-    header{
+and (min-width: 481px) {
+    header {
         width:350px;
     }
 
-    main{
+    main {
         position:absolute;
         top:0;
         bottom:0;
@@ -360,16 +360,16 @@ and (min-width: 481px){
         right:0;
     }
 
-    #info .header, #info .contentbox{
+    #info .header, #info .contentbox {
         max-width:300px;
         margin:0 auto;
     }
 
-    #queryBox{
+    #queryBox {
         display:none;
     }
 
-    div#queries{
+    div#queries {
         display:block !important;
         position:absolute;
         z-index:0;
@@ -379,11 +379,11 @@ and (min-width: 481px){
         background-color:#ECECEC;
     }
 
-    #queries .footer button.cancel{
-        display:none;
+    #queries .footer button.cancel {
+        display: none;
     }
 
-    #queries .footer button.go{
+    #queries .footer button.go {
         width: 100%;
     }
 
@@ -394,7 +394,7 @@ and (min-width: 481px){
 
 @media only screen
 and (min-width: 650px)
-and (max-width: 950px){
+and (max-width: 950px) {
     ol.rooms {
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
     -moz-column-count: 2; /* Firefox */
@@ -403,7 +403,7 @@ and (max-width: 950px){
 }
 
 @media only screen
-and (min-width: 951px){
+and (min-width: 951px) {
     ol.rooms {
     -webkit-column-count: 3; /* Chrome, Safari, Opera */
     -moz-column-count: 3; /* Firefox */

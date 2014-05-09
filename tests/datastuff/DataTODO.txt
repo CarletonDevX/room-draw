@@ -1,6 +1,1 @@
--In allroomtags.csv:
-Fill in true/false for women’s-only rooms
-
--Create file 2014roomtags that contains only rooms that are available this year. 
-
--Fill in any missing room size data in 2014roomtags.
+-Verify that room data is correct

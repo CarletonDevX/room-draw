@@ -1,12 +1,12 @@
 '''
-Take the final room tags csv and convert to json.
+Take the 2014 room tags csv and convert to json.
 '''
 import sys
 
 
 def main(outfile):
     dorms = {}
-    with open('finalroomtags.csv') as csvin:
+    with open('2014roomtags.csv') as csvin:
         csvin.readline()
         for line in csvin:
             _, size, subFree, quiet, onlyMale, onlyFemale, _, mean, \

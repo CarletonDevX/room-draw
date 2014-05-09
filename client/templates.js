@@ -44,13 +44,10 @@ if (Meteor.isClient) {
   Template.room.chanceCalc = function() {
     //return Math.round(Math.random() * 500)/10 + 50;
      var vars = this.chance;
-     console.dir(vars);
      var num = parseInt(Session.get('clientDrawNumber')) || 1000;
      var absolutenum = num - 1000 - ((Math.floor(num/1000)-1) * 470);
      num = (absolutenum * 0.291) + 29.364;
-     console.log(num);
-     var p = normalProb(num, vars.mean, vars.stddev);
-     console.log(p);
+     var p = normalProb(num, vars.mean, vars.stdev);
      return Math.round((1-p)*100);
   }
   /*

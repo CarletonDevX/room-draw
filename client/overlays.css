@@ -10,14 +10,15 @@ div.modalbox {
   right: 0;
 }
 
-div.header {
+div.modalbox div.header {
   position: absolute;
   top: 25px;
   height: 40px;
   left: 25px;
   right: 25px;
 }
-div.contentbox {
+
+div.modalbox div.contentbox {
   position: absolute;
   left: 25px;
   top: 65px; /* Set to padding + header height */
@@ -26,13 +27,13 @@ div.contentbox {
   overflow: visible;
 }
 
-div.content {
+div.modalbox div.content {
+  max-height: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  max-height: 100%;
 }
 
-div.footer {
+div.modalbox div.footer {
   width: 100%;
 }
 

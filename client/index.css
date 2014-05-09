@@ -201,8 +201,7 @@ ul.dorms{
     padding: 0;
     list-style: none;
     /* Overflow */
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
     white-space: nowrap;
 }
 
@@ -214,6 +213,7 @@ ul.dorms > li {
     display: inline-block;
     /* Overflow */
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 ul.dorms > li:first-child {
@@ -255,7 +255,7 @@ li.room {
  */
 
 ul.dorms > li {
-    overflow: auto;
+    /*overflow: auto;*/
     background:
         /* Shadow covers */
         linear-gradient(white 30%, rgba(255,255,255,0)),
@@ -281,7 +281,7 @@ ul.dorms > li {
 }
 
 .modalbox .content {
-    overflow: auto;
+    /*overflow: auto;*/
     background:
         /* Shadow covers */
         linear-gradient(#ececec 30%, rgba(255,255,255,0)),

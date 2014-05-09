@@ -96,10 +96,15 @@ if (Meteor.isClient) {
       event.stopPropagation();
     },
     'click button.go': function() {
-      if($( window ).width() <= 480){ //smallest media query
+      if ($( window ).width() <= 480) { //smallest media query
         hideOverlay('#queries');
       }
       applyQueries();
+    },
+    'click #queries label': function() {
+      if ($( window ).width() > 480) {
+        setTimeout(applyQueries, 100);
+      }
     }
   });
 

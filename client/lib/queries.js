@@ -28,9 +28,9 @@ if (Meteor.isClient) {
     for (var i = 1; i < 6; i++)
       if (!$( '#roomSize' + i ).prop('checked'))
         hideClasses.push('.size' + i)
-    // Hide according to subfree preferences.
-    if ($( '#subfreeYes' ).prop('checked')) hideClasses.push('.notSubfree');
-    else if ($( '#subfreeNo' ).prop('checked')) hideClasses.push('.subfree');
+    // Hide according to sub-free preferences.
+    if ($( '#subFreeYes' ).prop('checked')) hideClasses.push('.notSubFree');
+    else if ($( '#subFreeNo' ).prop('checked')) hideClasses.push('.subFree');
     // Hide according to quiet preferences.
     if ($( '#quietYes' ).prop('checked')) hideClasses.push('.notQuiet');
     else if ($( '#quietNo' ).prop('checked')) hideClasses.push('.quiet');

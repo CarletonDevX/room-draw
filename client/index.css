@@ -223,8 +223,13 @@ ul.dorms > li:first-child {
 
 /*** Floors and rooms **/
 
-ol.floors, ol.rooms {
+ol.rooms {
     padding: 0;
+    list-style: none;
+}
+
+ol.floors {
+    padding: 16px 0 24px;
     list-style: none;
 }
 

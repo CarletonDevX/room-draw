@@ -1,4 +1,5 @@
 if (Meteor.isClient) {
+  console.log("SECOND");
 
   /**************************************
    * Common
@@ -16,18 +17,21 @@ if (Meteor.isClient) {
   }
 
   /**************************************
-   * Main interface
+   * Main interface events
    **************************************/
 
+  // Show info overlay.
   Template.header.events({
     'click .infoButton': function() {
       showOverlay('#info');
     }
   });
 
+  // Show queries overlay.
   Template.main.events({
     'click #queryField': function() {
       showOverlay('#queries');
+      saveQueryState();
     }
   });
 
@@ -64,7 +68,7 @@ if (Meteor.isClient) {
     };}());
 
   /**************************************
-   * Info screen interface
+   * Info interface events
    **************************************/
 
   Template.info.events({
@@ -80,14 +84,13 @@ if (Meteor.isClient) {
   });
 
   /**************************************
-   * Queries logic and interface
+   * Queries interface events
    **************************************/
 
   Template.query.events({
     'click button.cancel, click #queries': function() {
-      if($( window ).width() <= 480){ //smallest media query
-        hideOverlay('#queries');
-      }
+      hideOverlay('#queries');
+      loadQueryState();
     },
     'click #queries .header, click #queries .content, click #queries .footer': function(event) {
       event.stopPropagation();
@@ -96,74 +99,7 @@ if (Meteor.isClient) {
       if($( window ).width() <= 480){ //smallest media query
         hideOverlay('#queries');
       }
-      hideClasses = []
-
-      // Hide room sizes that aren't checked
-      for (var i = 1; i < 6; i++) {
-        if (!$( '#roomSize' + i ).is(':checked')) {
-          hideClasses.push('.size' + i)
-        }
-      }
-
-      // Hide according to subfree preferences
-      if ($( '#subfreeYes' ).is(':checked')) {
-        hideClasses.push('.notSubfree');
-      } else if ($( '#subfreeNo' ).is(':checked')) {
-        hideClasses.push('.subfree');
-      }
-
-      // Hide according to quiet preferences
-      if ($( '#quietYes' ).is(':checked')) {
-        hideClasses.push('.notQuiet');
-      } else if ($( '#quietNo' ).is(':checked')) {
-        hideClasses.push('.quiet');
-      }
-
-      // Hide according to gender preferences
-      if ($( '#hideMale' ).is(':checked')) {
-        hideClasses.push('.onlyMale');
-      }
-      if ($( '#hideFemale' ).is(':checked')) {
-        hideClasses.push('.onlyFemale');
-      }
-
-      // Hide taken rooms if checked
-      if ($( '#hideTaken' ).is(':checked')) {
-        hideClasses.push('.isDrawn');
-      }
-
-      // Reset so that nothing is hidden.
-      $(".tempStyle").each(function(){$(this).remove();})
-      $('.dorm').each(function(){$(this).show();})
-      $('.floor').each(function(){$(this).show();})
-      $('#dormSelect').children().removeAttr('disabled');
-
-      // Apply a new temporary stylesheet to hide things.
-      classesString = hideClasses.join();
-      $('head').append('<style class="tempStyle">'+ classesString + '{display:none;}</style>');
-
-      // Hide empty floors
-      $('.floor').each(function(){
-        if($(this).children('.rooms').children(':visible').length == 0) {
-          $(this).hide();
-        }
-      });
-
-      // Hide empty dorms
-      $('.dorm').each(function(){
-        if($(this).children('.floors').children(':visible').length == 0) {
-          $(this).hide();
-          dormName = $(this).children('h4').text();
-          $('#dormSelect').children("option[value*='" + dormName + "']").attr("disabled", "yea");
-        }
-      });
-
-      if (hideClasses.length) {
-        Session.set('queryLabel', 'Filtered…');
-      } else {
-        Session.set('queryLabel', 'All rooms');
-      }
-
+      applyQueries();
     }
   });
 

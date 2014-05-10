@@ -1,0 +1,24 @@
+#teaser {
+    font-family: Roboto;
+    font-weight: 700;
+}
+
+#teaser div {
+    padding: 10%;
+    line-height: 1;
+}
+
+#teaser .two {
+    color: #337599;
+    background: -webkit-linear-gradient(#337599, #333333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#teaser .lesslead {
+    line-height: 0.9;
+}
+
+#teaser .morelead {
+    line-height: 1.5;
+}

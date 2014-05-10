@@ -44,6 +44,9 @@ if (Meteor.isClient) {
   Template.room.chanceCalc = function() {
     //return Math.round(Math.random() * 500)/10 + 50;
      var vars = this.chance;
+     if (vars.stdev < 0){
+       return "?"
+     }
      var num = parseInt(Session.get('clientDrawNumber')) || 1000;
      var absolutenum = num - 1000 - ((Math.floor(num/1000)-1) * 470);
      num = (absolutenum * 0.291) + 29.364;

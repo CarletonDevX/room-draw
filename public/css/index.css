@@ -222,6 +222,11 @@ ul.dorms > li:first-child {
     margin-left: 0%;
 }
 
+.empty-message {
+    text-align: center;
+    font-style: italic;
+}
+
 /*** Floors and rooms **/
 
 ol.rooms {

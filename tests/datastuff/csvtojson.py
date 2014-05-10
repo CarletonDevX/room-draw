@@ -11,10 +11,10 @@ def main(outfile):
         for line in csvin:
             _, size, subFree, quiet, onlyMale, onlyFemale, _, mean, \
                 stdev, hall, name, _, _ = line.split(',')
-            subFree = (subFree.lower() == 'TRUE')
-            quiet = (quiet.lower() == 'TRUE')
-            onlyMale = (onlyMale.lower() == 'TRUE')
-            onlyFemale = (onlyFemale.lower() == 'TRUE')
+            subFree = (subFree.lower() == 'true')
+            quiet = (quiet.lower() == 'true')
+            onlyMale = (onlyMale.lower() == 'true')
+            onlyFemale = (onlyFemale.lower() == 'true')
             stdev = float(stdev)
             mean = float(mean)
             rdict = {

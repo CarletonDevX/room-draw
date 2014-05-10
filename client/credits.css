@@ -1,0 +1,94 @@
+#credits-page h1 {
+    margin: 80px 0 24px;
+    text-align: center;
+    font-family: Lato, Helvetica, sans-serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: #777;
+}
+
+#credits-page #people {
+    width: 560px; /* 140 * 4 */
+    height: 728px; /* 182 * 4 */
+    min-height: 728px;
+    margin: 0 auto;
+    font-family: Lato, Helvetica, sans-serif;
+}
+
+@media only screen and (max-width : 600px) {
+    #credits-page #people {
+        width: 420px;
+        height: 910px;
+        min-height: 910px;
+        margin-bottom: 28px; /* Doing it wrong */
+    }
+    #credits-page .person.fake {
+        display: none;
+    }
+}
+
+@media only screen and (max-width : 440px) {
+    #credits-page #people {
+        width: 280px;
+        height: 1274px;
+        min-height: 1274px;
+        margin-bottom: 48px; /* Doing it wrong */
+    }
+}
+
+#credits-page .person {
+    width: 140px;
+}
+
+#credits-page img {
+    width: 108px;
+    border-radius: 20px;
+    margin: 16px;
+}
+
+#credits-page .person::before {
+    content: "";
+    height: 140px;
+    width: 140px;
+    display: block;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.3);
+    -webkit-transition: background-color 0.5s ease;
+    -moz-transition: background-color 0.5s ease;
+    -o-transition: background-color 0.5s ease;
+    transition: background-color 0.5s ease;
+}
+
+@media only screen and (max-device-width : 800px) {
+    #credits-page body .person::before {
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+
+#credits-page .person:hover::before {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#credits-page .person {
+    display: inline-block;
+    text-align: center;
+}
+
+#credits-page .name {
+    height: 16px;
+    line-height: 16px;
+    color: #222;
+    font-size: 13px;
+}
+
+#credits-page .role {
+    height: 16px;
+    line-height: 16px;
+    padding-bottom: 8px;
+    color: #333;
+    font-size: 11px;
+    /*font-style: italic;*/
+    font-weight: 300;
+}

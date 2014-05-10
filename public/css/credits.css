@@ -9,17 +9,17 @@
 
 #credits-page #people {
     width: 560px; /* 140 * 4 */
-    height: 728px; /* 182 * 4 */
-    min-height: 728px;
+    height: 732px; /* 183 * 4 */
+    min-height: 732px;
     margin: 0 auto;
     font-family: Lato, Helvetica, sans-serif;
 }
 
-@media only screen and (max-width : 600px) {
+@media screen and (max-width : 600px) {
     #credits-page #people {
         width: 420px;
-        height: 910px;
-        min-height: 910px;
+        height: 1098px;
+        min-height: 1098px;
         margin-bottom: 28px; /* Doing it wrong */
     }
     #credits-page .person.fake {
@@ -27,11 +27,11 @@
     }
 }
 
-@media only screen and (max-width : 440px) {
+@media screen and (max-width : 440px) {
     #credits-page #people {
         width: 280px;
-        height: 1274px;
-        min-height: 1274px;
+        height: 1464px;
+        min-height: 1464px;
         margin-bottom: 48px; /* Doing it wrong */
     }
 }

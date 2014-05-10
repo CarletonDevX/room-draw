@@ -1,5 +1,4 @@
 if (Meteor.isClient) {
-  console.log("SECOND");
 
   /**************************************
    * Common

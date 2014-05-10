@@ -65,6 +65,13 @@ if (Meteor.isClient) {
   }
   Template.header.lastRoom = function() {
     var obj = DrawData.findOne();
+    setTimeout(function() {
+      $( '#lastRoom' ).textfill({
+        maxFontSize: 34,
+        minFontSize: 8,
+        step: 1
+      });
+    }, 0)
     if (obj) return obj.lastRoom;
     return "";
   }

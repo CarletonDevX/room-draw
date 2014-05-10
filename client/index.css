@@ -2,16 +2,16 @@ h1, h2, h3, h4 {
     font-weight: 400;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+}
+
 /**********************
    Main View
  **********************/
 
 /*** Header ***/
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: white;
-}
 
 header {
     height: 72px;
@@ -32,6 +32,11 @@ header .logo {
     background-color: #ddd;
 }
 
+header .logo img {
+    height: 14px;
+    margin-top: 6px;
+}
+
 header .infoButton {
     width: 100%;
     height: 44px;
@@ -45,11 +50,6 @@ header .infoButton:hover {
 box-shadow: inset 0 0 2px 2px #aaa;
 }
 
-header .logo img {
-    height: 14px;
-    margin-top: 6px;
-}
-
 header .infoButton img {
     height: 28px;
     margin-top: 7px;
@@ -59,21 +59,21 @@ header h2 {
     height: 28px;
     line-height: 28px;
     font-size: 13px;
-    font-weight: 500;
     vertical-align: center;
-    background-color: #ddd;
-    /*padding: 4px 4px 6px;*/
     margin: 0;
+    background-color: #ddd;
+    font-weight: 500;
 }
 
 header h3 {
     height: 44px;
     line-height: 44px;
-    font-size: 34px;
-    background-color: #eee;
+    vertical-align: center;
     margin-top: 0;
     border-left: 6px solid white;
     border-right: 6px solid white;
+    background-color: #eee;
+    font-size: 34px;
 }
 
 header > div:last-child h3 {
@@ -82,10 +82,10 @@ header > div:last-child h3 {
     border-right-color: #eee;
 }
 
-header > div:last-child h3 span {
-    /*font-weight: 300;*/
+/*header .textfill {
+    width: 200px;
 }
-
+*/
 /*** Query Box ***/
 
 #queryBox {
@@ -94,11 +94,6 @@ header > div:last-child h3 span {
     line-height: 22px;
     font-size: 16px;
     text-align: center;
-    /*background-image: linear-gradient(
-        #eee,
-        #fff 15%,
-        #fff 90%,
-        #f0f0f0);*/
 }
 
 #queryThings {

@@ -1,5 +1,4 @@
 if (Meteor.isClient) {
-  console.log("FIRST");
 
   // Saved checked state of inputs.
   var savedQueryState = {};

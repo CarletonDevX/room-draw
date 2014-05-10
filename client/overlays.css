@@ -152,6 +152,10 @@ div.modalbox div.footer {
   font-size: 11px;
 }
 
+#info #credits a {
+  text-decoration: underline;
+}
+
 #info p {
   font-size: 12px;
   text-align: justify;

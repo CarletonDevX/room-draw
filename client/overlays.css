@@ -130,18 +130,19 @@ div.modalbox div.footer {
 }
 
 #info .contentbox {
-  top: 80px;
+  top: 90px;
 }
 
 #info .header {
-  height: 50px;
+  height: 60px;
   padding-top: 5px;
   width: auto;
   background-color: #fff;
 }
 
 #info .header img {
-  height: 85%;
+  margin-top:8px;
+  height: 40px;
 }
 
 #info #credits {

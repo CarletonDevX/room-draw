@@ -51,7 +51,13 @@ if (Meteor.isClient) {
      var absolutenum = num - 1000 - ((Math.floor(num/1000)-1) * 470);
      num = (absolutenum * 0.291) + 29.364;
      var p = normalProb(num, vars.mean, vars.stdev);
-     return Math.round((1-p)*100);
+     num percent =  Math.round((1-p)*100);
+     if (percent == 100){
+       return 99;
+     }
+     else{
+       return percent;
+     }
   }
   /*
    * Header info

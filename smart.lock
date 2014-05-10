@@ -3,8 +3,7 @@
   "dependencies": {
     "basePackages": {
       "iron-router": {},
-      "accounts-entry": {},
-      "fast-render": {}
+      "accounts-entry": {}
     },
     "packages": {
       "iron-router": {
@@ -16,11 +15,6 @@
         "git": "https://github.com/Differential/accounts-entry.git",
         "tag": "v0.7.3",
         "commit": "7facaa045d3720eeeba3420c28e48d5709188fe3"
-      },
-      "fast-render": {
-        "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.2.5",
-        "commit": "93e2fb334e55fbe9b5ebb2a2e65964018658f43e"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

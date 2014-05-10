@@ -1,7 +1,6 @@
 {
   "packages": {
     "iron-router": {},
-    "accounts-entry": {},
-    "fast-render": {}
+    "accounts-entry": {}
   }
 }

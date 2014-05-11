@@ -384,7 +384,7 @@ and (min-width: 481px) {
         margin:0 auto;
     }
 
-    #queryBox {
+    #queryBox, #queries .footer {
         display:none;
     }
 
@@ -395,16 +395,11 @@ and (min-width: 481px) {
         left:0;
         width:350px;
         top:85px;
-        background-color:#ECECEC;
+        background-color:#ECECEC !important;
     }
 
-    #queries .footer button.cancel,
-    #queries .footer button.go {
-        display: none;
-    }
-
-    #queries .footer button.go {
-        width: 100%;
+    div#queries .contentbox{
+        bottom:25px;
     }
 
     ul.dorms{

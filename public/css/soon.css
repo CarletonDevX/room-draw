@@ -1,11 +1,25 @@
+body, html {
+	width: 100%;
+	height: 100%;
+}
+
 #teaser {
+	text-align: center;
+	position: relative;
+	top: 20%;
     font-family: Roboto;
     font-weight: 700;
 }
 
+#teaser img {
+	width: 70%;
+}
+
 #teaser div {
-    padding: 10%;
-    line-height: 1;
+    /* vertical centering */
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
 }
 
 #teaser .two {
@@ -17,8 +31,10 @@
 
 #teaser .lesslead {
     line-height: 0.9;
+    font: Times New Roman;
 }
 
 #teaser .morelead {
     line-height: 1.5;
+    font: Arial;
 }

@@ -47,7 +47,7 @@ if (Meteor.isClient) {
     var vars = this.chance;
     var num = parseInt(Session.get('clientDrawNumber')) || 1000;
     var absolutenum = num - 1000 - ((Math.floor(num/1000)-1) * 470);
-    num = (absolutenum * 0.291) + 29.364;
+    num = (absolutenum * 0.301); //Y-intercept to 0 or else no one can draw Nason
     var p = normalProb(num, vars.mean, vars.stdev);
     var chance = Math.round((1-p)*100);
     if (chance == 100){

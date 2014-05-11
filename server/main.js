@@ -36,7 +36,9 @@ if (Meteor.isServer) {
       DrawData.insert({
         "lastNum": 2314,
         "lastDorm": "Huntington House",
-        "lastRoom": "213"
+        "lastRoom": "213",
+        "liveMessage": "Welcome to CarlDraw!",
+        "messageDuration": 2000
       })
     };
 

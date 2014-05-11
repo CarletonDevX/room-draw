@@ -1,8 +1,7 @@
 <template name="admin">
   <head>
-    <title>No Drawma ADMIN</title>
-    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,100' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="css/admin.css">
+    <title>CarlDraw ADMIN</title>
+    <link rel="stylesheet" type="text/css" href="css/admin.css?10">
 </head>
 
 <body>
@@ -13,14 +12,23 @@
 
 <template name="aheader">
   <div id="header">
-    <a class="signout" href='/sign-out'> Sign Out </a>
+    <div class="signout">
+      <a href='/sign-out'>Sign Out</a><br>
+      <a href='/admin-instructions'>Instructions</a>
+    </div>
     <div class="container">
       <div>
-        Last Number:
-        <input type="text" value="{{lastNum}}" id="lastNum">
+        <span class="left">Live message:</span>
+        <span class="right"><input type="text" value="{{liveMessage}}" id="liveMessage">
+        <button id="clear">Clear</button></span>
       </div>
       <div>
-        Last Room: {{lastDorm}} room {{lastRoom}}
+        <span class="left">Last number:</span>
+        <span class="right"><input type="text" value="{{lastNum}}" id="lastNum"></span>
+      </div>
+      <div>
+        <span class="left">Last room:</span>
+          <span class="right">{{lastDorm}} room {{lastRoom}}</span>
       </div>
       <button type="button" id="numUp">Up</button>
       <button type="button" id="numDown">Down</button> 

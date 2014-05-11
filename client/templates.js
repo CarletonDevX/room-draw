@@ -93,9 +93,21 @@ if (Meteor.isClient) {
     if (obj) return obj.lastRoom;
     return "";
   }
-  // Template.header.liveMessage = function() {
-  //   return 'hello';
-  // }
+  Template.header.liveMessage = function() {
+    var obj = DrawData.findOne();
+    if (obj) {
+      if (obj.liveMessage) {
+        $( '#live-message' ).css('top', 0);
+        if (obj.messageDuration >= 0) {
+          setTimeout(function() {
+            $( '#live-message' ).css('top', -28);
+          }, obj.messageDuration);
+        }
+      }
+      return obj.liveMessage;
+    }
+    return "";
+  }
 
   AccountsEntry.config({
     showSignupCode: true

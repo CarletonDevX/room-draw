@@ -53,11 +53,36 @@ if (Meteor.isClient) {
         DrawData.update(dataID, {$set: {lastNum: newValue}});
         $( '#lastNum' ).blur();
       }
+    },
+    'keypress input#liveMessage': function(event) {
+      if (event.charCode == 13) {
+        var message = $( '#liveMessage' ).val();
+        var duration = 3000;
+        var matches = /(.+?)\s*\{(\-?\d+)\}/g.exec(message);
+        if (matches) {
+          message = matches[1];
+          duration = parseInt(matches[2]);
+        }
+        var dataID = DrawData.findOne()._id;
+        DrawData.update(dataID, {$set: {
+          liveMessage: message,
+          messageDuration: duration
+        }});
+        $( '#liveMessage' ).val("");
+        $( '#liveMessage' ).blur();
+      }
+    },
+    'click button#clear': function() {
+      var dataID = DrawData.findOne()._id;
+      DrawData.update(dataID, {$set: {
+        liveMessage: "",
+        messageDuration: 0
+      }});
     }
   });
 
   /*
-   * Last dorm drawn.
+   * Last dorm drawn, last room drawn, live message.
    */
 
    Template.aheader.lastDorm = function() {
@@ -65,10 +90,6 @@ if (Meteor.isClient) {
     if (obj) return obj.lastDorm;
     return "";
   }
-
-  /*
-   * Last room drawn.
-   */
 
   Template.aheader.lastRoom = function() {
     var obj = DrawData.findOne();

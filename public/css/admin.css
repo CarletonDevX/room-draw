@@ -1,13 +1,4 @@
-.adorms {
-    margin-top: 8em;
-    margin-bottom: 4em;
-}
-
-ul
-{
-    list-style: none;
-}
-
+/* ADMIN: Header */
 #header {
     right: 0;
     top: 0;
@@ -17,42 +8,62 @@ ul
     border-bottom: 1px solid #ddd;
     padding: 1em 0;
 }
-
+.left {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+    margin-right: 5px;
+}
+.right {
+    display: inline-block;
+    width: 350px;
+    text-align: left;
+    margin-left: 5px;
+}
 .signout {
     float: right;
     margin-right: 2em;
+    text-align: right;
 }
-
 .container {
     margin: 0 auto;
     width: 600px;
     padding: 0 2em;
     text-align: center;
 }
-
 .container div {
     margin-bottom: .25em;
 }
-
 .container button {
     margin-top: 0.25em;
 }
 
+/* ADMIN: Rooms */
+.adorms {
+    margin-top: 160px;
+    margin-bottom: 40px;
+}
+.afloor h4 {
+    color: #999;
+}
+ul {
+    list-style: none;
+}
 ul.arooms {
     -webkit-column-count: 3; /* Chrome, Safari, Opera */
     -moz-column-count: 3; /* Firefox */
     column-count: 3;
 }
-
 li.aroom {
     transition: color 0.1s ease;
 }
-
 li.aroom input,
 li.aroom label {
     cursor: pointer;
 }
-
 li.aroom:hover {
     color: darkred;
+}
+label {
+    line-height: 1.5;
 }

@@ -38,9 +38,13 @@ header #live-message {
     vertical-align: bottom;
     text-align: center;
     position: fixed;
-    background-color: #afa;
-    top: 0px;
+    background-color: #b4cae9;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    top: -28px;
     z-index: 10;
+    -webkit-transition: top 600ms cubic-bezier(0.47, 0, 0.745, 0.715);
+    transition: top 600ms cubic-bezier(0.47, 0, 0.745, 0.715);
 }
 
 header .logo {

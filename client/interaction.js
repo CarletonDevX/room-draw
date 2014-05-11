@@ -73,6 +73,7 @@ if (Meteor.isClient) {
   Template.info.events({
     'click button, click #info': function() {
       hideOverlay('#info');
+      Session.set('clientDrawNumber', $("#myNumber").val());
     },
     'click #info .header, click #info .content': function(event) {
       event.stopPropagation();

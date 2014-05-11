@@ -72,17 +72,17 @@ if (Meteor.isClient) {
    * Header info
    */
   Template.header.lastNum = function() {
-    var obj = DrawData.findOne();
-    if (obj) return obj.lastNum;
+    var obj = DrawData.findOne({key: 'lastNum'});
+    if (obj) return obj.value;
     return "";
   }
   Template.header.lastDorm = function() {
-    var obj = DrawData.findOne();
-    if (obj) return obj.lastDorm;
+    var obj = DrawData.findOne({key: 'lastDorm'});
+    if (obj) return obj.value;
     return "";
   }
   Template.header.lastRoom = function() {
-    var obj = DrawData.findOne();
+    var obj = DrawData.findOne({key: 'lastRoom'});
     setTimeout(function() {
       $( '#lastRoom' ).textfill({
         maxFontSize: 34,
@@ -90,21 +90,21 @@ if (Meteor.isClient) {
         step: 1
       });
     }, 0)
-    if (obj) return obj.lastRoom;
+    if (obj) return obj.value;
     return "";
   }
   Template.header.liveMessage = function() {
-    var obj = DrawData.findOne();
+    var obj = DrawData.findOne({key: 'liveMessage'});
     if (obj) {
-      if (obj.liveMessage) {
+      if (obj.value || !obj.duration) {
         $( '#live-message' ).css('top', 0);
-        if (obj.messageDuration >= 0) {
+        if (obj.duration >= 0) {
           setTimeout(function() {
             $( '#live-message' ).css('top', -28);
-          }, obj.messageDuration);
+          }, obj.duration);
         }
       }
-      return obj.liveMessage;
+      return obj.value;
     }
     return "";
   }

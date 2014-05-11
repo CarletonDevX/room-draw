@@ -18,11 +18,12 @@ if (Meteor.isClient) {
         Rooms.update(this._id, {$set: {isDrawn: false}});
       } else {
         Rooms.update(this._id, {$set: {isDrawn: true}});
-        var dataID = DrawData.findOne()._id;
         var floor = Floors.findOne({_id: this.floorID});
         var dorm = Dorms.findOne({_id: floor.dormID});
-        DrawData.update(dataID, {$set: {lastDorm: dorm.name}});
-        DrawData.update(dataID, {$set: {lastRoom: this.name}});
+        var lastDormID = DrawData.findOne({key: 'lastDorm'})._id;
+        var lastRoomID = DrawData.findOne({key: 'lastRoom'})._id;
+        DrawData.update(lastDormID, {$set: {value: dorm.name}});
+        DrawData.update(lastRoomID, {$set: {value: this.name}});
       }
     }
   });
@@ -32,25 +33,36 @@ if (Meteor.isClient) {
    */
 
   Template.aheader.lastNum = function() {
-    var obj = DrawData.findOne();
-    if (obj) return obj.lastNum;
+    var obj = DrawData.findOne({key: 'lastNum'});
+    if (obj) return obj.value;
     return NaN;
+  }
+
+  var updateLastNum = function(change) {
+    var newValue = parseInt($( '#lastNum' ).val()) + change;
+    var lastNumID = DrawData.findOne({key: 'lastNum'})._id;
+    DrawData.update(lastNumID, {$set: {value: newValue}});
+  }
+
+  var updateLiveMessage = function(message, duration) {
+    console.log("okay: (" + message + "," + duration + ")");
+    var objID = DrawData.findOne({key: 'liveMessage'})._id;
+    DrawData.update(objID, {$set: {
+      value: message,
+      duration: duration
+    }});
   }
 
   Template.aheader.events({
     'click button#numUp': function() {
-      var dataID = DrawData.findOne()._id;
-      DrawData.update(dataID, {$inc: {lastNum: 1}});
+      updateLastNum(1);
     },
     'click button#numDown': function() {
-      var dataID = DrawData.findOne()._id;
-      DrawData.update(dataID, {$inc: {lastNum: -1}});
+      updateLastNum(-1);
     },
     'keypress input#lastNum': function(event) {
       if (event.charCode == 13) {
-        var dataID = DrawData.findOne()._id;
-        var newValue = parseInt($( '#lastNum' ).val());
-        DrawData.update(dataID, {$set: {lastNum: newValue}});
+        updateLastNum(0);
         $( '#lastNum' ).blur();
       }
     },
@@ -63,37 +75,29 @@ if (Meteor.isClient) {
           message = matches[1];
           duration = parseInt(matches[2]);
         }
-        var dataID = DrawData.findOne()._id;
-        DrawData.update(dataID, {$set: {
-          liveMessage: message,
-          messageDuration: duration
-        }});
+        updateLiveMessage(message, duration);
         $( '#liveMessage' ).val("");
         $( '#liveMessage' ).blur();
       }
     },
     'click button#clear': function() {
-      var dataID = DrawData.findOne()._id;
-      DrawData.update(dataID, {$set: {
-        liveMessage: "",
-        messageDuration: 0
-      }});
+      updateLiveMessage("", 0);
     }
   });
 
   /*
-   * Last dorm drawn, last room drawn, live message.
+   * Last dorm drawn, last room drawn
    */
 
    Template.aheader.lastDorm = function() {
-    var obj = DrawData.findOne();
-    if (obj) return obj.lastDorm;
+    var obj = DrawData.findOne({key: 'lastDorm'});
+    if (obj) return obj.value;
     return "";
   }
 
   Template.aheader.lastRoom = function() {
-    var obj = DrawData.findOne();
-    if (obj) return obj.lastRoom;
+    var obj = DrawData.findOne({key: 'lastRoom'});
+    if (obj) return obj.value;
     return "";
   }
 

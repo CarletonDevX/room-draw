@@ -33,13 +33,10 @@ if (Meteor.isServer) {
       // insertSampleData();
     };
     if (DrawData.find().count() === 0) {
-      DrawData.insert({
-        "lastNum": 2314,
-        "lastDorm": "Huntington House",
-        "lastRoom": "213",
-        "liveMessage": "Welcome to CarlDraw!",
-        "messageDuration": 2000
-      })
+      DrawData.insert({key: "lastNum", value: NaN});
+      DrawData.insert({key: "lastDorm", value: "N/A"});
+      DrawData.insert({key: "lastRoom", value: ""});
+      DrawData.insert({key: "liveMessage", value: "", duration: 0});
     };
 
     // Use the actual JSON to load real data:

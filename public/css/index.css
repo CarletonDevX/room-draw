@@ -393,7 +393,7 @@ and (min-width: 481px) {
         bottom:25px;
     }
 
-    ul.dorms{
+    div.dorm{
         top:48px;
     }
 }

@@ -29,7 +29,7 @@ if (Meteor.isClient) {
     var n = this.number;
     switch(n) {
       case 0:
-      	return 'Ground';
+        return 'Ground';
       case 1:
         return '1st';
       case 2:
@@ -59,10 +59,10 @@ if (Meteor.isClient) {
       color = "#b2f67c";
     } else if(chance > 40){
       color = "#f6e77c";
-    } else if(chance > 0){
+    } else if(chance >= 0){
       color = "#f67c7c";
     } else if(isNaN(chance) && vars.stdev == -1){
-      color = "#b8b8b8";
+      color = "#e0e0e0";
       chance = "??"
     }
     return {"color": color, "chance": chance};

@@ -323,7 +323,11 @@ span.chance {
   background-color: #eee;
 }
 
-.isDrawn{
+.isDrawn .room-inner .chance {
+    background-color: #838383 !important;
+}
+
+.isDrawn .room-inner {
     text-decoration: line-through;
 }
 

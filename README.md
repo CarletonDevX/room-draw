@@ -15,7 +15,9 @@ install packages:
 ```
 mrt add iron-router
 mrt add accounts-entry
+mrt add iron-router-progress
 ```
+(but in might install them all in one go)
 
 and then use ```mrt``` instead of ```meteor``` to run the app.
 

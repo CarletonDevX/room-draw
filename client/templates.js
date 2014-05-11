@@ -43,22 +43,31 @@ if (Meteor.isClient) {
 
   Template.room.chanceCalc = function() {
     //return Math.round(Math.random() * 500)/10 + 50;
-     var vars = this.chance;
-     if (vars.stdev < 0){
-       return "?"
-     }
-     var num = parseInt(Session.get('clientDrawNumber')) || 1000;
-     var absolutenum = num - 1000 - ((Math.floor(num/1000)-1) * 470);
-     num = (absolutenum * 0.291) + 29.364;
-     var p = normalProb(num, vars.mean, vars.stdev);
-     var percent =  Math.round((1-p)*100);
-     if (percent == 100){
-       return 99;
-     }
-     else{
-       return percent;
-     }
+    //Calculate chance
+    var vars = this.chance;
+    var num = parseInt(Session.get('clientDrawNumber')) || 1000;
+    var absolutenum = num - 1000 - ((Math.floor(num/1000)-1) * 470);
+    num = (absolutenum * 0.291) + 29.364;
+    var p = normalProb(num, vars.mean, vars.stdev);
+    var chance = Math.round((1-p)*100);
+    if (chance == 100){
+    	chance = 99
+    }
+    //Decide color
+    var color = "#838383"; //Default is gray
+    if(chance > 70){
+      color = "#b2f67c";
+    } else if(chance > 40){
+      color = "#f6e77c";
+    } else if(chance > 1){
+      color = "#f67c7c";
+    } 
+    var colorAndChance = {};
+    colorAndChance["color"] = color;
+    colorAndChance["chance"] = chance;
+    return colorAndChance;
   }
+
   /*
    * Header info
    */

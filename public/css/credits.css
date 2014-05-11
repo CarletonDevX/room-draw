@@ -5,10 +5,10 @@ html, body {
 
 header {
     width: 100%;
-    background-color: black;
+    background-color: #222;
     text-align: center;
     height: 50px;
-    margin-top: 30px;
+    margin-top: 32px;
 }
 
 header img {

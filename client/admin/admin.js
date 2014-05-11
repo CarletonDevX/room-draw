@@ -1,7 +1,7 @@
 if (Meteor.isClient) {
 
   Template.amain.dorms = function() {
-    return Dorms.find();
+    return Dorms.find({}, {sort: {name: 1}});
   }
 
   Template.adorm.floors = function() {

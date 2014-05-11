@@ -4,11 +4,6 @@ if (Meteor.isClient) {
     return Session.get('queryLabel');
   }
 
-  // Template.main.isLoaded = function() {
-  //   Meteor.setTimeout(function(){Template.main.isLoaded = function() {return true}}, 2000);
-  //   return false;
-  // }
-
   Template.main.dorms = function() {
     return Dorms.find({}, {sort: {'name': 1}}).map(function(dorm, index) {
       dorm.index = index;
@@ -50,7 +45,7 @@ if (Meteor.isClient) {
     var p = normalProb(num, vars.mean, vars.stdev);
     var chance = Math.round((1-p)*100);
     if (chance == 100){
-    	chance = 99
+    	chance = 99;
     }
     //Decide color
     var color = "#838383"; //Default is gray
@@ -58,13 +53,13 @@ if (Meteor.isClient) {
       color = "#b2f67c";
     } else if(chance > 40){
       color = "#f6e77c";
-    } else if(chance > 1){
+    } else if(chance > 0){
       color = "#f67c7c";
-    } 
-    var colorAndChance = {};
-    colorAndChance["color"] = color;
-    colorAndChance["chance"] = chance;
-    return colorAndChance;
+    } else if(isNaN(chance) && vars.stdev == -1){
+      color = "#b8b8b8";
+      chance = "??"
+    }
+    return {"color": color, "chance": chance};
   }
 
   /*

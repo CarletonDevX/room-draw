@@ -92,6 +92,9 @@ if (Meteor.isClient) {
     if (obj) return obj.lastRoom;
     return "";
   }
+  // Template.header.liveMessage = function() {
+  //   return 'hello';
+  // }
 
   AccountsEntry.config({
     showSignupCode: true

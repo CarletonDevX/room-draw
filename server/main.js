@@ -10,7 +10,6 @@ if (Meteor.isServer) {
 
     Rooms.allow({
       'update': function(userId, docs, fields, modifier) {
-        console.log(userId);
         if(userId) {
           return true;
         }
@@ -20,7 +19,6 @@ if (Meteor.isServer) {
 
     DrawData.allow({
       'update': function(userId, docs, fields, modifier) {
-        console.log(userId);
         if(userId) {
           return true;
         }

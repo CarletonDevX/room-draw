@@ -73,8 +73,10 @@ if (Meteor.isClient) {
    */
   Template.header.lastNum = function() {
     var obj = DrawData.findOne({key: 'lastNum'});
-    if (obj) return obj.value;
-    return "";
+    if (obj)
+      if (isNaN(obj.value)) return "N/A";
+      else return obj.value;
+    else return "";
   }
   Template.header.lastDorm = function() {
     var obj = DrawData.findOne({key: 'lastDorm'});

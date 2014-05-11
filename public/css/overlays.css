@@ -241,6 +241,9 @@ div.modalbox div.footer {
   list-style-type: none;
   line-height: 1.2;
 }
+#legendBox .chance{
+  padding: 2px;
+}
 
 /*
  * Query modal

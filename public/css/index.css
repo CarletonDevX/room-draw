@@ -254,6 +254,7 @@ li.room {
 
 li .room-inner {
     width: 160px;
+    display: inline-block;
     text-align: left;
 }
 

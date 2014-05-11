@@ -248,8 +248,13 @@ li.floor h4 {
 }
 
 li.room {
-    text-align: center;
     font-size: 18px;
+    text-align: center;
+}
+
+li .room-inner {
+    width: 160px;
+    text-align: left;
 }
 
 /*** Dorm view shadow ****/

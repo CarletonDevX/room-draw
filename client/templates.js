@@ -50,6 +50,9 @@ if (Meteor.isClient) {
     num = (absolutenum * 0.291) + 29.364;
     var p = normalProb(num, vars.mean, vars.stdev);
     var chance = Math.round((1-p)*100);
+    if (chance == 100){
+    	chance = 99
+    }
     //Decide color
     var color = "#838383"; //Default is gray
     if(chance > 70){
@@ -63,7 +66,6 @@ if (Meteor.isClient) {
     colorAndChance["color"] = color;
     colorAndChance["chance"] = chance;
     return colorAndChance;
-
   }
 
   /*

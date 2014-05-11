@@ -1,4 +1,16 @@
+/*
+ * queries.js
+ *
+ * Functions for handling filter logic:
+ * – saveQueryState()
+ * – loadQueryStat()
+ * – applyQueries()
+ */
+
 if (Meteor.isClient) {
+
+  // Constants
+  var empty_message = 'no matches in this dorm';
 
   // Saved checked state of inputs.
   var savedQueryState = {};
@@ -44,6 +56,7 @@ if (Meteor.isClient) {
     $('.dorm').each(function(){$(this).show();})
     $('.floor').each(function(){$(this).show();})
     $('#dormSelect').children().prop('disabled', false);
+    $( '.empty-message' ).remove();
 
     // Apply a new temporary stylesheet to hide things.
     classesString = hideClasses.join();
@@ -59,9 +72,10 @@ if (Meteor.isClient) {
     // Hide empty dorms
     $('.dorm').each(function() {
       if($(this).children('.floors').children(':visible').length == 0) {
-        $(this).hide();
-        dormName = $(this).children('h4').text();
-        $('#dormSelect').children("option[value*='" + dormName + "']").prop("disabled", true);
+        $(this).append('<p class="empty-message"> (' + empty_message + ') </p>');
+        // $(this).hide();
+        // dormName = $(this).children('h4').text();
+        // $('#dormSelect').children("option[value*='" + dormName + "']").prop("disabled", true);
       }
     });
 

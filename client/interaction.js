@@ -34,11 +34,12 @@ if (Meteor.isClient) {
     }
   });
 
+  var DORM_COUNT = 30; /* how not to do it right */
+
   Template.main.events(function () {
     Session.set("selectedDorm", 0);
     var goToDorm = function(newDorm) {
-      var dormCount = Dorms.find().count();
-      if (newDorm >= 0 && newDorm < dormCount) {
+      if (newDorm >= 0 && newDorm < DORM_COUNT) {
         Session.set("selectedDorm", newDorm);
         $( '#dormSelect' ).val(newDorm);
         margin = newDorm * -100;
@@ -47,7 +48,7 @@ if (Meteor.isClient) {
         $( '#dormRight' ).show();
         if (newDorm == 0) {
           $( '#dormLeft' ).hide();
-        } else if (newDorm == dormCount - 1) {
+        } else if (newDorm == DORM_COUNT - 1) {
           $( '#dormRight' ).hide();
         }
       }

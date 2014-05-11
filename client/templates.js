@@ -12,7 +12,7 @@ if (Meteor.isClient) {
     });
   }
 
-  var DORM_COUNT = 30; /* how not to program */
+  var DORM_COUNT = 30; /* how not to do it right */
   var orderedIDs = [];
 
   Template.main.floors = function() {

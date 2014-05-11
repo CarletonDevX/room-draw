@@ -35,13 +35,13 @@ if (Meteor.isClient) {
   });
 
   Template.main.events(function () {
-    var selectedDorm = 0;
+    Session.set("selectedDorm", 0);
     var goToDorm = function(newDorm) {
       var dormCount = Dorms.find().count();
       if (newDorm >= 0 && newDorm < dormCount) {
-        selectedDorm = newDorm;
+        Session.set("selectedDorm", newDorm);
         $( '#dormSelect' ).val(newDorm);
-        margin = selectedDorm * -100;
+        margin = newDorm * -100;
         $( 'ul.dorms > li:first-child' ).css('margin-left', margin + '%');
         $( '#dormLeft' ).show();
         $( '#dormRight' ).show();
@@ -55,14 +55,13 @@ if (Meteor.isClient) {
 
     return {
       'click #dormLeft': function() {
-        goToDorm(selectedDorm - 1);
+        goToDorm(Session.get("selectedDorm") - 1);
       },
       'click #dormRight': function() {
-        goToDorm(selectedDorm + 1);
+        goToDorm(Session.get("selectedDorm") + 1);
       },
       'change #dormSelect': function() {
-        selectedDorm = $( '#dormSelect' ).val();
-        goToDorm(selectedDorm);
+        goToDorm($( '#dormSelect' ).val());
       }
     };}());
 

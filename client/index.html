@@ -5,7 +5,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes">
   <link href='http://fonts.googleapis.com/css?family=Roboto:500,400,300,200,100' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="css/index.css?9">
+  <link rel="stylesheet" type="text/css" href="css/index.css?15">
   <link rel="stylesheet" type="text/css" href="css/overlays.css">
 </head>
 
@@ -158,8 +158,8 @@
     </div>
 
   </div>
-</template>
 
+</template>
 <template name="main">
   <div id="queryBox">
     <div id="queryThings">
@@ -171,41 +171,34 @@
     </div>
   </div>
 
-<main>
-  <div id="selectBox">
-    <div class="left">
-      <a id="dormLeft">〈</a>
+  <main>
+    <div id="selectBox">
+      <div class="left">
+        <a id="dormLeft">〈</a>
+      </div>
+      <div class="mid">
+        <span class="triangle">▼</span>
+        <select id="dormSelect">
+          {{#each dorms}}
+          <option value="{{index}}">{{name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="right">
+        <a id="dormRight">〉</a>
+      </div>
     </div>
-    <div class="mid">
-      <span class="triangle">▼</span>
-      <select id="dormSelect">
-        {{#each dorms}}
-        <option value="{{index}}">{{name}}</option>
-        {{/each}}
-      </select>
-    </div>
-    <div class="right">
-      <a id="dormRight">〉</a>
-    </div>
-  </div>
 
-  <ul class="dorms">
-    {{#each dorms}}<!--
-   -->{{> dorm}}<!--
- -->{{/each}}
-  </ul>
-</main>
+    <div class="dorm">
+      <ol class="floors">
+          {{#each floors}}<!--
+         -->{{> floor}}<!--
+       -->{{/each}}
+        </ol>
+    </div>
+
+  </main>
 </template>
-
-<template name="dorm"><!--
---><li class="dorm">
-    <ol class="floors">
-      {{#each floors}}<!--
-     -->{{> floor}}<!--
-   -->{{/each}}
-    </ol>
-  </li><!--
---></template>
 
 <template name="floor"><!--
 --><li class="floor">

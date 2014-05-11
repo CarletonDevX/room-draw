@@ -202,36 +202,15 @@ header > div:last-child h3 {
 
 /*** Dorms ***/
 
-ul.dorms{
-    /* Position */
+div.dorm{
     position: absolute;
-    top: 152px; /* Sum size of header, queryBox, selectBox. */
+    top:152px;
     bottom: 0;
     left: 0;
-    width: 100%;
+    right:0;
     margin: 0;
-    /* Clear list style */
-    padding: 0;
-    list-style: none;
-    /* Overflow */
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-ul.dorms > li {
-    /* Postiion */
-    width: 100%;
-    height: 100%;
-    vertical-align: top;
-    display: inline-block;
-    /* Overflow */
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-ul.dorms > li:first-child {
-    transition: margin-left .5s ease;
-    margin-left: 0%;
+    overflow-y:scroll;
+   -webkit-overflow-scrolling: touch;
 }
 
 .empty-message {
@@ -247,7 +226,7 @@ ol.rooms {
 }
 
 ol.floors {
-    padding: 16px 0 24px;
+    padding: 0;
     list-style: none;
 }
 
@@ -278,7 +257,7 @@ li .room-inner {
  * Degrades gracefully
  */
 
-ul.dorms > li {
+.dorm {
     /*overflow: auto;*/
     background:
         /* Shadow covers */

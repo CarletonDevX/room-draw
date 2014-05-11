@@ -11,8 +11,13 @@ if (Meteor.isClient) {
     });
   }
 
-  Template.dorm.floors = function() {
-    return Floors.find({'dormID': this._id});
+  var DORM_COUNT = 30; /* how not to program */
+  var orderedIDs = [];
+
+  Template.main.floors = function() {
+    orderedIDs.length == DORM_COUNT || (orderedIDs = Dorms.find({}, {sort: {'name': 1}}).fetch().map(function(dorm, index) {return dorm._id;}));
+    var dormID = orderedIDs[Session.get("selectedDorm")];
+    return Floors.find({'dormID': dormID});
   }
 
   Template.floor.rooms = function() {

@@ -1,40 +1,69 @@
 body, html {
-	width: 100%;
-	height: 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
 }
 
 #teaser {
-	text-align: center;
-	position: relative;
-	top: 20%;
+    width: 70%;
+    height: 200px;
+    position: absolute;
+    margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
     font-family: Roboto;
     font-weight: 700;
+    text-align: center;
 }
 
 #teaser img {
-	width: 70%;
+    height: 100px;
 }
 
 #teaser div {
-    /* vertical centering */
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; bottom: 0; right: 0;
+    height: 50px;
+    line-height: 50px;
 }
 
-#teaser .two {
-    color: #337599;
-    background: -webkit-linear-gradient(#337599, #333333);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+#teaser .teaser-bottom {
+    height: 40px;
+    line-height: 40px;
+    padding-top: 10px;
+    font-size: 32px;
+    vertical-align: bottom;
 }
 
-#teaser .lesslead {
-    line-height: 0.9;
-    font: Times New Roman;
+@media only screen
+and (max-width: 700px) {
+    #teaser {
+        height: 160px;
+    }
+    #teaser img {
+        height: 60px;
+    }
+    #teaser .teaser-bottom {
+        height: 30px;
+        line-height: 30px;
+        padding-top: 20px;
+        font-size: 24px;
+        vertical-align: bottom;
+    }
 }
 
-#teaser .morelead {
-    line-height: 1.5;
-    font: Arial;
+@media only screen
+and (max-width: 450px) {
+    #teaser {
+        height: 136px;
+    }
+    #teaser img {
+        height: 36px;
+    }
+    #teaser .teaser-top {
+        font-size: 14px;
+    }
+    #teaser .teaser-bottom {
+        height: 50px;
+        line-height: 50px;
+        font-size: 17px;
+        vertical-align: top;
+    }
 }

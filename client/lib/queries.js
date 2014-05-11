@@ -2,6 +2,7 @@
  * queries.js
  *
  * Functions for handling filter logic:
+ * – refreshEmpties() // called when query changes or dorm changes
  * – saveQueryState()
  * – loadQueryStat()
  * – applyQueries()
@@ -9,8 +10,31 @@
 
 if (Meteor.isClient) {
 
-  // Constants
   var empty_message = 'no matches in this dorm';
+  refreshEmpties = function() {
+    // Refresh
+    // $('.dorm').each(function(){$(this).show();})
+    $('.floor').each(function(){$(this).show();})
+    // $('#dormSelect').children().prop('disabled', false);
+    console.log("Refresh.");
+    $( '.empty-message' ).remove();
+    // Hide empty floors
+    $('.floor').each(function() {
+      if($(this).children('.rooms').children(':visible').length == 0) {
+        $(this).hide();
+      }
+    });
+    // Show empty dorm message if empty
+    $('.dorm').each(function() {
+      if($(this).children('.floors').children(':visible').length == 0) {
+        console.log("It''s empty!");
+        $(this).append('<p class="empty-message"> (' + empty_message + ') </p>');
+        // $(this).hide();
+        // dormName = $(this).children('h4').text();
+        // $('#dormSelect').children("option[value*='" + dormName + "']").prop("disabled", true);
+      }
+    });
+  }
 
   // Saved checked state of inputs.
   var savedQueryState = {};
@@ -53,31 +77,12 @@ if (Meteor.isClient) {
 
     // Reset so that nothing is hidden.
     $(".tempStyle").each(function(){$(this).remove();})
-    $('.dorm').each(function(){$(this).show();})
-    $('.floor').each(function(){$(this).show();})
-    $('#dormSelect').children().prop('disabled', false);
-    $( '.empty-message' ).remove();
 
     // Apply a new temporary stylesheet to hide things.
     classesString = hideClasses.join();
     $('head').append('<style class="tempStyle">'+ classesString + '{display:none;}</style>');
 
-    // Hide empty floors
-    $('.floor').each(function() {
-      if($(this).children('.rooms').children(':visible').length == 0) {
-        $(this).hide();
-      }
-    });
-
-    // Hide empty dorms
-    $('.dorm').each(function() {
-      if($(this).children('.floors').children(':visible').length == 0) {
-        $(this).append('<p class="empty-message"> (' + empty_message + ') </p>');
-        // $(this).hide();
-        // dormName = $(this).children('h4').text();
-        // $('#dormSelect').children("option[value*='" + dormName + "']").prop("disabled", true);
-      }
-    });
+    refreshEmpties();
 
     // Update filter message on main view.
     Session.set('queryLabel', hideClasses.length? 'Filtered…' : 'All rooms');

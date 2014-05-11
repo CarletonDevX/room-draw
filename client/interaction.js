@@ -52,6 +52,7 @@ if (Meteor.isClient) {
           $( '#dormRight' ).hide();
         }
       }
+      setTimeout(refreshEmpties, 0);
     };
 
     return {

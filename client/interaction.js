@@ -62,7 +62,7 @@ if (Meteor.isClient) {
         goToDorm(Session.get("selectedDorm") + 1);
       },
       'change #dormSelect': function() {
-        goToDorm($( '#dormSelect' ).val());
+        goToDorm(parseInt($( '#dormSelect' ).val()));
       }
     };}());
 

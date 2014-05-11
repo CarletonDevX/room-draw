@@ -13,10 +13,8 @@ a:link {
 }
 
 /**********************
-   Main View
+   Header
  **********************/
-
-/*** Header ***/
 
 header {
     height: 72px;
@@ -103,11 +101,9 @@ header > div:last-child h3 {
     border-right-color: #eee;
 }
 
-/*header .textfill {
-    width: 200px;
-}
-*/
-/*** Query Box ***/
+/**********************
+   Query box
+ **********************/
 
 #queryBox {
     width: 100%;
@@ -140,7 +136,9 @@ header > div:last-child h3 {
     left: -24px;
 }
 
-/*** Select Box ***/
+/**********************
+   Select box
+ **********************/
 
 #selectBox {
     width: 100%;
@@ -204,7 +202,9 @@ header > div:last-child h3 {
     display: none;
 }
 
-/*** Dorms ***/
+/**********************
+   Dorms
+ **********************/
 
 div.dorm{
     position: absolute;
@@ -230,16 +230,25 @@ ol.rooms {
 }
 
 ol.floors {
+    min-height: 100%;
     padding: 0;
+    margin: 0;
     list-style: none;
+}
+
+li.floor {
+    padding-top: 14px;
+}
+
+li.floor:last-child {
+    padding-bottom: 18px;
 }
 
 li.floor h4 {
     font-weight: bold;
     text-align: center;
     font-size: 18px;
-    margin-top: 14px;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 li.room {
@@ -253,7 +262,23 @@ li .room-inner {
     text-align: left;
 }
 
-/*** Dorm view shadow ****/
+#apology {
+    height: 12px;
+    line-height: 12px;
+    margin-top: -12px;
+    font-size: 9px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+#apology a:link {
+    color: #3287cc;
+    padding-top: 12px; /* Skechy touch-area expander */
+}
+
+/**********************
+   Dorm view shadow
+ **********************/
 
 /**
  * Based on scrolling shadows by @kizmarh and @leaverou
@@ -336,7 +361,7 @@ span.chance {
 }
 
 /**********************
-   ...
+   Media queries
  **********************/
 
 @media only screen

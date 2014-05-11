@@ -5,7 +5,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes">
   <link href='http://fonts.googleapis.com/css?family=Roboto:500,400,300,200,100' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="css/index.css?29">
+  <link rel="stylesheet" type="text/css" href="css/index.css?33">
   <link rel="stylesheet" type="text/css" href="css/overlays.css">
 </head>
 
@@ -211,20 +211,21 @@
          -->{{> floor}}<!--
        -->{{/each}}
         </ol>
+        <div id="apology">Percentages are rough estimates only. Is our info inaccurate? <a href="mailto:carletondevx@gmail.com">Let us know.</a></div>
     </div>
 
   </main>
 </template>
 
 <template name="floor"><!--
---><li class="floor">
-    <h4>{{ordinal}} Floor&nbsp;:</h4>
-    <ol class="rooms">
-      {{#each rooms}}<!--
+--><li class="floor"><!--
+ --><h4>{{ordinal}} Floor&nbsp;:</h4><!--
+ --><ol class="rooms"><!--
+   -->{{#each rooms}}<!--
      -->{{> room}}<!--
-   -->{{/each}}
-    </ol>
-  </li><!--
+   -->{{/each}}<!--
+ --></ol><!--
+--></li><!--
 --></template>
 
 <template name="room"><!--

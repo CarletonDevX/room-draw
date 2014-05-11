@@ -60,7 +60,7 @@ if (Meteor.isClient) {
     // Determine which room classes to hide.
     hideClasses = []
     // Hide room sizes that aren't checked.
-    for (var i = 1; i < 6; i++)
+    for (var i = 1; i < 7; i++)
       if (!$( '#roomSize' + i ).prop('checked'))
         hideClasses.push('.size' + i)
     // Hide according to sub-free preferences.

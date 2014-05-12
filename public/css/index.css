@@ -67,6 +67,7 @@ header #live-message {
 header #headerLogo {
     width: 100%;
     line-height: 60px;
+    height:67px;
     box-sizing:border-box;
 }
 
@@ -102,12 +103,6 @@ header h3 {
     border-left: 6px;
     border-right: 6px;
     font-size: 34px;
-}
-
-header h3#lastRoom {
-    font-weight: 300;
-    border-right-color: #eee;
-    cursor: pointer;
 }
 
 /**********************

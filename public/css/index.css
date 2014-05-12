@@ -35,18 +35,18 @@ li.room {
 }
 
 .onlyFemale::before {
-    content: "[ F ]";
+    content: "F";
     position: absolute;
     font-size: 8px;
-    color: #8e4fc4;
+    color: grey;
     line-height: 60px;
 }
 
 .onlyMale::before {
-    content: "[ M ]";
+    content: "M";
     position: absolute;
     font-size: 8px;
-    color: #309188;
+    color: grey;
     line-height: 60px;
 }
 

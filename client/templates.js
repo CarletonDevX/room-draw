@@ -41,13 +41,17 @@ if (Meteor.isClient) {
     }
   }
 
+  var classSizes = {1: 1000, 2: 1476, 3: 1945};
+
   Template.room.chanceCalc = function() {
     //return Math.round(Math.random() * 500)/10 + 50;
     //Calculate chance
     var vars = this.chance;
     var num = parseInt(Session.get('clientDrawNumber')) || 1000;
-    var absolutenum = num - 1000 - ((Math.floor(num/1000)-1) * 470);
-    num = (absolutenum * 0.301); //Y-intercept to 0 or else no one can draw Nason
+    var x = 1
+    x = num - classSizes[Math.floor(num/1000)];
+    //num = (absolutenum * 0.301); Former equation
+    num = (-0.0000000003*Math.pow(x,4))+(0.0000010057*Math.pow(x,3))-(0.0009569812*Math.pow(x,2))+(0.580543762*x) //This is gross but effective
     var p = normalProb(num, vars.mean, vars.stdev);
     var chance = Math.round((1-p)*100);
     if (chance == 100){

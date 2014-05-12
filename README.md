@@ -28,9 +28,10 @@ Deploying
 ---------
 
 1. Comment-out lines 7-10 in /server/main.js
-2.Run:
-```shell
-meteor deploy carldraw.com --delete
-meteor deploy --debug carldraw.com```
+2. Run:
+⋅⋅⋅ ```shell
+⋅⋅⋅ meteor deploy carldraw.com --delete
+⋅⋅⋅ meteor deploy --debug carldraw.com
+⋅⋅⋅ ```
 3. Create an admin account
 4. For the big unveiling, post on FB as DevX with a link and say, “we’re live!”

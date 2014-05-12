@@ -431,7 +431,7 @@ div.modalbox div.footer {
   display: inline-block;
   position: relative;
   top: 2px;
-  left: -15px;
+  left: -10px;
   width: 16px;
   height: 16px;
   border-radius: 3px;
@@ -470,7 +470,7 @@ div.modalbox div.footer {
 
 #check1 label,
 #check3 label {
-  padding: 10px 16px 10px 40px;
+  padding: 10px 16px 10px 30px;
   display: block;
   text-align: left;
   cursor: pointer;

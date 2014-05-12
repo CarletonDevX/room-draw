@@ -222,6 +222,8 @@ div.dorm{
 .empty-message {
     text-align: center;
     font-style: italic;
+    margin: 0;
+    padding-top: 20px;
 }
 
 /*** Floors and rooms **/
@@ -243,7 +245,7 @@ li.floor {
 }
 
 li.floor:last-child {
-    padding-bottom: 18px;
+    padding-bottom: 22px;
 }
 
 li.floor h4 {
@@ -265,10 +267,10 @@ li .room-inner {
 }
 
 #apology {
-    height: 12px;
-    line-height: 12px;
-    margin-top: -12px;
-    font-size: 9px;
+    height: 16px;
+    line-height: 16px;
+    margin-top: -17px;
+    font-size: 13px;
     background-color: #f0f0f0;
     text-align: center;
 }

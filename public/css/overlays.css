@@ -237,7 +237,7 @@ div.modalbox div.footer {
 }
 #legendBox h3{
   display: inline-block;
-  margin-top: 20px;
+  margin-top: 10px;
   vertical-align: top;
   padding-left: 20px;
 }
@@ -248,6 +248,7 @@ div.modalbox div.footer {
   display: inline-block;
   list-style-type: none;
   line-height: 1.2;
+  margin-top: 8px;
 }
 #legendBox .chance{
   padding: 2px;

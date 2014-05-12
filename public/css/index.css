@@ -12,6 +12,19 @@ a:link {
    text-decoration: none;
 }
 
+/* Not in the correct place */
+
+ol.rooms {
+    -webkit-column-count: 2; /* Chrome, Safari, Opera */
+    -moz-column-count: 2; /* Firefox */
+    column-count: 2;
+}
+
+#info .header, #info .contentbox {
+    max-width:300px;
+    margin:0 auto;
+}
+
 /**********************
    Header
  **********************/
@@ -278,6 +291,7 @@ li .room-inner {
 #apology a:link {
     color: #3287cc;
     padding-top: 14px; /* Skechy touch-area expander */
+    text-decoration: underline;
 }
 
 /**********************
@@ -375,8 +389,27 @@ and (max-width: 820px) {
   }
 }
 
-@media only screen
-and (max-width: 480px) { /* change to device width */
+/* Three columns */
+@media
+only screen
+and (min-width: 600px)
+and (max-device-width: 1024px),
+only screen
+and (min-width: 951px)
+and (min-device-width: 1025px) {
+    ol.rooms {
+    -webkit-column-count: 3; /* Chrome, Safari, Opera */
+    -moz-column-count: 3; /* Firefox */
+    column-count: 3;
+    }
+}
+
+/* Mobile / narrow window display */
+@media
+only screen
+and (max-width: 715px),
+only screen
+and (max-device-width: 1024px) { /* change to device width */
   header{
     width:100%;
   }
@@ -386,15 +419,12 @@ and (max-width: 480px) { /* change to device width */
   #queries {
     display:none;
   }
-  ol.rooms {
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    -moz-column-count: 2; /* Firefox */
-    column-count: 2;
-  }
 }
 
+/* Desktop only, large window display */
 @media only screen
-and (min-width: 481px) {
+and (min-width: 716px)
+and (min-device-width: 1025px) {
     header {
         width:350px;
     }
@@ -405,11 +435,6 @@ and (min-width: 481px) {
         bottom:0;
         left:362px;
         right:0;
-    }
-
-    #info .header, #info .contentbox {
-        max-width:300px;
-        margin:0 auto;
     }
 
     #queryBox, #queries .footer {
@@ -436,24 +461,5 @@ and (min-width: 481px) {
 
     div.dorm{
         top:48px;
-    }
-}
-
-@media only screen
-and (min-width: 650px)
-and (max-width: 950px) {
-    ol.rooms {
-    -webkit-column-count: 2; /* Chrome, Safari, Opera */
-    -moz-column-count: 2; /* Firefox */
-    column-count: 2;
-    }
-}
-
-@media only screen
-and (min-width: 951px) {
-    ol.rooms {
-    -webkit-column-count: 3; /* Chrome, Safari, Opera */
-    -moz-column-count: 3; /* Firefox */
-    column-count: 3;
     }
 }

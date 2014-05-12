@@ -5,7 +5,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="mobile-web-app-capable" content="yes">
   <link href='http://fonts.googleapis.com/css?family=Roboto:500,400,300,200,100' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="css/index.css?48">
+  <link rel="stylesheet" type="text/css" href="css/index.css?60">
   <link rel="stylesheet" type="text/css" href="css/overlays.css?21">
 </head>
 
@@ -186,14 +186,30 @@
 </template>
 
 <template name="main">
-  <div id="queryBox">
-    <div id="queryThings">
+  <div id="toolBox">
+    <div class="left">
+      <div>
+        <img src="search.png" />
+        <span>My Name</span>
+      </div>
+    </div><div class="mid">
+      <div>
+        <img src="search.png" />
+        <span>Filter</span>
+      </div>
+    </div><div class="right">
+      <div>
+        <img src="search.png" />
+        <span>Taken Rooms</span>
+      </div>
+    </div>
+<!--     <div id="queryThings">
       Showing:
       <a id="queryField">
         <span id="queryLabel">&nbsp;{{queryLabel}}</span>
         <img src="/search.png" />
       </a>
-    </div>
+    </div> -->
   </div>
 
   <main>

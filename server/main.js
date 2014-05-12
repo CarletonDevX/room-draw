@@ -3,6 +3,7 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
 
     // Clear the database when the server starts up.
+    // This is debug only!
     Dorms.remove({});
     Floors.remove({});
     Rooms.remove({});

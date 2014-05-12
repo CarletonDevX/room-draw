@@ -12,7 +12,7 @@ a:link {
    text-decoration: none;
 }
 
-/* Not in the correct place */
+/********Not in the correct place*********/
 
 ol.rooms {
     -webkit-column-count: 2; /* Chrome, Safari, Opera */
@@ -28,6 +28,26 @@ ol.rooms {
 #queries .header, #queries .contentbox {
     max-width: 380px;
     margin: 0 auto;
+}
+
+li.room {
+    position: relative;
+}
+
+.onlyFemale::before {
+    content: "[ F ]";
+    position: absolute;
+    font-size: 8px;
+    color: #8e4fc4;
+    line-height: 60px;
+}
+
+.onlyMale::before {
+    content: "[ M ]";
+    position: absolute;
+    font-size: 8px;
+    color: #309188;
+    line-height: 60px;
 }
 
 /**********************

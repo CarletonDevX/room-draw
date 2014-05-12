@@ -128,7 +128,7 @@ if (Meteor.isClient) {
       return hist.value.map(function(name, index) {
         var num = hist.nums[index];
         if (!num) num = ""
-        return {room: name, num: num};
+        return {room: name, num: num, index: index + 1};
       });
     }
     return [];

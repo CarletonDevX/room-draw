@@ -162,7 +162,22 @@ div.modalbox div.footer {
 }
 
 #info #credits a {
+  padding-top: 14px;
+}
+
+#info #credit-link {
   text-decoration: underline;
+}
+
+#info #credit-link:visited {
+  color: rgb(80, 110, 250)
+}
+
+#info #credits img {
+  height: 14px;
+  position: relative;
+  top: 3px;
+  padding-right: 2px;
 }
 
 #info p {

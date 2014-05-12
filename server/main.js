@@ -4,10 +4,10 @@ if (Meteor.isServer) {
 
     // Clear the database when the server starts up.
     // This is debug only!
-    Dorms.remove({});
-    Floors.remove({});
-    Rooms.remove({});
-    DrawData.remove({});
+    // Dorms.remove({});
+    // Floors.remove({});
+    // Rooms.remove({});
+    // DrawData.remove({});
 
     Rooms.allow({
       'update': function(userId, docs, fields, modifier) {

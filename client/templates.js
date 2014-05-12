@@ -99,6 +99,10 @@ if (Meteor.isClient) {
     var obj = DrawData.findOne({key: 'liveMessage'});
     if (obj) {
       if (obj.value || !obj.duration) {
+        if (obj.value && obj.duration) {
+          var alert = document.getElementById('alert');
+          alert && alert.play();
+        }
         $( '#live-message' ).css('top', 0);
         if (obj.duration >= 0) {
           setTimeout(function() {

@@ -1,7 +1,7 @@
 <template name="admin">
   <head>
     <title>CarlDraw ADMIN</title>
-    <link rel="stylesheet" type="text/css" href="css/admin.css?10">
+    <link rel="stylesheet" type="text/css" href="css/admin.css?13">
 </head>
 
 <body>
@@ -14,7 +14,8 @@
   <div id="header">
     <div class="signout">
       <a href='/sign-out'>Sign Out</a><br>
-      <a href='/admin-instructions'>Instructions</a>
+      <a href='/admin-instructions'>Instructions</a><br><br><br>
+      Taken by:&nbsp;<input type="text" id="takenBy" autocomplete="off">
     </div>
     <div class="container">
       <div>
@@ -49,30 +50,23 @@
     <h4>{{name}}</h4>
     <ul class="afloors">
       {{#each floors}}
-        {{> afloor}}
+      <li class="afloor">
+        <h4>Floor {{number}}</h4>
+        <ul class="arooms">
+          {{#each rooms}}
+          <li class="aroom {{column}} {{reset}}">
+            {{#if isDrawn}}
+              <input type="checkbox" id="{{_id}}" checked>
+            {{else}}
+              <input type="checkbox" id="{{_id}}">
+            {{/if}}
+            <label for="{{_id}}">{{dormName}} {{name}} ({{size}})</label>
+          </li>
+          {{/each}}
+        </ul>
+      </li>
       {{/each}}
     </ul>
   </li>
 </template>
 
-<template name="afloor">
-  <li class="afloor">
-    <h4>Floor {{number}}</h4>
-    <ul class="arooms">
-      {{#each rooms}}
-        {{> aroom}}
-      {{/each}}
-    </ul>
-  </li>
-</template>
-
-<template name="aroom">
-  <li class="aroom {{column}} {{reset}}">
-    {{#if isDrawn}}
-        <input type="checkbox" id="{{_id}}" checked>
-    {{else}}
-        <input type="checkbox" id="{{_id}}">
-    {{/if}}
-    <label for="{{_id}}">Room {{name}} (occupancy: {{size}})</label>
-  </li>
-</template>

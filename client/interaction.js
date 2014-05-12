@@ -6,12 +6,12 @@ if (Meteor.isClient) {
 
   var showOverlay = function(name) {
     $(name).show();
-    $('# .header, # .contentbox, # .footer'.replace(/#/g, name)).hide().show(300);
+    $(name + ' > div').hide().show(300);
     $(name).show(1).css({'background-color': 'rgba(0, 0, 0, 0.6)'});
   }
 
   var hideOverlay = function(name) {
-    $('# .header, # .contentbox, # .footer'.replace(/#/g, name)).hide(300);
+    $(name + ' > div').hide(300);
     $(name).css({'background-color': 'rgba(0, 0, 0, 0)'}).delay(300).hide(1);
   }
 
@@ -23,6 +23,9 @@ if (Meteor.isClient) {
   Template.header.events({
     'click .infoButton': function() {
       showOverlay('#info');
+    },
+    'click #lastRoom': function() {
+      showOverlay('#history');
     }
   });
 
@@ -108,6 +111,19 @@ if (Meteor.isClient) {
       }
     }
   });
+
+  /**************************************
+   * History interface events
+   **************************************/
+
+  Template.history.events({
+    'click button, click #history': function() {
+      hideOverlay('#history');
+    },
+    'click #history .header, click #history .content': function(event) {
+      event.stopPropagation();
+    }
+  })
 
   //  /**************************************
   //  * Bonus round

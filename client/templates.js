@@ -115,6 +115,21 @@ if (Meteor.isClient) {
     return "";
   }
 
+  /*
+   * History
+   */
+  Template.history.history = function() {
+    var hist = DrawData.findOne({key: 'history'});
+    if (hist) {
+      return hist.value.map(function(name, index) {
+        var num = hist.nums[index];
+        if (!num) num = ""
+        return {room: name, num: num};
+      });
+    }
+    return [];
+  }
+
   AccountsEntry.config({
     showSignupCode: true
   });

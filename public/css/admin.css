@@ -25,6 +25,9 @@
     margin-right: 2em;
     text-align: right;
 }
+#takenBy {
+    width: 50px;
+}
 .container {
     margin: 0 auto;
     width: 600px;

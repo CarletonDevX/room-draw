@@ -35,6 +35,7 @@ if (Meteor.isServer) {
       DrawData.insert({key: "lastDorm", value: "N/A"});
       DrawData.insert({key: "lastRoom", value: ""});
       DrawData.insert({key: "liveMessage", value: "", duration: 0});
+      DrawData.insert({key: "history", value: [], nums: []});
     };
 
     // Use the actual JSON to load real data:

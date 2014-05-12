@@ -97,8 +97,10 @@ header h3 {
 
 header > div:last-child h3 {
     font-weight: 200;
-    color: #666;
+    /*color: #666;*/
     border-right-color: #eee;
+    color: #3287cc;
+    cursor: pointer;
 }
 
 /**********************
@@ -273,7 +275,7 @@ li .room-inner {
 
 #apology a:link {
     color: #3287cc;
-    padding-top: 12px; /* Skechy touch-area expander */
+    padding-top: 14px; /* Skechy touch-area expander */
 }
 
 /**********************
@@ -420,6 +422,10 @@ and (min-width: 481px) {
         width:350px;
         top:85px;
         background-color:#ECECEC !important;
+    }
+
+    div#queries > div {
+        position:absolute;
     }
 
     div#queries .contentbox{

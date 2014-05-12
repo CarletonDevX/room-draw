@@ -8,28 +8,43 @@ if (Meteor.isClient) {
     return Floors.find({'dormID': this._id});
   }
 
-  Template.afloor.rooms = function() {
+  Template.adorm.rooms = function() {
     return Rooms.find({'floorID': this._id});
   }
 
-  Template.aroom.events({
+  Template.adorm.dormName = function() {
+    return Dorms.findOne({_id: Floors.findOne({_id: this.floorID}).dormID}).name;
+  }
+
+  Template.adorm.events({
     'click input': function() {
+      var floor = Floors.findOne({_id: this.floorID});
+      var dorm = Dorms.findOne({_id: floor.dormID});
+      var lastDormID = DrawData.findOne({key: 'lastDorm'})._id;
+      var lastRoomID = DrawData.findOne({key: 'lastRoom'})._id;
+      var hist = DrawData.findOne({key: 'history'});
       if (this.isDrawn) {
         Rooms.update(this._id, {$set: {isDrawn: false}});
+        var val = dorm.name + " " + this.name;
+        var i = hist.value.indexOf(val);
+        var num = hist.nums[i];
+        var dict = {};
+        dict['nums.' + i] = -1;
+        DrawData.update(hist._id, {$pull: {value: val}});
+        DrawData.update(hist._id, {$set: dict});
+        DrawData.update(hist._id, {$pull: {nums: -1}});
       } else {
         Rooms.update(this._id, {$set: {isDrawn: true}});
-        var floor = Floors.findOne({_id: this.floorID});
-        var dorm = Dorms.findOne({_id: floor.dormID});
-        var lastDormID = DrawData.findOne({key: 'lastDorm'})._id;
-        var lastRoomID = DrawData.findOne({key: 'lastRoom'})._id;
         DrawData.update(lastDormID, {$set: {value: dorm.name}});
         DrawData.update(lastRoomID, {$set: {value: this.name}});
+        DrawData.update(hist._id, {$push: {value: dorm.name + " " + this.name}});
+        DrawData.update(hist._id, {$push: {nums: 0}});
       }
     }
   });
 
   /*
-   * Last number drawn.
+   * Last number drawn and other things.
    */
 
   Template.aheader.lastNum = function() {
@@ -45,12 +60,17 @@ if (Meteor.isClient) {
   }
 
   var updateLiveMessage = function(message, duration) {
-    console.log("okay: (" + message + "," + duration + ")");
     var objID = DrawData.findOne({key: 'liveMessage'})._id;
     DrawData.update(objID, {$set: {
       value: message,
       duration: duration
     }});
+  }
+
+  var updateLastTakenBy = function(num) {
+    var historyID = DrawData.findOne({key: 'history'})._id;
+    DrawData.update(historyID, {$pop: {nums: 1}});
+    DrawData.update(historyID, {$push: {nums: num}});
   }
 
   Template.aheader.events({
@@ -78,6 +98,14 @@ if (Meteor.isClient) {
         updateLiveMessage(message, duration);
         $( '#liveMessage' ).val("");
         $( '#liveMessage' ).blur();
+      }
+    },
+    'keypress input#takenBy': function(event) {
+      if (event.charCode == 13) {
+        var num = parseInt($( '#takenBy' ).val());
+        updateLastTakenBy(num);
+        $( '#takenBy' ).val("");
+        $( '#takenBy' ).blur();
       }
     },
     'click button#clear': function() {

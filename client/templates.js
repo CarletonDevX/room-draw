@@ -51,7 +51,12 @@ if (Meteor.isClient) {
     var x = 1
     x = num - classSizes[Math.floor(num/1000)];
     //num = (absolutenum * 0.301); Former equation
-    num = (-0.0000000003*Math.pow(x,4))+(0.0000010057*Math.pow(x,3))-(0.0009569812*Math.pow(x,2))+(0.580543762*x) //This is gross but effective
+    //Fuck it let's make a special case
+    if(850<x && x<1200){
+      num = -(0.00000000195991903266*Math.pow(x,4))+(0.00000649423765156087*Math.pow(x,3))-(0.00704213722960390000*Math.pow(x,2))+(2.79045453780418000000*x);
+    } else {
+      num = (-0.00000000027459092358*Math.pow(x,4))+(0.00000085467370941562*Math.pow(x,3))-(0.00084763810123911200*Math.pow(x,2))+(0.56056896982656200000*x); 
+    }
     var p = normalProb(num, vars.mean, vars.stdev);
     var chance = Math.round((1-p)*100);
     if (chance == 100){

@@ -65,7 +65,7 @@ header .infoButton {
     cursor: pointer;
 }
 
-header .infoButton:hover {
+header .infoButton:hover, header .right #lastRoom:hover {
 box-shadow: inset 0 0 2px 2px #aaa;
 }
 

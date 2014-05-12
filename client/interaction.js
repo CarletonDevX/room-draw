@@ -16,26 +16,36 @@ if (Meteor.isClient) {
   }
 
   /**************************************
-   * Main interface events
+   * Header
    **************************************/
 
-  // Show info overlay.
   Template.header.events({
     'click #headerLogo': function() {
       showOverlay('#info');
+    }
+  });
+
+  /**************************************
+   * Toolbox
+   **************************************/
+
+  // Show queries overlay.
+  Template.main.events({
+    'click #toolBox .left': function() {
+      showOverlay('#info');
     },
-    'click #lastRoom': function() {
+    'click #toolBox .mid': function() {
+      showOverlay('#queries');
+      saveQueryState();
+    },
+    'click #toolBox .right': function() {
       showOverlay('#history');
     }
   });
 
-  // Show queries overlay.
-  Template.main.events({
-    'click #queryField': function() {
-      showOverlay('#queries');
-      saveQueryState();
-    }
-  });
+  /**************************************
+   * Dorm select
+   **************************************/
 
   var DORM_COUNT = 30; /* how not to do it right */
 
@@ -125,9 +135,9 @@ if (Meteor.isClient) {
     }
   })
 
-  //  /**************************************
-  //  * Bonus round
-  //  **************************************/
+   /**************************************
+   * Bonus round
+   **************************************/
    
   // // Try to hide address bar on mobile
   // window.addEventListener("load",function() {

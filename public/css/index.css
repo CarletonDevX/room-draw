@@ -21,8 +21,13 @@ ol.rooms {
 }
 
 #info .header, #info .contentbox {
-    max-width:300px;
-    margin:0 auto;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#queries .header, #queries .contentbox {
+    max-width: 380px;
+    margin: 0 auto;
 }
 
 /**********************
@@ -156,7 +161,7 @@ header h3#lastRoom {
 }
 
 #toolBox > div > div:hover::before {
-    background-color: #d9f0ff;
+    background-color: #d6eafb;
 }
 
 #toolBox > div > div:active::before {
@@ -411,6 +416,15 @@ span.chance {
 /**********************
    Media queries
  **********************/
+
+@media only screen and (min-width: 350px) {
+    #toolBox { font-size: 11px; }}
+@media only screen and (min-width: 375px) {
+    #toolBox { font-size: 12px; }}
+@media only screen and (min-width: 400px) {
+    #toolBox { font-size: 13px; }}
+@media only screen and (min-width: 500px) {
+    #toolBox { font-size: 16px; }}
 
 @media only screen
 and (max-width: 820px) {

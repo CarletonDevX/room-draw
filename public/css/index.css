@@ -31,7 +31,7 @@ ol.rooms {
 
 header {
     height: 72px;
-    background-color: rgb(250,250,250);
+    background-color: rgb(247,247,247);
 }
 
 header > div {
@@ -101,14 +101,9 @@ header h3 {
 }
 
 header h3#lastRoom {
-    font-weight: 200;
+    font-weight: 300;
     border-right-color: #eee;
-    color: #3287cc;
     cursor: pointer;
-}
-
-header h3#lastRoom:hover {
-    text-decoration:underline;
 }
 
 /**********************
@@ -117,7 +112,7 @@ header h3#lastRoom:hover {
 
 #toolBox {
     width: 100%;
-    height: 50px;
+    height: 52px;
     padding: 6px 0;
     font-size: 10px;
     -webkit-box-sizing: border-box;
@@ -143,6 +138,7 @@ header h3#lastRoom:hover {
     top: 2px;
     z-index: 0;
     background-color: #c6ddff;
+    cursor: pointer;
 }
 
 #toolBox > div > div::before {
@@ -159,6 +155,15 @@ header h3#lastRoom:hover {
     background-color: #e0f3ff;
 }
 
+#toolBox > div > div:hover::before {
+    background-color: #d9f0ff;
+}
+
+#toolBox > div > div:active::before {
+    background-color: #d9f0ff;
+    top: 0;
+}
+
 #toolBox .left > div {
     margin-left: 6px;
 }
@@ -170,7 +175,9 @@ header h3#lastRoom:hover {
 #toolBox img {
     height: 28px;
     vertical-align: middle;
-    padding-left: 3px;
+    padding: 0 3px;
+    position: relative;
+    top: -2px;
 }
 
 /**********************
@@ -245,7 +252,7 @@ header h3#lastRoom:hover {
 
 div.dorm{
     position: absolute;
-    top:1px;
+    top: 162px;
     bottom: 0;
     left: 0;
     right:0;

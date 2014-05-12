@@ -27,11 +27,8 @@ Currently hosted at [roomdraw.meteor.com](http://roomdraw.meteor.com)
 Deploying
 ---------
 
-1. Comment-out lines 7-10 in /server/main.js
-2. Run:
-⋅⋅⋅ ```shell
-⋅⋅⋅ meteor deploy carldraw.com --delete
-⋅⋅⋅ meteor deploy --debug carldraw.com
-⋅⋅⋅ ```
+1. Comment-out lines 7-10 in /server/main.js (where it clears the dbs)
+2. Run ```meteor deploy carldraw.com --delete```
+3. Run ```meteor deploy --debug carldraw.com```
 3. Create an admin account
 4. For the big unveiling, post on FB as DevX with a link and say, “we’re live!”

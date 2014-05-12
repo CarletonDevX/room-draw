@@ -51,6 +51,8 @@ div.modalbox div.footer {
 
 .modalbox .header {
   background-color: #fff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .modalbox .content {
@@ -131,6 +133,11 @@ div.modalbox div.footer {
 
 #info .contentbox {
   top: 90px;
+}
+
+#info .content {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 #info .header {

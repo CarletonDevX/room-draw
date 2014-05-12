@@ -28,7 +28,7 @@ if (Meteor.isClient) {
     $('.dorm').each(function() {
       if($(this).children('.floors').children(':visible').length == 0) {
         console.log("It''s empty!");
-        $(this).append('<p class="empty-message"> (' + empty_message + ') </p>');
+        $(this).children('.floors').prepend('<p class="empty-message"> (' + empty_message + ') </p>');
         // $(this).hide();
         // dormName = $(this).children('h4').text();
         // $('#dormSelect').children("option[value*='" + dormName + "']").prop("disabled", true);

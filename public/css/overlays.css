@@ -514,7 +514,7 @@ div.modalbox div.footer {
 
 #history .content {
   padding: 0 20px;
-  min-height: 300px;
+  min-height: 100px;
 }
 
 #history .contentbox {

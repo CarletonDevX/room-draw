@@ -31,6 +31,7 @@ ol.rooms {
 
 header {
     height: 72px;
+    background-color: rgb(250,250,250);
 }
 
 header > div {
@@ -38,9 +39,9 @@ header > div {
     float: left;
     text-align: center;
 }
-header .left { width: 15%; }
+header .left { width: 25%; }
 header .mid { width: 35%; }
-header .right { width: 50%; }
+header .right { width: 40%; }
 
 header #live-message {
     width: 100%;
@@ -58,33 +59,25 @@ header #live-message {
     transition: top 600ms cubic-bezier(0.47, 0, 0.745, 0.715);
 }
 
-header .logo {
+header #headerLogo {
     width: 100%;
-    height: 28px;
-    background-color: #ddd;
+    height: 72px;
+    line-height: 60px;
+    box-sizing:border-box;
 }
 
-header .logo img {
-    height: 18px;
+header #headerLogo img {
+    width:80px;
+    max-width:80%;
     margin-top: 6px;
+    display:inline;
+    vertical-align: middle;
+    height:auto;
 }
 
-header .infoButton {
-    width: 100%;
-    height: 44px;
-    background-color: #eee;
-    border-right: 6px solid white;
-    box-sizing: border-box;
+header #headerLogo:hover{
+    box-shadow: inset 0 0 4px 4px #ddd;
     cursor: pointer;
-}
-
-header .infoButton:hover, header .right #lastRoom:hover {
-box-shadow: inset 0 0 2px 2px #aaa;
-}
-
-header .infoButton img {
-    height: 28px;
-    margin-top: 7px;
 }
 
 header h2 {
@@ -93,8 +86,8 @@ header h2 {
     font-size: 13px;
     vertical-align: center;
     margin: 0;
-    background-color: #ddd;
     font-weight: 500;
+    text-decoration:underline;
 }
 
 header h3 {
@@ -102,18 +95,20 @@ header h3 {
     line-height: 44px;
     vertical-align: center;
     margin-top: 0;
-    border-left: 6px solid white;
-    border-right: 6px solid white;
-    background-color: #eee;
+    border-left: 6px;
+    border-right: 6px;
     font-size: 34px;
 }
 
-header > div:last-child h3 {
+header h3#lastRoom {
     font-weight: 200;
-    /*color: #666;*/
     border-right-color: #eee;
     color: #3287cc;
     cursor: pointer;
+}
+
+header h3#lastRoom:hover {
+    text-decoration:underline;
 }
 
 /**********************

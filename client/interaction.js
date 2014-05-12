@@ -21,7 +21,7 @@ if (Meteor.isClient) {
 
   // Show info overlay.
   Template.header.events({
-    'click .infoButton': function() {
+    'click #headerLogo': function() {
       showOverlay('#info');
     },
     'click #lastRoom': function() {

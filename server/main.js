@@ -9,23 +9,23 @@ if (Meteor.isServer) {
     // Rooms.remove({});
     // DrawData.remove({});
 
-    Rooms.allow({
-      'update': function(userId, docs, fields, modifier) {
-        if(userId) {
-          return true;
-        }
-        return false;
+    var access = function(userId, docs, fields, modifier) {
+      if(userId) {
+        return true;
       }
-    });
+      return false;
+    }
 
-    DrawData.allow({
-      'update': function(userId, docs, fields, modifier) {
-        if(userId) {
-          return true;
-        }
-        return false;
-      }
-    });
+    var rights = {
+      'update': access,
+      'insert': access,
+      'remove': access
+    }
+
+    Rooms.allow(rights);
+    Floors.allow(rights);
+    // Dorms.allow(rights);
+    DrawData.allow(rights);
 
     // Generate fake data for testing.
     if (Dorms.find().count() === 0) {

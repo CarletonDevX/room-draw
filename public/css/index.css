@@ -34,20 +34,28 @@ li.room {
     position: relative;
 }
 
-.onlyFemale::before {
-    content: "F";
+li.room .room-inner .male {
     position: absolute;
+    display: none;
     font-size: 8px;
     color: grey;
-    line-height: 60px;
+    line-height: 20px;
 }
 
-.onlyMale::before {
-    content: "M";
+li.room .room-inner .female {
     position: absolute;
+    display: none;
     font-size: 8px;
     color: grey;
-    line-height: 60px;
+    line-height: 20px;
+}
+
+li.room.onlyFemale .room-inner .female {
+    display: inline;
+}
+
+li.room.onlyMale .room-inner .male {
+    display: inline;
 }
 
 /**********************

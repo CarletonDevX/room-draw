@@ -22,7 +22,7 @@ if (Meteor.isClient) {
   }
 
   Template.floor.rooms = function() {
-    return Rooms.find({'floorID': this._id});
+    return Rooms.find({'floorID': this._id}, {sort: {'name': 1}});
   }
 
   Template.floor.ordinal = function() {
@@ -130,6 +130,13 @@ if (Meteor.isClient) {
   Template.history.history = function() {
     var hist = DrawData.findOne({key: 'history'});
     if (hist) {
+      if ($('#history .content').scrollTop()+$('#history .content').height()==$('#history .content ol').height()) {
+        console.log("okay go");
+        setTimeout(function() {
+          var scrollY = $("#history .content ol").height() - $("#history .content").height();
+          $("#history .content").delay(300).animate({ scrollTop: scrollY}, 500);
+        }, 0);
+      }
       return hist.value.map(function(name, index) {
         var num = hist.nums[index];
         if (!num) num = ""

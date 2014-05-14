@@ -29,6 +29,9 @@ if (Meteor.isClient) {
    * Toolbox
    **************************************/
 
+  // Make this neater eventually?
+  var scrollHappened = false;
+
   // Show queries overlay.
   Template.main.events({
     'click #toolBox .left': function() {
@@ -40,6 +43,12 @@ if (Meteor.isClient) {
     },
     'click #toolBox .right': function() {
       showOverlay('#history');
+      if (!scrollHappened) {
+        console.log("GOOO")
+        scrollHappened = true;
+        var scrollY = $("#history .content ol").height() - $("#history .content").height();
+        $("#history .content").delay(300).animate({ scrollTop: scrollY}, 500, 'easeInCubic');
+      }
     }
   });
 

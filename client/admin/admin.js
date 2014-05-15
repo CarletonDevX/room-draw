@@ -110,6 +110,13 @@ if (Meteor.isClient) {
     },
     'click button#clear': function() {
       updateLiveMessage("", 0);
+    },
+    'click button#reset': function() {
+      updateLastNum(NaN);
+      var lastDormID = DrawData.findOne({key: 'lastDorm'})._id;
+      var lastRoomID = DrawData.findOne({key: 'lastRoom'})._id;
+      DrawData.update(lastDormID, {$set: {value: ''}});
+      DrawData.update(lastRoomID, {$set: {value: 'N/A'}});
     }
   });
 

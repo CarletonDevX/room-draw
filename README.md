@@ -22,7 +22,7 @@ mrt add iron-router-progress
 and then use ```mrt``` instead of ```meteor``` to run the app.
 
 
-Currently hosted at [roomdraw.meteor.com](http://roomdraw.meteor.com)
+Currently hosted at [carldraw.com](http://carldraw.com)
 
 Deploying
 ---------
